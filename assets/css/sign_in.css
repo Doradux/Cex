@@ -1,0 +1,169 @@
+@font-face {
+  font-family: "poppins";
+  src: url("../fonts/Poppins-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "poppins_bold";
+  src: url("../fonts/Poppins-Bold.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* border: 1px solid black; */
+  font-family: "poppins";
+}
+
+body {
+  background: linear-gradient(
+    100deg,
+    rgba(196, 22, 85, 1) 0%,
+    rgba(137, 43, 103, 1) 100%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login {
+  display: none;
+  background-color: rgba(255, 255, 255, 0.74);
+  display: hidden;
+  border-radius: 10px;
+  padding: 20px;
+  /* display: flex; */
+  justify-content: space-between;
+  gap: 20px;
+  position: absolute;
+}
+
+.head {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.submit {
+  background: linear-gradient(
+    100deg,
+    rgba(196, 22, 85, 1) 0%,
+    rgba(137, 43, 103, 1) 100%
+  );
+  border: none;
+  border-radius: 5px;
+  color: white;
+  margin-top: 10px;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+input {
+  padding: 8px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(57, 103, 255);
+}
+
+label {
+  font-family: "poppins_bold";
+  font-size: 0.8rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+}
+
+img {
+  height: 280px;
+  position: absolute;
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  border-radius: 100%;
+  /* border: 5px solid #be6262; */
+  background-color: black;
+  /* clip-path: polygon(0 10%, 100% 60%, 100% 90%, 1% 40%); */
+  background: linear-gradient(
+    100deg,
+    rgba(196, 22, 85, 1) 0%,
+    rgba(137, 43, 103, 1) 100%
+  );
+}
+
+p {
+  font-size: 0.8rem;
+}
+
+.register {
+  display: none;
+  background-color: rgba(255, 255, 255, 0.74);
+  border-radius: 10px;
+  padding: 20px;
+  /* display: flex; */
+  justify-content: space-between;
+  gap: 20px;
+  width: 500px;
+}
+
+span {
+  color: red;
+}
+
+.birth {
+  display: flex;
+  gap: 5px;
+}
+
+select {
+  padding: 8px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+}
+
+#day {
+  width: 60%;
+}
+
+#year {
+  width: 60%;
+}
+
+.pandp {
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+#label8 {
+  width: 25px;
+}
+
+#label2 {
+  margin-bottom: 3px;
+}
