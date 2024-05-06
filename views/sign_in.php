@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="../assets/images/logo.png">
-    <link rel="stylesheet" href="../assets/css/sign_in.css">
+    <link rel="icon" type="image/x-icon" href="./assets/images/logo.png">
+    <link rel="stylesheet" href="./assets/css/sign_in.css">
     <title>Sign in</title>
 </head>
 
@@ -15,7 +15,7 @@
     <div class="login">
         <div class="logo">
             <div class="circle"></div>
-            <img src="../assets/images/logo.png" alt="logo">
+            <img src="./assets/images/logo.png" alt="logo">
         </div>
         <div>
             <div class="head">
@@ -49,7 +49,7 @@
         <form action="">
             <div>
                 <label for="label3">EMAIL<span>*</span></label>
-                <input type="text" name="label3" id="label3">
+                <input required type="text" name="label3" id="label3">
             </div>
             <div>
                 <label for="label4">DISPLAY NAME</label>
@@ -57,16 +57,20 @@
             </div>
             <div>
                 <label for="label5">USERNAME<span>*</span></label>
-                <input type="text" name="label5" id="label5">
+                <input required type="text" name="label5" id="label5">
             </div>
             <div>
                 <label for="label6">PASSWORD<span>*</span></label>
-                <input type="password" name="label6" id="label6">
+                <input required type="password" name="label6" id="label6">
+            </div>
+            <div>
+                <label for="label6-1">REPEAT PASSWORD<span>*</span></label>
+                <input required type="password" name="label6-1" id="label6-1">
             </div>
             <div>
                 <label for="label7">DATE OF BIRTH<span>*</span></label>
                 <div class="birth">
-                    <select name="month">
+                    <select required name="month" id="month">
                         <option value="" disabled selected>Month</option>
                         <option value="1">January</option>
                         <option value="2">February</option>
@@ -82,23 +86,23 @@
                         <option value="12">Dicember</option>
                     </select>
 
-                    <select name="day" id="day">
+                    <select required name="day" id="day">
                         <option value="" disabled selected>Day</option>
                     </select>
 
-                    <select name="day" id="year">
+                    <select required name="day" id="year">
                         <option value="" disabled selected>Year</option>
                     </select>
                 </div>
             </div>
 
             <div class="pandp">
-                <input type="checkbox" name="readed" id="label8">
+                <input required type="checkbox" name="readed" id="label8">
                 <label for="input8"></label>
                 <p>I have read and agree to Cex's <a>Terms of Service </a>and <a>Privacy Policy</a>.</p>
             </div>
 
-            <input type="submit" class="submit" value="Register">
+            <input id="confirmRegister" type="submit" class="submit" value="Register">
             <p>Already have an account? <a id="log">Log in</a></p>
         </form>
     </div>
@@ -108,4 +112,4 @@
 </html>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="../assets/js/sign_in.js"></script>
+<script src="./assets/js/sign_in.js"></script>

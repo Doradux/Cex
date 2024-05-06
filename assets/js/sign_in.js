@@ -74,7 +74,6 @@ function goToLoginPage() {
     duration: 0.5,
     onComplete: showLogin,
   });
-
 }
 
 //shows register form
@@ -121,4 +120,53 @@ for (var i = currentYear; i >= 1940; i--) {
   option.value = i;
   option.text = i;
   years.appendChild(option);
+}
+
+var registerBtn = document.getElementById("confirmRegister");
+registerBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+  console.log(registerUser());
+});
+
+function registerUser() {
+  console.log("registrandoUsuario");
+
+  var e = document.getElementById("label3").value;
+  var dn = document.getElementById("label4").value;
+  var u = document.getElementById("label5").value;
+  var p = document.getElementById("label6").value;
+
+  var month = document.getElementById("month").value;
+  var day = document.getElementById("day").value;
+  var year = document.getElementById("year").value;
+  var birthDate = new Date(year, month - 1, day);
+
+  var b = birthDate.toISOString().split("T")[0];
+  console.log(b);
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      var response = JSON.parse(this.responseText);
+        console.log(response.message);
+        if (response.status === 'success') {
+
+          window.location.href = "./home.php";
+        }
+    }
+  };
+  xhttp.open("POST", "./controller/jsToPhp/registerUser.php", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  var params =
+    "username=" +
+    encodeURIComponent(u) +
+    "&displayName=" +
+    encodeURIComponent(dn) +
+    "&email=" +
+    encodeURIComponent(e) +
+    "&password=" +
+    encodeURIComponent(p) +
+    "&birth=" +
+    encodeURIComponent(b);
+  xhttp.send(params);
 }

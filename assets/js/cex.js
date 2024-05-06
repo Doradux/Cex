@@ -3,8 +3,6 @@ function addServer() {
   modal.style.display = "flex";
 }
 
-var hola = "sdada";
-
 var joinS = document.getElementById("joinS");
 joinS.addEventListener("click", function (event) {
   event.preventDefault();
@@ -12,13 +10,14 @@ joinS.addEventListener("click", function (event) {
 
 var createS = document.getElementById("createS");
 createS.addEventListener("click", function (event) {
-  console.log("he hecho click en crear");
   event.preventDefault();
   createServer();
 });
 
 function createServer() {
-  console.log("he entrado");
+  var modal = document.getElementById("modal");
+  modal.style.display = "none";
+
   var name = document.getElementById("createServerName").value;
 
   var currentDate = new Date();
@@ -48,7 +47,7 @@ function createServer() {
       console.log(this.responseText);
     }
   };
-  xhttp.open("POST", "../model/server.php", true);
+  xhttp.open("POST", "../model/PostServer.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   var params =
     "name=" +

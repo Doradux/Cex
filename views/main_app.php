@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/main_app.css">
+    <link rel="icon" type="image/x-icon" href="./assets/images/logo.png">
+    <link rel="stylesheet" href="./assets/css/main_app.css">
     <title>Cex</title>
 </head>
 
@@ -13,14 +14,24 @@
 
         <div class="teams">
             <button id="home">
-                <img id="home_logo" src="../assets/images/logo.png" alt="logo">
+                <img id="home_logo" src="./assets/images/logo.png" alt="logo">
             </button>
             <!-- get user servers -->
             <?php
-            foreach ($serverList as $server) {
+            foreach ($servers as $server) {
             ?>
                 <div class="picture home">
-                    <img class="serverIco" src="<?= $server['img'] ?>" alt="serverIco">
+                    <?php
+                    if ($server['image'] == 'default') {
+                    ?>
+                        <img class="serverIco" src="./assets/images/serverIcons/default_server_icon.jpg ?>" alt="serverIco">
+                    <?php
+                    } else {
+                    ?>
+                        <img class="serverIco" src="./assets/images/serverIcons/<?= $server['image'] ?>" alt="serverIco">
+                    <?php
+                    }
+                    ?>
                 </div>
             <?php
 
@@ -32,15 +43,25 @@
 
         <div class="profile">
             <div class="picture prof">
-                <img src="<?= $profile['icon'] ?>" alt="profileIcon">
+            <?php
+                    if ($_SESSION['currentUser']['image'] == 'default') {
+                    ?>
+                        <img class="serverIco" src="./assets/images/userIcons/default_user_icon.png ?>" alt="userIcon">
+                    <?php
+                    } else {
+                    ?>
+                        <img class="serverIco" src="./assets/images/userIcons/<?= $_SESSION['currentUser']['image'] ?>" alt="userIcon">
+                    <?php
+                    }
+                    ?>
             </div>
             <div class="picture ns">
-                <img class="settings" src="../assets/images/gear.png" alt="settings">
+                <img class="settings" src="./assets/images/gear.png" alt="settings">
             </div>
         </div>
 
         <div class="iframe">
-            <iframe frameborder="0" src="../views/contacts.php"></iframe>
+            <iframe frameborder="0" src="./views/contacts.php"></iframe>
         </div>
 
     </container>
@@ -69,4 +90,4 @@
 
 </html>
 
-<script src="../assets/js/cex.js"></script>
+<script src="./assets/js/cex.js"></script>
