@@ -27,7 +27,7 @@
             }
             ?>
             <!-- !get user servers -->
-            <button class="home" id="add">+</button>
+            <button class="home" id="add" onclick="addServer()">+</button>
         </div>
 
         <div class="profile">
@@ -40,10 +40,33 @@
         </div>
 
         <div class="iframe">
-        <iframe frameborder="0" src="../views/contacts.php"></iframe>
+            <iframe frameborder="0" src="../views/contacts.php"></iframe>
         </div>
 
     </container>
+
+    <modal id="modal">
+        <form action="">
+            <label for="joinServerId">
+                Join a server:
+            </label>
+            <div>
+                <input type="text" placeholder="Server id" name="joinServerId" id="joinServerId">
+                <input id="joinS" type="submit" value="Join">
+            </div>
+        </form>
+        <form action="">
+            <label for="joinServerId">
+                Create server:
+            </label>
+            <div>
+                <input type="text" placeholder="Server name" name="createServerName" id="createServerName">
+                <input id="createS" type="submit" value="Create!">
+            </div>
+        </form>
+    </modal>
 </body>
 
 </html>
+
+<script src="../assets/js/cex.js"></script>
