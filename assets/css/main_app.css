@@ -176,3 +176,13 @@ iframe {
 #modal label {
   margin-bottom: 20px;
 }
+
+#tooltip {
+  display: none;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  padding: 13px;
+  border-radius: 3px;
+  pointer-events: none;
+}

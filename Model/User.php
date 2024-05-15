@@ -4,9 +4,9 @@ if (session_status() == PHP_SESSION_NONE) session_start();
 class User
 {
     private $id;
-    private $email;
     private $username;
     private $displayname;
+    private $email;
     private $image;
     public function __construct($id, $e, $u, $dn, $i)
     {

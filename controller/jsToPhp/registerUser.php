@@ -26,7 +26,7 @@ while ($user = $users->fetch(PDO::FETCH_ASSOC)) {
 };
 
 if ($valid) {
-    $sql = "INSERT INTO `users` (`username`, `displayname`, `password`, `email`, `birth`, `image`) VALUES ('$u', '$dn', '$p', '$e', '$b', 'default')";
+    $sql = "INSERT INTO `users` (`username`, `displayname`, `email`, `password`, `image`, `birth`) VALUES ('$u', '$dn', '$e', '$p', 'default', '$b')";
     if ($conn->query($sql)) {
         $response['status'] = 'success';
         $response['message'] = 'User has been added.';
@@ -41,5 +41,4 @@ if ($valid) {
     $response['status'] = 'error';
     $response['message'] = 'Error: email already in use.';
 };
-
 echo json_encode($response);

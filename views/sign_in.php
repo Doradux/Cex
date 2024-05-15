@@ -32,7 +32,7 @@
                     <input type="password" name="label2" id="label2">
                     <p><a href=''>Forgot your password?</a></p>
                 </div>
-                <input type="submit" class="submit" value="Log In">
+                <input id="confirmLogin" type="submit" class="submit" value="Log In">
                 <p>Don't have an account yet? <a id="reg">Register</a></p>
             </form>
         </div>
@@ -70,7 +70,7 @@
             <div>
                 <label for="label7">DATE OF BIRTH<span>*</span></label>
                 <div class="birth">
-                    <select required name="month" id="month">
+                    <select required name="month" id="month" id="label7">
                         <option value="" disabled selected>Month</option>
                         <option value="1">January</option>
                         <option value="2">February</option>
