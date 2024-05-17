@@ -8,7 +8,7 @@ $conn = DBconection::connectDB();
 $serverId = $_POST['serverId'];
 $userId = $_SESSION['currentUser']['id'];
 
-$addServer = "INSERT INTO `user-server` (`userId`, `serverId`) VALUES (:userId, :serverId)";
+$addServer = "INSERT INTO `user-server` (`userId`, `serverId`, `role`) VALUES (:userId, :serverId, 'user')";
 $userServers = "SELECT * FROM `user-server` WHERE `userId` = :userId";
 $serverExists = "SELECT * FROM `servers`";
 

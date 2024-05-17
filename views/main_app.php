@@ -24,11 +24,11 @@
                     <?php
                     if ($server['image'] == 'default') {
                     ?>
-                        <img class="serverIco" name="<?= $server['name'] ?>" src="./assets/images/serverIcons/default_server_icon.jpg ?>" alt="serverIco">
+                        <img class="serverIco" serId=<?= $server['id'] ?> name="<?= $server['name'] ?>" src="./assets/images/serverIcons/default_server_icon.jpg ?>" alt="serverIco">
                     <?php
                     } else {
                     ?>
-                        <img class="serverIco" name="<?= $server['name'] ?>" src="./assets/images/serverIcons/<?= $server['image'] ?>" alt="serverIco">
+                        <img class="serverIco" serId=<?= $server['id'] ?> name="<?= $server['name'] ?>" src="./assets/images/serverIcons/<?= $server['image'] ?>" alt="serverIco">
                     <?php
                     }
                     ?>

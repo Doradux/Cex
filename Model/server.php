@@ -7,11 +7,13 @@ class Server
     private $name;
     private $creationTime;
     private $image;
-    public function __construct($id, $n, $ct, $i)
+    private $grandImage;
+    public function __construct($id, $n, $ct, $i, $gi)
     {
         $this->id = $id;
         $this->name = $n;
         $this->creationTime = $ct;
         $this->image = $i;
+        $this->grandImage = $gi;
     }
 }

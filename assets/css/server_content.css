@@ -1,0 +1,114 @@
+@font-face {
+  font-family: "poppins";
+  src: url("../fonts/Poppins-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "poppins_bold";
+  src: url("../fonts/Poppins-Bold.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* border: 1px solid black; */
+  font-family: "poppins";
+}
+
+body {
+  background-color: rgba(0, 0, 0, 0.507);
+}
+
+.contextMenu {
+  color: white;
+  width: 250px;
+  position: fixed;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.219);
+}
+
+.serverData {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  background-position: center;
+  background-size: cover;
+  height: 120px;
+  text-shadow: 3px 3px 3px rgb(0, 0, 0);
+}
+
+#arrow {
+  width: 15px;
+  margin-top: 6px;
+  filter: drop-shadow(3px 3px 3px rgb(0, 0, 0));
+}
+
+#arrow:hover {
+  transform: translateY(1px);
+}
+
+.chanelGroup {
+  font-size: 0.9rem;
+  padding: 10px;
+}
+
+.fst {
+  display: flex;
+  justify-content: space-between;
+}
+
+.snd a {
+  text-decoration: none;
+  color: white;
+  margin-left: 10px;
+  font-size: 0.8rem;
+}
+
+.chanelsOptions {
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 0.8rem;
+}
+
+.chanelsOptions a {
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+.chanelsOptions a:hover {
+  background-color: #c31756;
+  /* color: #000000; */
+}
+
+.groups {
+  position: fixed;
+  height: 100vh;
+  width: 250px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+#tooltip {
+  display: none;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  padding: 8px;
+  border-radius: 3px;
+  pointer-events: none;
+  font-size: 0.8rem;
+}
