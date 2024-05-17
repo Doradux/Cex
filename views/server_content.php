@@ -26,7 +26,8 @@
                 <div class="chanelGroup" grouupId='<?= $group['id'] ?>'>
                     <div class="fst">
                         <p><?= $group['name'] ?></p>
-                        <a href="">+</a>
+                        <?= ($role == 'admin') ? '<a href="">+</a>' : '' ?>
+
                     </div>
 
                     <div class="snd">
@@ -38,7 +39,7 @@
                         }
                         foreach ($chanels as $chanel) {
                         ?>
-                            <a href=""><?= ($chanel['type'] == 'chat') ? '#' : '⪨' ?><?= " " . $chanel['name'] ?></a>
+                            <a class="chanelLink" href="<?= $chanel['id'] ?>"><?= ($chanel['type'] == 'chat') ? '#' : '⪨' ?><?= " " . $chanel['name'] ?></a>
                         <?php
                         }
                         ?>
@@ -50,8 +51,6 @@
     ?>
     </div>
 
-
-    .
 </body>
 
 
@@ -61,6 +60,14 @@
     <a href="">Modify chanels</a>
     <a href="">Create group</a>
     <a href="">Modify groups</a>
+</div>
+
+<!-- utilities -->
+<div class="serverOptions">
+    <?= ($role == 'admin') ? '<a href="">Server settings</a>' : '' ?>
+    <?= ($role == 'admin') ? '<a href="">Manage users</a>' : '' ?>
+    <a href="">Members</a>
+    <a href="">Leave server</a>
 </div>
 
 <div id="tooltip"></div>
