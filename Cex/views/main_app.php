@@ -21,17 +21,7 @@
             foreach ($servers as $server) {
             ?>
                 <div class="picture home">
-                    <?php
-                    if ($server['image'] == 'default') {
-                    ?>
-                        <img class="serverIco" serId=<?= $server['id'] ?> name="<?= $server['name'] ?>" src="./assets/images/serverIcons/default_server_icon.jpg ?>" alt="serverIco">
-                    <?php
-                    } else {
-                    ?>
-                        <img class="serverIco" serId=<?= $server['id'] ?> name="<?= $server['name'] ?>" src="./assets/images/serverIcons/<?= $server['image'] ?>" alt="serverIco">
-                    <?php
-                    }
-                    ?>
+                    <img class="serverIco" serId=<?= $server['id'] ?> name="<?= $server['name'] ?>" src="./assets/images/serverImage/<?= $server['serverImg'] ?>" alt="serverIco">
                 </div>
 
             <?php
@@ -45,17 +35,7 @@
 
         <div class="profile">
             <div class="picture prof">
-                <?php
-                if ($_SESSION['currentUser']['image'] == 'default') {
-                ?>
-                    <img class="serverIco" src="./assets/images/userIcons/default_user_icon.png ?>" alt="userIcon">
-                <?php
-                } else {
-                ?>
-                    <img class="serverIco" src="./assets/images/userIcons/<?= $_SESSION['currentUser']['image'] ?>" alt="userIcon">
-                <?php
-                }
-                ?>
+                <img class="" src="./assets/images/userImage/<?= $_SESSION['currentUser']['userImg'] ?>" alt="userIcon">
             </div>
             <div class="picture ns">
                 <img class="settings" src="./assets/images/gear.png" alt="settings">

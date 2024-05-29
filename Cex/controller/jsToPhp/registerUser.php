@@ -26,7 +26,7 @@ while ($user = $users->fetch(PDO::FETCH_ASSOC)) {
 };
 
 if ($valid) {
-    $sql = "INSERT INTO `users` (`username`, `displayname`, `email`, `password`, `image`, `birth`) VALUES ('$u', '$dn', '$e', '$p', 'default', '$b')";
+    $sql = "INSERT INTO `users` (`username`, `displayname`, `email`, `password`, `imageId`, `birth`) VALUES ('$u', '$dn', '$e', '$p', '1', '$b')";
     if ($conn->query($sql)) {
         $response['status'] = 'success';
         $response['message'] = 'User has been added.';

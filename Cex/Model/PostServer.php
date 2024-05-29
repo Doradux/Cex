@@ -8,7 +8,7 @@ if (isset($_POST['create'])) {
     $name = $_POST['name'];
     $creationTime = $_POST['creationTime'];
 
-    $sql = "INSERT INTO `servers` (`name`, `creationTime`, `image`, `grandImage`) VALUES ('$name', '$creationTime', 'default', 'default')";
+    $sql = "INSERT INTO `servers` (`name`, `creationTime`, `imageId`, `grandImageId`) VALUES ('$name', '$creationTime', '1', '1')";
     $conn->query($sql);
     $serverId = $conn->lastInsertId();
     
@@ -16,7 +16,7 @@ if (isset($_POST['create'])) {
     $conn->query($sql);
     $groupId = $conn->lastInsertId();
 
-    $sql = "INSERT INTO `chanels` (`name`, `groupId`, `type`) VALUES ('Default chanel', $groupId, 'chat')";
+    $sql = "INSERT INTO `chanels` (`name`, `groupId`, `type`, `description`) VALUES ('Default chanel', $groupId, 'chat', 'This is a chatting chanel')";
     $conn->query($sql);
 
     $sql = "INSERT INTO `user-server` (`userId`, `serverId`, `role`) VALUES (" . $_SESSION['currentUser']['id'] . ", " . $serverId . ", 'admin')";

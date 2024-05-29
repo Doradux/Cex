@@ -50,6 +50,9 @@
             }
     ?>
     </div>
+    <div class="serverChanelContent">
+        <iframe id="chanelContent" src="" frameborder="0"></iframe>
+    </div>
 
 </body>
 

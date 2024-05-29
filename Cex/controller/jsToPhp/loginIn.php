@@ -8,17 +8,24 @@ $conn = DBconection::connectDB();
 $u = $_POST['username'];
 $p = $_POST['password'];
 
-$sql = 'SELECT * FROM users';
+// Modificar la consulta para incluir la imagen del usuario
+$sql = '
+    SELECT u.*, ui.name AS userImg
+    FROM users u
+    LEFT JOIN `user-image` ui ON u.imageId = ui.id
+';
 $users = $conn->query($sql);
 $valid = false;
-while ($user = $users->fetch(PDO::FETCH_ASSOC)) {
-    if ($user['username'] == $u && $user['password'] == $p) {
-        $valid = true;
-        $e = $user['username'];
-        $_SESSION['currentUser'] = $user;
-    };
-};
 
+while ($user = $users->fetch(PDO::FETCH_ASSOC)) {
+    if (strtolower($user['username']) == strtolower($u) && $user['password'] == $p) {
+        $valid = true;
+        $_SESSION['currentUser'] = $user;
+        break;
+    }
+}
+
+$response = [];
 if ($valid) {
     $response['status'] = 'success';
 } else {
@@ -27,3 +34,4 @@ if ($valid) {
 }
 
 echo json_encode($response);
+?>

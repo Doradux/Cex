@@ -71,10 +71,26 @@ document.addEventListener("click", function (event) {
   }
 });
 
-var chanelLinks = document.querySelectorAll('.chanelLink');
+var chanelLinks = document.querySelectorAll(".chanelLink");
 chanelLinks.forEach((link) => {
-  link.addEventListener('click', function() {
+  link.addEventListener("click", function () {
     preventDefault();
-  })
-})
+  });
+});
 
+//get chanels content
+var chanelsLinks = document.querySelectorAll(".chanelLink");
+
+chanelsLinks.forEach(function (link) {
+  link.addEventListener("click", function (event) {
+    event.preventDefault();
+    var chanelId = link.getAttribute("href");
+
+    document
+      .getElementById("chanelContent")
+      .setAttribute(
+        "src",
+        "../controller/text_chanel.php?chanelId=" + chanelId
+      );
+  });
+});
