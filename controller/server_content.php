@@ -43,5 +43,11 @@ $stmt->bindParam(':serverId', $currentServer['id'], PDO::PARAM_INT);
 $stmt->execute();
 $role = $stmt->fetch(PDO::FETCH_ASSOC)['role'];
 
+//get all server users id in server
+$sql = "SELECT userId FROM `user-server` WHERE serverId = " . $currentServer['id'];
+$stmt = $conn->query($sql);
+$usersId = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
 include '../views/server_content.php';
 ?>

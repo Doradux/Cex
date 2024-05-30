@@ -26,7 +26,7 @@
                 <div class="chanelGroup" grouupId='<?= $group['id'] ?>'>
                     <div class="fst">
                         <p><?= $group['name'] ?></p>
-                        <?= ($role == 'admin') ? '<a href="">+</a>' : '' ?>
+                        <?= ($role == 'admin') ? '<a class="addServerInGroup" href="' . $group['id'] . '">+</a>' : '' ?>
 
                     </div>
 
@@ -50,8 +50,33 @@
             }
     ?>
     </div>
+
+
     <div class="serverChanelContent">
         <iframe id="chanelContent" src="" frameborder="0"></iframe>
+    </div>
+
+    <div class="members">
+        <h5>Members ~</h5>
+        <?php
+        foreach ($usersId as $userId) {
+            //get server users
+            $sql = 'SELECT * FROM users WHERE id = ' . $userId['userId'];
+            $stmt = $conn->query($sql);
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            //get user image
+            $sql = 'SELECT * FROM `user-image` WHERE id = ' . $user['imageId'];
+            $stmt = $conn->query($sql);
+            $image = $stmt->fetch(PDO::FETCH_ASSOC);
+        ?>
+            <div class="userCard">
+                <div class="user-photo" style="background-image: url('../assets/images/userImage/<?= $image['name'] ?>');"></div>
+                <p><?= $user['username'] ?></p>
+            </div>
+        <?php
+        }
+        ?>
     </div>
 
 </body>
@@ -71,6 +96,23 @@
     <?= ($role == 'admin') ? '<a href="">Manage users</a>' : '' ?>
     <a href="">Members</a>
     <a href="">Leave server</a>
+</div>
+
+<!-- add chanel in selected group utility -->
+<div id="postChanelUtility">
+    <input type="hidden" name="chanelGroupIdToPost" id="chanelGroupIdToPost" value="">
+    <input class="inputPostChanel" type="text" placeholder="Chanel name" name="chanelNameToPost" id="chanelNameToPost">
+    <input class="inputPostChanel" type="text" placeholder="Chanel description" name="chanelDescriptionToPost" id="chanelDescriptionToPost">
+    <p style="color: white;" class="big aux">CHANEL TYPE</p>
+    <div name="chanelTypeToPost" id="chanelTypeToPost">
+        <div id="typeHider"><p id="typeEmoji">📖</p></div>
+        <p value="text">Text chanel</p>
+        <p value="voice">Voice chanel</p>
+    </div>
+    <div>
+        <button class="confirm big" id="createChanelInGroup">CREATE</button>
+        <button class="delete big" id="CancelcreateChanelInGroup">CANCEL</button>
+    </div>
 </div>
 
 <div id="tooltip"></div>

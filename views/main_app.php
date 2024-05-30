@@ -34,11 +34,8 @@
         </div>
 
         <div class="profile">
-            <div class="picture prof">
+            <div class="picture prof" id="prof">
                 <img class="" src="./assets/images/userImage/<?= $_SESSION['currentUser']['userImg'] ?>" alt="userIcon">
-            </div>
-            <div class="picture ns">
-                <img class="settings" src="./assets/images/gear.png" alt="settings">
             </div>
         </div>
 
@@ -68,6 +65,11 @@
             </div>
         </form>
     </modal>
+
+
+    <!-- utilities -->
+    <?php include './assets/components/contextMenuProfile.php'; ?>
+
 </body>
 
 </html>

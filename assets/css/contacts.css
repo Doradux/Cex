@@ -1,11 +1,25 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    /* border: 1px solid black; */
-    font-family: "poppins";
-  }
+@font-face {
+  font-family: "poppins";
+  src: url("../fonts/Poppins-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
 
-  body {
-    background-color: rgb(0, 0, 0);
-  }
+@font-face {
+  font-family: "poppins_bold";
+  src: url("../fonts/Poppins-Bold.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* border: 1px solid black; */
+  font-family: "poppins";
+}
+
+body {
+  background-color: rgb(0, 0, 0);
+}

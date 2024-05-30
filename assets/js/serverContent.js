@@ -5,9 +5,37 @@ const chanelsOptions = document.querySelector(".chanelsOptions");
 groups.addEventListener("contextmenu", function (event) {
   if (event.target.matches("#groups, #groups *") && role == "admin") {
     event.preventDefault();
+
+    // Obtener las dimensiones del menú y de la ventana
+    const menuWidth = chanelsOptions.offsetWidth;
+    const menuHeight = chanelsOptions.offsetHeight;
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+
+    // Calcular las posiciones iniciales
+    let left = event.clientX;
+    let top = event.clientY;
+
+    // Ajustar la posición si el menú se sale de la ventana
+    if (left + menuWidth > windowWidth) {
+      left = windowWidth - menuWidth;
+    }
+    if (top + menuHeight > windowHeight) {
+      top = windowHeight - menuHeight;
+    }
+
+    // Asegurarse de que las posiciones no sean negativas
+    if (left < 0) {
+      left = 0;
+    }
+    if (top < 0) {
+      top = 0;
+    }
+
+    // Establecer la posición del menú
     chanelsOptions.style.display = "flex";
-    chanelsOptions.style.left = event.clientX + "px";
-    chanelsOptions.style.top = event.clientY + "px";
+    chanelsOptions.style.left = left + "px";
+    chanelsOptions.style.top = top + "px";
   }
 });
 
@@ -93,4 +121,40 @@ chanelsLinks.forEach(function (link) {
         "../controller/text_chanel.php?chanelId=" + chanelId
       );
   });
+});
+
+//scroll down when open chat
+document.getElementById("chanelContent").onload = function () {
+  var iframe = document.getElementById("chanelContent");
+  iframe.contentWindow.scrollTo(0, iframe.contentDocument.body.scrollHeight);
+};
+
+var addChanelUtility = document.getElementById("postChanelUtility");
+var chanelIdToPost = document.getElementById("chanelGroupIdToPost");
+var addChanelPerGroupPluses = document.querySelectorAll(".addServerInGroup");
+addChanelPerGroupPluses.forEach(function (plus) {
+  plus.addEventListener("click", function () {
+    event.preventDefault();
+    addChanelUtility.style.display = "flex";
+    chanelIdToPost.value = event.getAttribute("href");
+  });
+});
+
+//select type
+var selectType = document.getElementById("chanelTypeToPost");
+var typeHider = document.getElementById("typeHider");
+var emoji = document.getElementById("typeEmoji");
+var type = 0;
+selectType.addEventListener("click", function () {
+  if (type == 0) {
+    typeHider.style.transform = "translateX(-148px)";
+    emoji.textContent = "🔊";
+    emoji.style.transform = "rotate(-360deg)";
+    type = 1;
+  } else if (type == 1) {
+    typeHider.style.transform = "translateX(0)";
+    emoji.textContent = "📖";
+    emoji.style.transform = "rotate(0)";
+    type = 0;
+  }
 });

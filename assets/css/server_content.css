@@ -20,16 +20,23 @@
   font-family: "poppins";
 }
 
+html {
+  overflow: hidden;
+}
+
 body {
   background-color: rgba(0, 0, 0, 0.507);
+  display: flex;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../images/chatbg.png") center center fixed;
 }
 
 .contextMenu {
   color: white;
   width: 250px;
-  position: fixed;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.219);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .serverData {
@@ -87,12 +94,11 @@ body {
 }
 
 .chanelsOptions a:hover {
-  background-color: #c31756;
+  background-color: rgba(0, 180, 217, 1);
   /* color: #000000; */
 }
 
 .groups {
-  position: fixed;
   height: 100vh;
   width: 250px;
 }
@@ -105,7 +111,7 @@ a {
 #tooltip {
   display: none;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
   color: white;
   padding: 8px;
   border-radius: 3px;
@@ -133,12 +139,12 @@ a {
 }
 
 .serverOptions a:hover {
-  background-color: #c31756;
+  background-color: rgba(0, 180, 217, 1);
 }
 
 .serverChanelContent {
-  margin-left: 250px;
   height: 100vh;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -146,4 +152,129 @@ iframe {
   width: 100%;
   height: 100%;
   background-color: transparent;
+}
+
+.members {
+  width: 200px;
+  height: 100vh;
+  float: right;
+  /* right: 0; */
+  /* top: 0; */
+  /* background-color: #490922; */
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: white;
+  border-top: 2px solid #232323;
+}
+
+.user-photo {
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  background-position: center center;
+  background-size: contain;
+}
+
+.userCard {
+  display: flex;
+  color: white;
+  gap: 10px;
+  align-items: center;
+}
+
+#postChanelUtility {
+  background-color: rgb(70, 70, 70);
+  width: 400px;
+  display: none;
+  position: absolute;
+  top: 40%;
+  right: 40%;
+  padding: 10px;
+  flex-direction: column;
+  border-radius: 10px;
+  gap: 5px;
+}
+
+#postChanelUtility div {
+  display: flex;
+  gap: 5px;
+}
+
+#postChanelUtility div button {
+  width: 100%;
+}
+
+#chanelTypeToPost {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 86%;
+  margin: auto;
+  border-radius: 12px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  user-select: none;
+}
+
+#typeHider {
+  width: 45%;
+  position: absolute;
+  background-color: rgb(0, 0, 0);
+  border-radius: 10px;
+  /* left: 37px; */
+  left: 184px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s ease;
+}
+
+#typeEmoji {
+  transition: transform 1s ease;
+}
+
+.confirm {
+  border: none;
+  border-radius: 4px;
+  background-color: rgba(0, 180, 217, 1);
+}
+
+.confirm:hover {
+  background-color: rgb(37, 212, 247);
+}
+
+.delete {
+  border: none;
+  border-radius: 4px;
+  background-color: crimson;
+  color: white;
+}
+
+.delete:hover {
+  background-color: rgb(124, 11, 34);
+}
+
+.inputPostChanel {
+  border: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 5px 10px 5px;
+  color: white;
+  border-radius: 4px;
+}
+
+.inputPostChanel:focus {
+  outline: none;
+}
+
+.big {
+  font-family: 'poppins_bold';
+}
+
+.aux {
+  transform: translateY(12px);
+  text-align: center;
 }

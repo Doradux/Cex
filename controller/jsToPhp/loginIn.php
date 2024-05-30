@@ -21,6 +21,12 @@ while ($user = $users->fetch(PDO::FETCH_ASSOC)) {
     if (strtolower($user['username']) == strtolower($u) && $user['password'] == $p) {
         $valid = true;
         $_SESSION['currentUser'] = $user;
+        $dateString = $_SESSION['currentUser']['creation'];
+        $date = new DateTime($dateString);
+        $_SESSION['currentUser']['creation'] = $date->format('d/m/Y');
+        $dateString = $_SESSION['currentUser']['birth'];
+        $date = new DateTime($dateString);
+        $_SESSION['currentUser']['birth'] = $date->format('d/m/Y');
         break;
     }
 }
@@ -34,4 +40,3 @@ if ($valid) {
 }
 
 echo json_encode($response);
-?>

@@ -18,7 +18,7 @@
     $lastDate = null;
 
     foreach ($messages as $message) {
-        $currentDate = date('d-m-Y', strtotime($message['time']));
+        $currentDate = date('d/m/Y', strtotime($message['time']));
 
         if ($currentDate != $lastDate) {
             echo "<p class='dateMsg'>$currentDate</p>";

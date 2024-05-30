@@ -4,7 +4,7 @@ function addServer() {
 }
 
 add = document.getElementById("add");
-iframe = document.getElementById("iframe");
+var iframe = document.getElementById("iframe");
 document.addEventListener("click", function (event) {
   if (
     (event.target !== modal &&
@@ -122,8 +122,15 @@ document.addEventListener("DOMContentLoaded", function () {
   serverIcons.forEach((icon) => {
     icon.addEventListener("click", function () {
       const serId = icon.getAttribute("serId");
-      const newUrl = './controller/server_content.php?serId=' + serId;
+      const newUrl = "./controller/server_content.php?serId=" + serId;
       iframe.src = newUrl;
     });
   });
+});
+
+//go to edit profile
+var editProfileBtn = document.getElementById("edit-profile-btn");
+editProfileBtn.addEventListener("click", function () {
+  userOptionsMenu.style.display = "none";
+  iframe.src = "../controller/editProfile.php";
 });

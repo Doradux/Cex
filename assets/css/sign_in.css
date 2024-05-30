@@ -21,11 +21,8 @@
 }
 
 body {
-  background: linear-gradient(
-    100deg,
-    rgba(196, 22, 85, 1) 0%,
-    rgba(137, 43, 103, 1) 100%
-  );
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../images/bluebg.png");
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,9 +48,9 @@ body {
 
 .submit {
   background: linear-gradient(
-    100deg,
-    rgba(196, 22, 85, 1) 0%,
-    rgba(137, 43, 103, 1) 100%
+    90deg,
+    rgba(0, 180, 217, 1) 0%,
+    rgba(15, 100, 255, 1) 100%
   );
   border: none;
   border-radius: 5px;
@@ -109,9 +106,9 @@ img {
   background-color: black;
   /* clip-path: polygon(0 10%, 100% 60%, 100% 90%, 1% 40%); */
   background: linear-gradient(
-    100deg,
-    rgba(196, 22, 85, 1) 0%,
-    rgba(137, 43, 103, 1) 100%
+    90deg,
+    rgba(0, 180, 217, 1) 0%,
+    rgba(15, 100, 255, 1) 100%
   );
 }
 
