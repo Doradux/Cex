@@ -16,14 +16,7 @@ $sql = "
 $stmt = $conn->prepare($sql);
 $stmt->bindParam(':serId', $_GET['serId'], PDO::PARAM_INT);
 $stmt->execute();
-$currentServer = $stmt->fetch(PDO::FETCH_ASSOC);
-
-// Determinar la imagen a usar
-if ($currentServer['grandImageName'] == 'default') {
-    $grandImage = 'default.jpg';
-} else {
-    $grandImage = $currentServer['grandImageName'];
-}
+$_SESSION['currentServer'] = $stmt->fetch(PDO::FETCH_ASSOC);
 
 // Obtener los grupos de canales del servidor
 $chanelsGroups = [];
@@ -39,12 +32,13 @@ while ($group = $stmt->fetch(PDO::FETCH_ASSOC)) {
 $sql = "SELECT role FROM `user-server` WHERE userId = :userId AND serverId = :serverId";
 $stmt = $conn->prepare($sql);
 $stmt->bindParam(':userId', $_SESSION['currentUser']['id'], PDO::PARAM_INT);
-$stmt->bindParam(':serverId', $currentServer['id'], PDO::PARAM_INT);
+$stmt->bindParam(':serverId', $_SESSION['currentServer']['id'], PDO::PARAM_INT);
 $stmt->execute();
 $role = $stmt->fetch(PDO::FETCH_ASSOC)['role'];
+$_SESSION['currentUser']['role'] = $role;
 
 //get all server users id in server
-$sql = "SELECT userId FROM `user-server` WHERE serverId = " . $currentServer['id'];
+$sql = "SELECT userId FROM `user-server` WHERE serverId = " . $_SESSION['currentServer']['id'];
 $stmt = $conn->query($sql);
 $usersId = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

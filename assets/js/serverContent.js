@@ -158,3 +158,10 @@ selectType.addEventListener("click", function () {
     type = 0;
   }
 });
+
+//go to server settings
+var serverSettingsLink = document.getElementById("server-settings");
+serverSettingsLink.addEventListener("click", function () {
+  event.preventDefault();
+  window.location.href = "../controller/serverSettings.php";
+});

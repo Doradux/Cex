@@ -14,8 +14,8 @@
 
 <body>
     <div id="contextMenu" class="contextMenu">
-        <div class="serverData" style="background-image: url('../assets/images/grandImage/<?= $grandImage ?>');">
-            <h4><?= $currentServer['name'] ?></h4>
+        <div class="serverData" style="background-image: url('../assets/images/grandImage/<?= $_SESSION['currentServer']['grandImageName'] ?>');">
+            <h4><?= $_SESSION['currentServer']['name'] ?></h4>
             <img id='arrow' src="../assets/images/arrow.svg" alt="arrow">
         </div>
 
@@ -92,7 +92,7 @@
 
 <!-- utilities -->
 <div class="serverOptions">
-    <?= ($role == 'admin') ? '<a href="">Server settings</a>' : '' ?>
+    <?= ($role == 'admin') ? '<a id="server-settings" href="">Server settings</a>' : '' ?>
     <?= ($role == 'admin') ? '<a href="">Manage users</a>' : '' ?>
     <a href="">Members</a>
     <a href="">Leave server</a>
