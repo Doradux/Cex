@@ -188,3 +188,9 @@ header {
   padding: 2px;
   font-size: 0.8rem;
 }
+
+.messageContent {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}

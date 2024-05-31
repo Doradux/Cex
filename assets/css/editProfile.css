@@ -21,8 +21,7 @@
 }
 
 body {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("../images/bg.jpg") no-repeat center center;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1200' height='720' preserveAspectRatio='none' viewBox='0 0 1200 720'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1160%26quot%3b)' fill='none'%3e%3crect width='1200' height='720' x='0' y='0' fill='rgba(0%2c 0%2c 0%2c 1)'%3e%3c/rect%3e%3cpath d='M1110.111755257743 302.43506570627073L904.3312650230386 295.24905264088585 897.1452519576536 501.0295428755902 1102.925742192358 508.21555594097515z' fill='rgba(49%2c 49%2c 49%2c 0.71)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M165.41432348961064 79.00242662731745L-9.493554508717892 60.618867868360915-27.877113267674417 235.52674586668945 147.0307647306541 253.91030462564598z' fill='rgba(49%2c 49%2c 49%2c 0.71)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M778.178%2c860.226C848.539%2c860.748%2c892.916%2c790.312%2c922.927%2c726.67C948.047%2c673.401%2c944.3%2c614.993%2c918.871%2c561.871C888.516%2c498.458%2c848.285%2c429.547%2c778.178%2c424.286C701.577%2c418.538%2c628.117%2c468.078%2c595.452%2c537.603C566.354%2c599.535%2c603.382%2c665.009%2c637.104%2c724.549C671.566%2c785.395%2c708.253%2c859.707%2c778.178%2c860.226' fill='rgba(49%2c 49%2c 49%2c 0.71)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M132.05911508584765-98.03366281911703L10.885620729330384 0.09069815723597685 230.18347606220067 23.13983153740024z' fill='rgba(49%2c 49%2c 49%2c 0.71)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M820.664645983695 229.9344089501492L932.9667305428944 277.6038156533708 980.636137246116 165.30173109417137 868.3340526869166 117.63232439094975z' fill='rgba(49%2c 49%2c 49%2c 0.71)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M1081.792%2c282.31C1114.69%2c282.033%2c1150.286%2c277.192%2c1167.765%2c249.321C1186.111%2c220.068%2c1181.324%2c182.067%2c1163.021%2c152.787C1145.79%2c125.223%2c1114.299%2c111.713%2c1081.792%2c111.79C1049.433%2c111.866%2c1018.604%2c125.874%2c1001.222%2c153.168C982.425%2c182.684%2c974.75%2c221.103%2c993.272%2c250.792C1011.041%2c279.274%2c1048.223%2c282.593%2c1081.792%2c282.31' fill='rgba(49%2c 49%2c 49%2c 0.71)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M257.769%2c423.11C314.047%2c422.253%2c368.741%2c402.408%2c400.168%2c355.714C435.814%2c302.752%2c453.286%2c234.321%2c422.459%2c178.416C390.802%2c121.006%2c323.176%2c92.99%2c257.769%2c97.473C199.14%2c101.491%2c157.188%2c147.571%2c128.031%2c198.595C99.164%2c249.111%2c78.541%2c309.794%2c107.651%2c360.17C136.748%2c410.523%2c199.621%2c423.996%2c257.769%2c423.11' fill='rgba(49%2c 49%2c 49%2c 0.71)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M1170.2573990193819 534.3460871718424L1283.4552551328002 366.52336397876695 1002.4346758263064 421.148231058424z' fill='rgba(49%2c 49%2c 49%2c 0.71)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M498.13104875988444 148.74323344206604L427.228179173398 104.43820327504672 396.22206871611223 232.945022738286z' fill='rgba(49%2c 49%2c 49%2c 0.71)' class='triangle-float3'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1160'%3e%3crect width='1200' height='720' fill='white'%3e%3c/rect%3e%3c/mask%3e%3cstyle%3e %40keyframes float1 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-10px%2c 0)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float1 %7b animation: float1 5s infinite%3b %7d %40keyframes float2 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-5px%2c -5px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float2 %7b animation: float2 4s infinite%3b %7d %40keyframes float3 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(0%2c -10px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float3 %7b animation: float3 6s infinite%3b %7d %3c/style%3e%3c/defs%3e%3c/svg%3e");
   background-size: cover;
   color: white;
   display: flex;
@@ -49,6 +48,8 @@ body {
   border-radius: 100%;
   & img {
     width: 100%;
+    border-radius: 100%;
+    outline: 5px solid black;
   }
 }
 
@@ -87,6 +88,7 @@ button {
   border: none;
   border-radius: 5px;
   box-shadow: 0 1px 2px 0 rgb(88, 88, 88);
+  font-family: "poppins_bold";
 }
 
 button:hover {
@@ -100,10 +102,11 @@ button:hover {
 
 .cover {
   position: absolute;
-  background-color: rgb(110, 110, 110);
-  color: rgb(110, 110, 110);
-  border-radius: 10px;
+  background-color: rgb(87, 87, 87);
+  color: rgb(87, 87, 87);
+  border-radius: 3px;
   user-select: none;
+  transform: translateX(-2px);
 }
 
 .more {
@@ -115,6 +118,7 @@ button:hover {
 
   & button {
     width: 100%;
+    padding: 5px;
   }
 }
 
@@ -130,4 +134,14 @@ button:hover {
 .section {
   padding: 5px;
   border-bottom: 1px solid rgb(99, 185, 255);
+}
+
+.orange-btn {
+  background-color: rgb(187, 91, 27);
+  color: white;
+}
+
+.orange-btn:hover {
+  background-color: rgb(245, 149, 71);
+  color: black;
 }

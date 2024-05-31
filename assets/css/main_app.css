@@ -73,10 +73,13 @@ container {
   background-color: rgb(131, 131, 131);
   color: white;
   border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #home_logo {
-  width: 100%;
+  width: 80px;
 }
 
 .picture {

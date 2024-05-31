@@ -29,7 +29,7 @@
     ?>
             <div class="message" style="align-items: end;">
                 <div class="out-msg-content">
-                    <p><?= $message['content'] ?></p>
+                    <p class="messageContent"><?= $message['content'] ?></p>
                     <p class="in-time"><?= date('H:i', strtotime($message['time'])) ?></p>
                 </div>
             </div>
@@ -51,7 +51,7 @@
                     <p class="in-name"><?= $senderData['username'] ?></p>
                 </div>
                 <div class="in-msg-content">
-                    <p><?= $message['content'] ?></p>
+                    <p class="messageContent"><?= $message['content'] ?></p>
                     <p class="in-time"><?= date('H:i', strtotime($message['time'])) ?></p>
                 </div>
             </div>

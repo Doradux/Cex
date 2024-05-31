@@ -1,6 +1,8 @@
 <div class="userProfile" id="user-profile">
     <div class="profile-blue"></div>
-    <div class="profile-image"><img class="profile-image-icon" src="../../assets/images/userImage/default.png" alt="userImage"></div>
+    <div class="profile-image" >
+        <img src='../../assets/images/userImage/<?= $_SESSION['currentUser']['userImg'] ?>' class="profile-image-icon" alt="userImage">
+    </div>
     <div class="profile-data">
         <div class="datapart">
             <p class="big"><?= $_SESSION['currentUser']['username'] ?></p>
@@ -60,15 +62,22 @@
     }
 
     .profile-image {
-        width: 60px;
-        height: 60px;
+        width: 90px;
+        height: 90px;
         transform: translateY(-25px) translateX(10px);
         background-color: black;
         border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .profile-image-icon {
-        width: 100%;
+        width: 90%;
+        height: 90%;
+        background-position: center center;
+        background-size: cover;
+        border-radius: 100%;
     }
 
     .profile-options {
