@@ -58,25 +58,16 @@
 
     <div class="members">
         <h5>Members ~</h5>
-        <?php
-        foreach ($usersId as $userId) {
-            //get server users
-            $sql = 'SELECT * FROM users WHERE id = ' . $userId['userId'];
-            $stmt = $conn->query($sql);
-            $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            //get user image
-            $sql = 'SELECT * FROM `user-image` WHERE id = ' . $user['imageId'];
-            $stmt = $conn->query($sql);
-            $image = $stmt->fetch(PDO::FETCH_ASSOC);
-        ?>
+        <?php foreach ($_SESSION['serverUsers'] as $serverUser) { ?>
             <div class="userCard">
-                <div class="user-photo" style="background-image: url('../assets/images/userImage/<?= $image['name'] ?>');"></div>
-                <p><?= $user['username'] ?></p>
+                <div class="user-photo" style="background-image: url('../assets/images/userImage/<?= $serverUser['image'] ?>');"></div>
+                <?php if ($serverUser['serverRole'] == 'user') { ?>
+                    <p><?= $serverUser['name'] ?></p>
+                <?php } else if ($serverUser['serverRole'] == 'admin') { ?>
+                    <p style="color: rgba(0, 180, 217, 1);"><?= $serverUser['name'] ?></p>
+                <?php } ?>
             </div>
-        <?php
-        }
-        ?>
+        <?php } ?>
     </div>
 
 </body>
@@ -105,7 +96,9 @@
     <input class="inputPostChanel" type="text" placeholder="Chanel description" name="chanelDescriptionToPost" id="chanelDescriptionToPost">
     <p style="color: white;" class="big aux">CHANEL TYPE</p>
     <div name="chanelTypeToPost" id="chanelTypeToPost">
-        <div id="typeHider"><p id="typeEmoji">📖</p></div>
+        <div id="typeHider">
+            <p id="typeEmoji">📖</p>
+        </div>
         <p value="text">Text chanel</p>
         <p value="voice">Voice chanel</p>
     </div>

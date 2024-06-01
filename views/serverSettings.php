@@ -23,7 +23,7 @@
         </div>
 
         <div class="go-back">
-            <p class="back">Go back</p>
+            <p id="back" class="back">Go back</p>
         </div>
 
     </div>
@@ -32,5 +32,7 @@
         <iframe src="../controller/serverProperties.php" frameborder="0"></iframe>
     </div>
 </body>
+
+<script src="../assets/js/serverSettings.js"></script>
 
 </html>

@@ -16,14 +16,13 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  /* border: 1px solid black; */
   font-family: "poppins";
 }
 
 .big {
-    font-family: "poppins_bold";
-    font-size: 1.2rem;
-  }
+  font-family: "poppins_bold";
+  font-size: 1.2rem;
+}
 
 body {
   height: 100vh;
@@ -34,36 +33,86 @@ body {
   color: white;
 }
 
-.server-photo {
-    border-radius: 10px;
-    background-color: rgb(70, 70, 70);
-    padding: 3%;
-    display: flex;
-    flex-direction: row;
+.server-photo, .server-data {
+  border-radius: 10px;
+  background-color: rgb(70, 70, 70);
+  padding: 3%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.photo,
+.grandimage {
+  position: relative;
 }
 
 .photo {
-    width: 200px;
-    height: 200px;
-    overflow: hidden;
-    border-radius: 70px;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 70px;
 }
 
 #photo {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s ease;
 }
 
-.photo-settings {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-}
-
+.photo-settings,
 .grandimage-settings {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
 }
+
+.grandimage {
+  height: 200px;
+  width: 400px;
+}
+
+#grandimage {
+  width: 100%;
+  height: 100%;
+  transition: transform 1s ease;
+}
+
+.change-image-hover,
+.change-grandimage-hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  cursor: pointer;
+  transform: translateY(-207px);
+}
+
+.change-image-hover {
+  border-radius: 70px;
+  width: 200px;
+  height: 200px;
+}
+
+.change-grandimage-hover {
+  width: 400px;
+  height: 200px;
+}
+
+.change-hover {
+  width: 100px;
+  height: 100px;
+  transition: 1s ease;
+}
+
+.photo:hover .change-image-hover,
+.grandimage:hover .change-grandimage-hover {
+  display: flex;
+}
+
+/* .photo:hover .change-hover,
+.grandimage:hover .change-hover {
+  transform: scale(2);
+} */

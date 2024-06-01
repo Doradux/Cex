@@ -171,3 +171,15 @@ iframe {
   border-radius: 3px;
   pointer-events: none;
 }
+
+#edit-profile-btn #settings-emoji {
+  transition: transform 0.5s ease;
+}
+
+#edit-profile-btn:hover #settings-emoji {
+  transform: rotate(90deg);
+}
+
+#edit-profile-btn {
+  display: flex;
+}
