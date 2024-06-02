@@ -29,7 +29,7 @@ body {
 }
 
 body p {
-    user-select: none;   
+  user-select: none;
 }
 
 .big {
@@ -39,35 +39,37 @@ body p {
 }
 
 .tiny {
-    font-family: "poppins_bold";
-    font-size: 0.9rem;
-    text-align: center;
-  }
+  font-family: "poppins_bold";
+  font-size: 0.9rem;
+  padding-left: 10px;
+}
 
 .left-menu {
-  width: 250px;
-  min-width: 250px;
-  background-color: rgba(70, 70, 70, 0.8);
+  width: 400px;
+  min-width: 500px;
+  background-color: rgba(70, 70, 70, 0.5);
   height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 20px 0 0 0;
+  gap: 10px;
+  padding-top: 20px;
 }
 
 .options {
   display: flex;
   flex-direction: column;
-  border-top: 2px solid rgb(30, 30, 30);
+  text-align: center;
 }
 
 .options p {
   cursor: pointer;
-  padding: 5px 20px 5px 20px;
+  padding: 5px 10px 5px 10px;
+  width: 100%;
+  font-family: "poppins_bold";
 }
 
 .options p:hover {
-  background-color: rgb(30, 30, 30);
+  background-color: rgb(24, 24, 24);
 }
 
 .back {
@@ -75,38 +77,46 @@ body p {
   border-radius: 8px;
   background-color: crimson;
   width: 170px;
+  font-family: 'poppins_bold';
+  color: black;
 }
 
 .back:hover {
-  color: black;
+  color: white;
   cursor: pointer;
 }
 
 .go-back {
-    padding: 20px;
-    text-align: center;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: center;
+  padding: 20px;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
 }
 
 .title {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .red {
-    color: crimson;
+  color: crimson;
 }
 
 .iframe {
-    width: 100%;
-    height: 100vh;
+  width: 100%;
+  height: 100vh;
 }
 
 .iframe iframe {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.delete:hover {
+  background-color: crimson;
+  color: white;
 }

@@ -75,17 +75,27 @@ foreach ($_SESSION['serverUsers'] as &$user) {
 unset($user);
 
 // get user role
-// $sql = "SELECT role FROM `user-server` WHERE userId = :userId AND serverId = :serverId";
-// $stmt = $conn->prepare($sql);
-// $stmt->bindParam(':userId', $_SESSION['currentUser']['id'], PDO::PARAM_INT);
-// $stmt->bindParam(':serverId', $_SESSION['currentServer']['id'], PDO::PARAM_INT);
-// $stmt->execute();
-// $role = $stmt->fetch(PDO::FETCH_ASSOC)['role'];
-// $_SESSION['currentUser']['role'] = $role;
 foreach ($_SESSION['serverUsers'] as $serverUser) {
     if ($serverUser['id'] == $_SESSION['currentUser']['id']) {
         $role = $serverUser['serverRole'];
         $_SESSION['currentUser']['role'] = $role;
+    }
+}
+
+//get server welcome chanel
+if ($_SESSION['currentServer']['welcomeChanel'] == null) {
+    $_SESSION['currentServer']['welcomeChanel'] = 'No selected';
+} else {
+    $sql = 'SELECT `name` FROM `chanels` WHERE `id` = :chanelId';
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':chanelId', $_SESSION['currentServer']['welcomeChanel'], PDO::PARAM_INT);
+    $stmt->execute();
+    $result = $stmt(PDO::FETCH_ASSOC);
+
+    if ($result) {
+        $_SESSION['currentServer']['welcomeChanel'] = $result['name'];
+    } else {
+        $_SESSION['currentServer']['welcomeChanel'] = 'Chanel not found';
     }
 }
 

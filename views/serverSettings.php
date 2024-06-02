@@ -11,19 +11,20 @@
 <body>
     <div class="left-menu">
         <div class="title">
-            <p class="big">SERVER SETTINGS</p>
-            <p class="tiny"><?= strtoupper($_SESSION['currentServer']['name']) ?></p>
+            <p class="big"><?= strtoupper($_SESSION['currentServer']['name']) ?></p>
         </div>
 
         <div class="options">
-            <?= $_SESSION['currentUser']['role'] == 'admin' ? '<p id="manage-server">Manage server properties</p>' : '' ?>
-            <?= $_SESSION['currentUser']['role'] == 'admin' ? '<p id="manage-members-page">Manage members</p>' : '' ?>
-            <p id="members-page">Members</p>
-            <p class="delete red">Delete server</p>
+            <?= $_SESSION['currentUser']['role'] == 'admin' ? '<p id="manage-server">OVERVIEW</p>' : '' ?>
+            <?= $_SESSION['currentUser']['role'] == 'admin' ? '<p id="manage-groups">GROUPS</p>' : '' ?>
+            <?= $_SESSION['currentUser']['role'] == 'admin' ? '<p id="manage-chanels">CHANELS</p>' : '' ?>
+            <p id="members-page">MEMBERS</p>
+            <?= $_SESSION['currentUser']['role'] == 'admin' ? '<p id="manage-members-page">MANAGE MEMBERS</p>' : '' ?>
+            <p class="delete red">DELETE SERVER</p>
         </div>
 
         <div class="go-back">
-            <p id="back" class="back">Go back</p>
+            <p id="back" class="back">GO BACK</p>
         </div>
 
     </div>

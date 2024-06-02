@@ -49,12 +49,13 @@
             border-radius: 10px;
             overflow: hidden;
             width: 200px;
-            height: 300px;
+            height: 350px;
             background-color: black;
             color: white;
             display: none;
             flex-direction: column;
             position: absolute;
+            padding-bottom: 10px;
         }
 
         .profile-blue {
@@ -64,8 +65,8 @@
         }
 
         .profile-image {
-            width: 90px;
-            height: 90px;
+            width: 80px;
+            height: 80px;
             transform: translateY(-25px) translateX(10px);
             background-color: black;
             border-radius: 100%;

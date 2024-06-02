@@ -167,7 +167,7 @@ iframe {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.4);
   color: white;
-  padding: 13px;
+  padding: 8px;
   border-radius: 3px;
   pointer-events: none;
 }

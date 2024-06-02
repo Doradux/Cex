@@ -17,6 +17,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "poppins";
+  text-shadow: 1px 1px 3px black;
 }
 
 .big {
@@ -25,21 +26,42 @@
 }
 
 body {
-  height: 100vh;
   background-color: transparent;
   display: flex;
   flex-direction: column;
-  padding: 10%;
+  padding: 8%;
   color: white;
+  gap: 15px;
+  height: 100vh;
 }
 
-.server-photo, .server-data {
-  border-radius: 10px;
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  border: none;
+}
+
+::-webkit-scrollbar-thumb {
   background-color: rgb(70, 70, 70);
-  padding: 3%;
+  border-radius: 20px;
+}
+
+.server-photo {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.server-data {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  gap: 1px;
+  width: 100%;
 }
 
 .photo,
@@ -48,10 +70,10 @@ body {
 }
 
 .photo {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   overflow: hidden;
-  border-radius: 70px;
+  border-radius: 30px;
 }
 
 #photo {
@@ -63,19 +85,27 @@ body {
 .photo-settings,
 .grandimage-settings {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  background-color: rgb(51, 51, 51);
+  width: 50%;
   gap: 5px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.grandimage-settings {
+  width: 100%;
 }
 
 .grandimage {
-  height: 200px;
-  width: 400px;
+  height: 300px;
+  width: 550px;
 }
 
 #grandimage {
   width: 100%;
   height: 100%;
+  border-radius: 8px;
   transition: transform 1s ease;
 }
 
@@ -87,23 +117,25 @@ body {
   align-items: center;
   display: none;
   cursor: pointer;
-  transform: translateY(-207px);
+  transform: translateY(-307px);
+  border-radius: 8px;
 }
 
 .change-image-hover {
-  border-radius: 70px;
-  width: 200px;
-  height: 200px;
+  border-radius: 30px;
+  width: 100px;
+  height: 100px;
+  transform: translateY(-107px);
 }
 
 .change-grandimage-hover {
-  width: 400px;
-  height: 200px;
+  height: 300px;
+  width: 550px;
 }
 
 .change-hover {
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   transition: 1s ease;
 }
 
@@ -116,3 +148,120 @@ body {
 .grandimage:hover .change-hover {
   transform: scale(2);
 } */
+
+.server-data {
+  width: 100%;
+  gap: 15px;
+}
+
+button {
+  min-width: 70px;
+  background-color: rgb(0, 140, 255);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px 0 rgb(88, 88, 88);
+  font-family: "poppins_bold";
+  text-shadow: none;
+  color: black;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: rgb(99, 185, 255);
+  color: white;
+}
+
+.name-input,
+.current-welcome {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.server-name,
+.server-welcome {
+  width: 100%;
+  background-color: rgb(51, 51, 51);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.save-photo {
+  background-color: rgb(0, 139, 0);
+  display: none;
+}
+
+.save-photo:hover {
+  background-color: rgb(0, 196, 0);
+}
+
+.save-grandimage {
+  background-color: rgb(0, 139, 0);
+  display: none;
+}
+
+.save-grandimage:hover {
+  background-color: rgb(0, 196, 0);
+}
+
+input[type="text"] {
+  border: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 5px 10px 5px;
+  color: white;
+  border-radius: 4px;
+}
+
+.photo-settings-one {
+  display: flex;
+  flex-direction: column;
+}
+
+.photo-settings-two {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+
+  & p {
+    width: 80%;
+  }
+}
+
+.grandimage-settings-two {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+
+  & p {
+    width: 80%;
+  }
+}
+
+.upload-btn,
+.upload-grandimage-btn {
+  padding: 5px;
+  width: fit-content;
+  background-color: transparent;
+  border: 1px solid gray;
+  color: white;
+  font-family: 'poppins';
+  box-shadow: none;
+  transition: all 0.3s ease;
+}
+
+.upload-btn:hover {
+  background-color: gray;
+}
