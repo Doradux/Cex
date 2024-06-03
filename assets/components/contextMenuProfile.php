@@ -5,7 +5,7 @@
     </div>
     <div class="profile-data">
         <div class="datapart">
-            <p class="big"><?= $_SESSION['currentUser']['username'] ?></p>
+            <p class="big">@<?= $_SESSION['currentUser']['username'] ?></p>
             <p><?= $_SESSION['currentUser']['displayname'] ?></p>
         </div>
         <div class="datapart">

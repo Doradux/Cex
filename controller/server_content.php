@@ -28,6 +28,7 @@ while ($group = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $chanelsGroups[] = $group;
 }
 
+$_SESSION['groups'] = $chanelsGroups;
 
 //get all server users id in server
 $sql = "SELECT * FROM `user-server` WHERE serverId = " . $_SESSION['currentServer']['id'];
@@ -40,7 +41,7 @@ foreach ($usersInServer as $userInServer) {
     $role = $userInServer['role'];
     $serverNick = $userInServer['serverNick'];
 
-    $sql = 'SELECT * FROM users WHERE id = ' . $userInServer['userId'];
+    $sql = 'SELECT `id`, `username`, `displayname`, `imageId`, `creation` FROM users WHERE id = ' . $userInServer['userId'];
     $stmt = $conn->query($sql);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 

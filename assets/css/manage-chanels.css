@@ -1,0 +1,107 @@
+@font-face {
+  font-family: "poppins";
+  src: url("../fonts/Poppins-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "poppins_bold";
+  src: url("../fonts/Poppins-Bold.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* border: 1px solid black; */
+  font-family: "poppins";
+  color: white;
+}
+
+body {
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chanel {
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgb(51, 51, 51);
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h1 {
+  text-align: center;
+}
+
+.soft {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.chanels-part1 {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.chanel-option {
+  width: 40px;
+  height: 40px;
+  background-color: rgb(119, 119, 119);
+  border-radius: 100%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chanel-options {
+  display: flex;
+  gap: 20px;
+}
+
+.modify:hover {
+  background-color: rgba(0, 180, 217, 1);
+  border: 2px solid white;
+}
+
+.delete:hover {
+  background-color: crimson;
+  border: 2px solid black;
+}
+
+.big {
+  font-family: "poppins_bold";
+}
+
+.add-new-chanel {
+  border-radius: 10px;
+  width: fit-content;
+  padding: 10px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(0, 171, 0);
+  & p {
+    color: black;
+    font-family: "poppins_bold";
+  }
+  transition: all 1s ease;
+}
+
+.add-new-chanel:hover {
+  background-color: green;
+  cursor: pointer;
+  & p {
+    color: white;
+  }
+}

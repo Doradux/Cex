@@ -15,12 +15,12 @@
         </div>
 
         <div class="options">
-            <?= $_SESSION['currentUser']['role'] == 'admin' ? '<p id="manage-server">OVERVIEW</p>' : '' ?>
-            <?= $_SESSION['currentUser']['role'] == 'admin' ? '<p id="manage-groups">GROUPS</p>' : '' ?>
-            <?= $_SESSION['currentUser']['role'] == 'admin' ? '<p id="manage-chanels">CHANELS</p>' : '' ?>
-            <p id="members-page">MEMBERS</p>
-            <?= $_SESSION['currentUser']['role'] == 'admin' ? '<p id="manage-members-page">MANAGE MEMBERS</p>' : '' ?>
-            <p class="delete red">DELETE SERVER</p>
+            <?= $_SESSION['currentUser']['role'] == 'admin' ? '<p class="option" id="manage-server">OVERVIEW</p>' : '' ?>
+            <?= $_SESSION['currentUser']['role'] == 'admin' ? '<p class="option" id="manage-groups">GROUPS</p>' : '' ?>
+            <?= $_SESSION['currentUser']['role'] == 'admin' ? '<p class="option" id="manage-chanels">CHANELS</p>' : '' ?>
+            <p class="option" id="members-page">MEMBERS</p>
+            <?= $_SESSION['currentUser']['role'] == 'admin' ? '<p class="option" id="manage-members-page">MANAGE MEMBERS</p>' : '' ?>
+            <p class="option delete red">DELETE SERVER</p>
         </div>
 
         <div class="go-back">
@@ -30,7 +30,7 @@
     </div>
 
     <div class="iframe">
-        <iframe src="../controller/serverProperties.php" frameborder="0"></iframe>
+        <iframe id="frame" page="1" src="../controller/manage-server.php" frameborder="0"></iframe>
     </div>
 </body>
 

@@ -45,8 +45,8 @@ body p {
 }
 
 .left-menu {
-  width: 400px;
-  min-width: 500px;
+  width: 30%;
+  min-width: 30%;
   background-color: rgba(70, 70, 70, 0.5);
   height: 100vh;
   display: flex;
@@ -68,7 +68,7 @@ body p {
   font-family: "poppins_bold";
 }
 
-.options p:hover {
+.option:hover {
   background-color: rgb(24, 24, 24);
 }
 
