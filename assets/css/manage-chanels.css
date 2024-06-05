@@ -61,6 +61,11 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 7px;
+}
+
+.chanel-option img {
+  width: 100%;
 }
 
 .chanel-options {
@@ -68,14 +73,8 @@ h1 {
   gap: 20px;
 }
 
-.modify:hover {
-  background-color: rgba(0, 180, 217, 1);
-  border: 2px solid white;
-}
-
-.delete:hover {
-  background-color: crimson;
-  border: 2px solid black;
+.chanel-option:hover {
+  background-color: rgb(191, 191, 191);
 }
 
 .big {

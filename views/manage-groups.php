@@ -16,8 +16,8 @@
         <div class="group">
             <p><?= $group['name'] ?></p>
             <div class="group-options">
-                <div class="group-modify group-option modify">✏️</div>
-                <div class="group-delete group-option delete">🗑️</div>
+                <div class="group-modify group-option modify"><img src="../assets/icons/edit.svg" alt="edit"></div>
+                <div class="group-delete group-option delete"><img src="../assets/icons/trash.svg" alt="edit"></div>
             </div>
         </div>
         </div>

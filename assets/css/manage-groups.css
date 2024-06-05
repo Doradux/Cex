@@ -55,6 +55,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 7px;
 }
 
 .group-options {
@@ -62,14 +63,17 @@ h1 {
   gap: 20px;
 }
 
-.modify:hover {
-  background-color: rgba(0, 180, 217, 1);
-  border: 2px solid white;
+.group-option img {
+  width: 100%;
 }
 
-.delete:hover {
-  background-color: crimson;
-  border: 2px solid black;
+.group-options {
+  display: flex;
+  gap: 20px;
+}
+
+.group-option:hover {
+  background-color: rgb(191, 191, 191);
 }
 
 .big {

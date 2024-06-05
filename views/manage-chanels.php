@@ -32,8 +32,8 @@
                 </div>
                 <div class="chanel-part2">
                     <div class="chanel-options">
-                        <div class="chanel-modify chanel-option modify">✏️</div>
-                        <div class="chanel-delete chanel-option delete">🗑️</div>
+                        <div class="chanel-modify chanel-option modify"><img src="../assets/icons/edit.svg" alt="edit"></div>
+                        <div class="chanel-delete chanel-option delete"><img src="../assets/icons/trash.svg" alt="edit"></div>
                     </div>
                 </div>
             </div>

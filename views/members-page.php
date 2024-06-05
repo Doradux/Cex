@@ -24,13 +24,18 @@
                     <p class="member-name-orginal soft">@<?= $member['username'] ?></p>
                 </div>
             </div>
-            <div class="members-part2">
-                <div class="member-options">
-                    <div class="member-add member-option">➕</div>
-                    <div class="member-msg member-option">💬</div>
-                    <div class="member-block member-option">🚫</div>
+            <?php
+            if ($_SESSION['currentUser']['id'] != $member['id']) {
+
+            ?>
+                <div class="members-part2">
+                    <div class="member-options">
+                        <div class="member-add member-option"><img src="../assets/icons/add-user.svg" alt="edit"></div>
+                        <div class="member-msg member-option"><img src="../assets/icons/msg-user.svg" alt="edit"></div>
+                        <div class="member-block member-option"><img src="../assets/icons/block.svg" alt="edit"></div>
+                    </div>
                 </div>
-            </div>
+            <?php } ?>
         </div>
     <?php
     }

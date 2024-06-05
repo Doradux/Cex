@@ -29,14 +29,31 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  padding: 5%;
 }
 
 .userProfile {
   background-color: black;
   width: 500px;
   border-radius: 10px;
-  overflow: hidden;
+  overflow: auto;
   box-shadow: 0 2px 10px 0 rgb(88, 88, 88);
+  position: relative;
+}
+
+.userProfile::-webkit-scrollbar {
+  width: 10px;
+}
+
+.userProfile::-webkit-scrollbar-track {
+  background-color: transparent;
+  border: none;
+}
+
+.userProfile::-webkit-scrollbar-thumb {
+  background-color: rgb(70, 70, 70);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .profile-image {
@@ -46,11 +63,36 @@ body {
   margin-left: 20px;
   background-color: black;
   border-radius: 100%;
-  & img {
-    width: 100%;
-    border-radius: 100%;
-    outline: 5px solid black;
-  }
+  position: relative;
+}
+
+.profile-image-icon {
+  width: 100%;
+  border-radius: 100%;
+  outline: 5px solid black;
+}
+
+.change-hover {
+  width: 100px;
+  height: 100px;
+}
+
+.change-image-hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 100%;
+  height: 100px;
+  width: 100px;
+  transform: translateX(-100px);
+  opacity: 0;
+  overflow: hidden;
+}
+
+.profile-image:hover .change-image-hover {
+  opacity: 1;
 }
 
 .big {
@@ -148,4 +190,9 @@ button:hover {
 .orange-btn:hover {
   background-color: rgb(245, 149, 71);
   color: black;
+}
+
+#save-user-photo {
+  transform: translateX(140px) translateY(-40px);
+  display: none;
 }

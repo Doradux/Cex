@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/members-page.css">
+    <link rel="stylesheet" href="../assets/css/manage-members.css">
     <title>Document</title>
 </head>
 
@@ -26,9 +26,9 @@
             </div>
             <div class="members-part2">
                 <div class="member-options">
-                    <div class="member-server-nick member-option">✏️</div>
-                    <div class="member-role member-option">🎭</div>
-                    <div class="member-kick member-option">❌</div>
+                    <div class="member-server-nick member-option"><img src="../assets/icons/edit-user.svg" alt="edit"></div>
+                    <div class="member-role member-option" <?= $member['serverRole'] == 'admin' ? 'style="background-color: rgba(0, 180, 217, 1)"' : '' ?>><img src="../assets/icons/admin-user.svg" alt="edit"></div>
+                    <div class="member-kick member-option"><img src="../assets/icons/kick-user.svg" alt="edit"></div>
                 </div>
             </div>
         </div>

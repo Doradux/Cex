@@ -6,7 +6,7 @@
     <p style="color: white;" class="big aux">CHANEL TYPE</p>
     <div name="chanelTypeToPost" id="chanelTypeToPost">
         <div id="typeHider">
-            <p id="typeEmoji">📖</p>
+            <div id="typeEmoji"><img class="chanel-type-icon" src="../../assets/icons/text-chanel.svg" alt=""></div>
         </div>
         <p value="text">Text chanel</p>
         <p value="voice">Voice chanel</p>
@@ -91,7 +91,7 @@
     }
 
     #typeEmoji {
-        transition: transform 1s ease;
+        transition: transform 0.5s ease;
     }
 
     .confirm {
@@ -136,6 +136,10 @@
         transform: translateY(12px);
         text-align: center;
     }
+
+    .chanel-type-icon {
+        height: 25px;
+    }
 </style>
 
 <script>
@@ -176,12 +180,12 @@
     selectType.addEventListener("click", function() {
         if (type == 0) {
             typeHider.style.transform = "translateX(-148px)";
-            emoji.textContent = "🔊";
+            emoji.innerHTML = '<img class="chanel-type-icon" src="../../assets/icons/voice-chanel.svg" alt="">';
             emoji.style.transform = "rotate(-360deg)";
             type = 1;
         } else if (type == 1) {
             typeHider.style.transform = "translateX(0)";
-            emoji.textContent = "📖";
+            emoji.innerHTML = '<img class="chanel-type-icon" src="../../assets/icons/text-chanel.svg" alt="">';
             emoji.style.transform = "rotate(0)";
             type = 0;
         }
@@ -199,7 +203,9 @@
 
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {}
+                if (this.readyState == 4 && this.status == 200) {
+                    addChanelUtility.style.display = "none";
+                }
             };
             xhttp.open("POST", "./jsToPhp/postChanel.php", true);
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

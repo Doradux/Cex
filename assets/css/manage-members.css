@@ -73,6 +73,11 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 7px;
+}
+
+.member-option img {
+  width: 100%;
 }
 
 .member-option:hover {

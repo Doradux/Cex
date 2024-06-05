@@ -14,8 +14,13 @@
     <div class="userProfile" id="user-profile">
         <div class="profile-blue"></div>
         <div class="profile-image">
-            <img src='../../assets/images/userImage/<?= $_SESSION['currentUser']['userImg'] ?>' class="profile-image-icon" alt="userImage">
+            <img id="user-image" src='../../assets/images/userImage/<?= $_SESSION['currentUser']['userImg'] ?>' class="profile-image-icon" alt="userImage">
+            <label class="change-image-hover">
+                <input type="file" name="change-hover" accept="image/*" style="display: none;">
+                <img class="change-hover" src="../assets/images/change-image.png" alt="change image">
+            </label>
         </div>
+        <button id="save-user-photo">Save</button>
         <div class="profile-data">
             <div class="public-data">
 
