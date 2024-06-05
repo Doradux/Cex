@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <h1>SERVER CHANELS</h1>
+    <h1>MANAGE SERVER CHANELS</h1>
     <?php
     $chanels = [];
     foreach ($_SESSION['groups'] as $group) {
@@ -39,15 +39,16 @@
             </div>
 
 
-    <?php
+        <?php
         }
         ?>
         <div class="add-new-chanel">
-            <p>ADD NEW CHANEL</p>
+            <p class="add-new-chanel-btn" groupId="<?= $group['id'] ?>">ADD NEW CHANEL</p>
         </div>
-        <?php
+    <?php
+        include '../assets/components/addChanel.php';
     }
-        ?>
+    ?>
 </body>
 
 </html>

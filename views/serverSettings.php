@@ -19,7 +19,7 @@
             <?= $_SESSION['currentUser']['role'] == 'admin' ? '<p class="option" id="manage-groups">GROUPS</p>' : '' ?>
             <?= $_SESSION['currentUser']['role'] == 'admin' ? '<p class="option" id="manage-chanels">CHANELS</p>' : '' ?>
             <p class="option" id="members-page">MEMBERS</p>
-            <?= $_SESSION['currentUser']['role'] == 'admin' ? '<p class="option" id="manage-members-page">MANAGE MEMBERS</p>' : '' ?>
+            <?= $_SESSION['currentUser']['role'] == 'admin' ? '<p class="option" id="manage-members">MANAGE MEMBERS</p>' : '' ?>
             <p class="option delete red">DELETE SERVER</p>
         </div>
 

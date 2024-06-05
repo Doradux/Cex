@@ -129,36 +129,6 @@ document.getElementById("chanelContent").onload = function () {
   iframe.contentWindow.scrollTo(0, iframe.contentDocument.body.scrollHeight);
 };
 
-var addChanelUtility = document.getElementById("postChanelUtility");
-var chanelIdToPost = document.getElementById("chanelGroupIdToPost");
-var addChanelPerGroupPluses = document.querySelectorAll(".addServerInGroup");
-addChanelPerGroupPluses.forEach(function (plus) {
-  plus.addEventListener("click", function () {
-    event.preventDefault();
-    addChanelUtility.style.display = "flex";
-    chanelIdToPost.value = event.getAttribute("href");
-  });
-});
-
-//select type
-var selectType = document.getElementById("chanelTypeToPost");
-var typeHider = document.getElementById("typeHider");
-var emoji = document.getElementById("typeEmoji");
-var type = 0;
-selectType.addEventListener("click", function () {
-  if (type == 0) {
-    typeHider.style.transform = "translateX(-148px)";
-    emoji.textContent = "🔊";
-    emoji.style.transform = "rotate(-360deg)";
-    type = 1;
-  } else if (type == 1) {
-    typeHider.style.transform = "translateX(0)";
-    emoji.textContent = "📖";
-    emoji.style.transform = "rotate(0)";
-    type = 0;
-  }
-});
-
 //go to server settings
 var serverSettingsLink = document.getElementById("server-settings");
 serverSettingsLink.addEventListener("click", function () {

@@ -1,0 +1,89 @@
+@font-face {
+  font-family: "poppins";
+  src: url("../fonts/Poppins-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "poppins_bold";
+  src: url("../fonts/Poppins-Bold.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* border: 1px solid black; */
+  font-family: "poppins";
+  color: white;
+}
+
+body {
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.member {
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgb(51, 51, 51);
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.member-image {
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 100%;
+
+  & img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+h1 {
+  text-align: center;
+}
+
+.soft {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.members-part1 {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.member-option {
+  width: 40px;
+  height: 40px;
+  background-color: rgb(119, 119, 119);
+  border-radius: 100%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.member-option:hover {
+  background-color: rgb(191, 191, 191);
+}
+
+.member-options {
+  display: flex;
+  gap: 20px;
+}
+
+.blue {
+  color: rgba(0, 180, 217, 1);
+}

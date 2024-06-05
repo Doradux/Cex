@@ -73,40 +73,16 @@
 </body>
 
 
-<!-- utilities -->
-<div class="chanelsOptions">
-    <a href="">Create chanel</a>
-    <a href="">Modify chanels</a>
-    <a href="">Create group</a>
-    <a href="">Modify groups</a>
-</div>
+<?php
+// component chanelsOptions
+include '../assets/components/chanelsOptions.php';
+// component serverOptions
+include '../assets/components/serverOptions.php';
+// component addChanel
+include '../assets/components/addChanel.php';
+?>
 
-<!-- utilities -->
-<div class="serverOptions">
-    <?= ($role == 'admin') ? '<a id="server-settings" href="">Server settings</a>' : '' ?>
-    <?= ($role == 'admin') ? '<a href="">Manage users</a>' : '' ?>
-    <a href="">Members</a>
-    <a href="">Leave server</a>
-</div>
 
-<!-- add chanel in selected group utility -->
-<div id="postChanelUtility">
-    <input type="hidden" name="chanelGroupIdToPost" id="chanelGroupIdToPost" value="">
-    <input class="inputPostChanel" type="text" placeholder="Chanel name" name="chanelNameToPost" id="chanelNameToPost">
-    <input class="inputPostChanel" type="text" placeholder="Chanel description" name="chanelDescriptionToPost" id="chanelDescriptionToPost">
-    <p style="color: white;" class="big aux">CHANEL TYPE</p>
-    <div name="chanelTypeToPost" id="chanelTypeToPost">
-        <div id="typeHider">
-            <p id="typeEmoji">📖</p>
-        </div>
-        <p value="text">Text chanel</p>
-        <p value="voice">Voice chanel</p>
-    </div>
-    <div>
-        <button class="confirm big" id="createChanelInGroup">CREATE</button>
-        <button class="delete big" id="CancelcreateChanelInGroup">CANCEL</button>
-    </div>
-</div>
 
 <div id="tooltip"></div>
 

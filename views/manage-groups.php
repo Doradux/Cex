@@ -9,22 +9,17 @@
 </head>
 
 <body>
-    <h1>SERVER CHANELS</h1>
+    <h1>MANAGE SERVER GROUPS</h1>
     <?php
     foreach ($_SESSION['groups'] as $group) {
     ?>
         <div class="group">
-            <div class="group-part1">
-                <div class="group-tags">
-                    <p><?= $group['name'] ?></p>
-                </div>
+            <p><?= $group['name'] ?></p>
+            <div class="group-options">
+                <div class="group-modify group-option modify">✏️</div>
+                <div class="group-delete group-option delete">🗑️</div>
             </div>
-            <div class="group-part2">
-                <div class="group-options">
-                    <div class="group-modify group-option modify">✏️</div>
-                    <div class="group-delete group-option delete">🗑️</div>
-                </div>
-            </div>
+        </div>
         </div>
 
 
