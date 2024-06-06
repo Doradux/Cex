@@ -3,9 +3,7 @@ document.getElementById("back").addEventListener("click", function () {
 });
 
 var selected = document.getElementById("frame").getAttribute("page");
-console.log(selected);
 var options = document.querySelectorAll(".option");
-console.log(options[0].textContent);
 for (let index = 0; index < options.length; index++) {
   if (index == selected) {
     options[index - 1].style.backgroundColor = "rgb(24, 24, 24)";

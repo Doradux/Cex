@@ -16,7 +16,7 @@
         <div class="profile-image">
             <img id="user-image" src='../../assets/images/userImage/<?= $_SESSION['currentUser']['userImg'] ?>' class="profile-image-icon" alt="userImage">
             <label class="change-image-hover">
-                <input type="file" name="change-hover" accept="image/*" style="display: none;">
+                <input type="file" class="change-hover" accept="image/*" style="display: none;">
                 <img class="change-hover" src="../assets/images/change-image.png" alt="change image">
             </label>
         </div>

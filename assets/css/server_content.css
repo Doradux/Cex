@@ -70,20 +70,22 @@ body {
   justify-content: space-between;
 }
 
-.snd a {
+.snd {
+  margin-top: 10px;
   text-decoration: none;
   color: white;
   margin-left: 10px;
   font-size: 0.9rem;
   display: flex;
   flex-direction: column;
+  gap: 7px;
 }
 
 .chanelsOptions {
   position: absolute;
   display: none;
   flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 1);
   border-radius: 10px;
   overflow: hidden;
   font-size: 0.8rem;
@@ -157,7 +159,7 @@ iframe {
 }
 
 .members {
-  width: 15%;
+  min-width: 250px;
   height: 100vh;
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
@@ -170,8 +172,8 @@ iframe {
 }
 
 .user-photo {
-  width: 35px;
-  height: 35px;
+  min-width: 35px;
+  min-height: 35px;
   border-radius: 100%;
   background-position: center center;
   background-size: contain;
@@ -182,6 +184,12 @@ iframe {
   color: white;
   gap: 10px;
   align-items: center;
+  white-space: nowrap;
+
+  & p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 #postChanelUtility {

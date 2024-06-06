@@ -49,14 +49,19 @@
                 <div class="in-sender">
                     <div class="in-photo" style="background-image: url('../assets/images/userImage/<?= $senderImg['name'] ?>');"></div>
                     <?php
+                    $found = false;
                     foreach ($_SESSION['serverUsers'] as $serUser) {
-                        if ($serUser['username'] == $senderData['username']) {
-                            ?>
-                            <p class="in-name"><?= $serUser['name'] ?></p>
-                            <?php
+                        if ($serUser['id'] == $senderData['id']) {
+                            $found = true;
+                            $senderName = $serUser['name'];
+                            break;
                         }
                     }
+                    if (!$found) {
+                        $senderName = $senderData['username'];
+                    }
                     ?>
+                    <p class="in-name"><?= $senderName ?></p>
                 </div>
                 <div class="in-msg-content">
                     <p class="messageContent"><?= $message['content'] ?></p>

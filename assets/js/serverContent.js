@@ -99,13 +99,6 @@ document.addEventListener("click", function (event) {
   }
 });
 
-var chanelLinks = document.querySelectorAll(".chanelLink");
-chanelLinks.forEach((link) => {
-  link.addEventListener("click", function () {
-    preventDefault();
-  });
-});
-
 //get chanels content
 var chanelsLinks = document.querySelectorAll(".chanelLink");
 
@@ -130,8 +123,36 @@ document.getElementById("chanelContent").onload = function () {
 };
 
 //go to server settings
-var serverSettingsLink = document.getElementById("server-settings");
-serverSettingsLink.addEventListener("click", function () {
+try {
+  var serverSettingsLink = document.getElementById("server-settings");
+  serverSettingsLink.addEventListener("click", function () {
+    event.preventDefault();
+    window.location.href = "../controller/serverSettings.php";
+  });
+} catch {}
+
+//leave server
+var leaveServer = document.getElementById("leaveServer");
+var confirmLeaveServer = document.querySelector(".confirmLeaveServer");
+leaveServer.addEventListener("click", function () {
   event.preventDefault();
-  window.location.href = "../controller/serverSettings.php";
+  confirmLeaveServer.style.display = "flex";
+});
+
+var confirmLeaveServerBtn = document.querySelector(".btn-confirm");
+var cancelLeaveServerBtn = document.querySelector(".btn-cancel");
+cancelLeaveServerBtn.addEventListener("click", function () {
+  confirmLeaveServer.style.display = "none";
+});
+
+confirmLeaveServerBtn.addEventListener("click", function () {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      confirmLeaveServer.style.display = "none";
+    }
+  };
+  xhttp.open("POST", "./jsToPhp/leaveServer.php", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send();
 });

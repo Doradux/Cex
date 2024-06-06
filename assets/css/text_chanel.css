@@ -128,7 +128,7 @@ header {
   height: 35px;
   border-radius: 100%;
   background-position: center center;
-  background-size: contain;
+  background-size: cover;
 }
 
 .in-msg-content {

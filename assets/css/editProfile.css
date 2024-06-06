@@ -196,3 +196,8 @@ button:hover {
   transform: translateX(140px) translateY(-40px);
   display: none;
 }
+
+#user-image {
+  width: 100%;
+  height: 100%;
+}

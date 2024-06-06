@@ -80,6 +80,8 @@ include '../assets/components/chanelsOptions.php';
 include '../assets/components/serverOptions.php';
 // component addChanel
 include '../assets/components/addChanel.php';
+// component confirmLeaveServer
+include '../assets/components/confirmLeaveServer.php';
 ?>
 
 
