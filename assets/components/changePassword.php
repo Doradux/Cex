@@ -24,7 +24,7 @@
         width: 300px;
         border-radius: 10px;
         gap: 20px;
-        box-shadow: 0 2px 20px 0px rgb(88, 88, 88);
+        /* box-shadow: 0 2px 20px 0px rgb(88, 88, 88); */
     }
 
     input {

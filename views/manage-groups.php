@@ -27,8 +27,12 @@
     }
     ?>
     <div class="add-new-group">
-        <p>ADD NEW GROUP</p>
+        <p id="add-group-btn">ADD NEW GROUP</p>
     </div>
+
+    <?php include '../assets/components/addGroup.php'; ?>
 </body>
+
+<script src="../assets/js/manage-groups.js"></script>
 
 </html>
