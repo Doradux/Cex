@@ -73,20 +73,21 @@ body {
 }
 
 .change-hover {
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
 }
 
 .change-image-hover {
   background-color: rgba(255, 255, 255, 0.5);
   position: absolute;
+  display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   border-radius: 100%;
   height: 100px;
   width: 100px;
-  transform: translateX(-100px);
+  transform: translateX(0) translateY(-107px);
   opacity: 0;
   overflow: hidden;
 }
@@ -132,6 +133,8 @@ button {
   box-shadow: 0 1px 2px 0 rgb(88, 88, 88);
   font-family: "poppins_bold";
   color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 button:hover {
@@ -148,9 +151,11 @@ button:hover {
   position: absolute;
   background-color: rgb(87, 87, 87);
   color: rgb(87, 87, 87);
-  border-radius: 3px;
+  border-radius: 5px;
   user-select: none;
   transform: translateX(-2px);
+  padding: 5px;
+  padding-right: 0;
 }
 
 .more {
@@ -173,7 +178,7 @@ button:hover {
 }
 
 .red-btn:hover {
-  background-color: rgb(133, 0, 27);
+  background-color: darkred;
   color: white;
 }
 
@@ -200,4 +205,44 @@ button:hover {
 #user-image {
   width: 100%;
   height: 100%;
+}
+
+.no-editable {
+  background-color: transparent;
+  border: none;
+  color: white;
+  padding: 5px;
+  font-size: 1rem;
+}
+
+.editable {
+  background-color: rgb(50, 50, 50);
+  border-radius: 5px;
+  border: none;
+  color: white;
+  padding: 5px;
+  font-size: 1rem;
+}
+
+.editable:focus {
+  outline: none;
+}
+
+.save-btn {
+  min-width: 70px;
+  background-color: greenyellow;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px 0 rgb(88, 88, 88);
+  font-family: "poppins_bold";
+  color: black;
+  cursor: pointer;
+  text-align: center;
+  font-size: 0.9rem;
+  display: none;
+}
+
+.save-btn:hover {
+  background-color: green;
+  color: white;
 }

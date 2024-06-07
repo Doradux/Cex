@@ -27,16 +27,18 @@
                 <div class="section">
                     <p class="big">USERNAME</p>
                     <div class="zntal">
-                        <p><?= $_SESSION['currentUser']['username'] ?></p>
-                        <button>EDIT</button>
+                        <input id="username-input" disabled type="text" class="no-editable" value="<?= $_SESSION['currentUser']['username'] ?>">
+                        <button class="edit-username" id="edit-username">EDIT</button>
+                        <button class="save-btn" id="save-username">SAVE</button>
                     </div>
                 </div>
 
                 <div class="section">
                     <p class=" big">DISPLAYNAME</p>
                     <div class="zntal">
-                        <p><?= $_SESSION['currentUser']['displayname'] == null ? 'None' : $_SESSION['currentUser']['displayname'] ?></p>
-                        <button>EDIT</button>
+                        <input id="displayname-input" disabled class="no-editable" value="<?= $_SESSION['currentUser']['displayname'] == null ? 'None' : $_SESSION['currentUser']['displayname'] ?>">
+                        <button id="edit-displayname">EDIT</button>
+                        <button class="save-btn" id="save-displayname">SAVE</button>
                     </div>
                 </div>
 
@@ -45,31 +47,33 @@
                     <div class="zntal">
                         <div class="mail">
                             <p id="cover" class="cover"><?= $cover ?>.</p>
-                            <p><?= $_SESSION['currentUser']['email'] ?></p>
-                            <button id="show">REVEAL</button>
+                            <p class="no-editable"><?= $_SESSION['currentUser']['email'] ?></p>
                         </div>
-                        <button>EDIT</button>
+                        <button id="show">REVEAL</button>
                     </div>
                 </div>
 
                 <div class="section">
                     <p class="big">DATE BIRTH</p>
                     <div class="zntal">
-                        <p><?= $_SESSION['currentUser']['birth'] ?></p>
-                        <button>EDIT</button>
+                        <input id="birth-input" disabled class="no-editable" value="<?= $_SESSION['currentUser']['birth'] ?>">
+                        <button id="edit-birth">EDIT</button>
+                        <button class="save-btn" id="save-birth">SAVE</button>
                     </div>
                 </div>
             </div>
 
 
             <div class="more">
-                <button class="orange-btn">CHANGE PASSWORD</button>
+                <button id="showCancelDiv" class="orange-btn">CHANGE PASSWORD</button>
                 <button class="red-btn">SIGN OUT</button>
                 <button class="red-btn">DELETE ACCOUNT</button>
             </div>
 
         </div>
     </div>
+
+    <?php include '../assets/components/changePassword.php'; ?>
 </body>
 
 </html>
