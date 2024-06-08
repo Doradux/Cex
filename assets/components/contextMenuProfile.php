@@ -50,7 +50,7 @@
             overflow: hidden;
             width: 200px;
             height: 350px;
-            background-color: black;
+            background-color: rgb(40, 40, 40);
             color: white;
             display: none;
             flex-direction: column;
@@ -68,11 +68,14 @@
             width: 80px;
             height: 80px;
             transform: translateY(-25px) translateX(10px);
-            background-color: black;
             border-radius: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
+
+            & img {
+                border: 3px solid rgb(40, 40, 40);
+            }
         }
 
         .profile-image-icon {

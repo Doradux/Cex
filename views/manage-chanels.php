@@ -13,6 +13,7 @@
     <?php
     $chanels = [];
     foreach ($_SESSION['groups'] as $group) {
+        $chanels = [];
         $sql = "SELECT * FROM `chanels` WHERE groupId = :groupId";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':groupId', $group['id']);
@@ -46,8 +47,8 @@
             <p class="add-new-chanel-btn" groupId="<?= $group['id'] ?>">ADD NEW CHANEL</p>
         </div>
     <?php
-        include '../assets/components/addChanel.php';
     }
+    include '../assets/components/addChanel.php';
     ?>
 </body>
 

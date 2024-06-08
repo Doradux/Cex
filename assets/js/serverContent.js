@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// const arrow = document.getElementById("arrow");
+const arrow = document.getElementById("arrow");
 const serverOptions = document.querySelector(".serverOptions");
 
 //open groups/chanels menu

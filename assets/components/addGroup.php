@@ -1,5 +1,4 @@
 <div class="addGroup">
-    <p>Add group</p>
     <input type="text" id="addGroup-input" placeholder="Group name">
     <div class="addGroup-btns">
         <button id="addGroup-create">CREATE</button>
@@ -32,15 +31,11 @@
 
     .addGroup {
         color: white;
-        position: absolute;
-        top: 35%;
-        right: 40%;
-        background-color: rgb(50, 50, 50);
+        background-color: rgb(30, 30, 30);
         display: none;
-        flex-direction: column;
         padding: 10px;
-        width: 300px;
         border-radius: 10px;
+        justify-content: space-between;
         gap: 20px;
     }
 

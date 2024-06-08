@@ -23,7 +23,7 @@
             <?php
             foreach ($chanelsGroups as $group) {
             ?>
-                <div class="chanelGroup" grouupId='<?= $group['id'] ?>'>
+                <div class="chanelGroup" groupId='<?= $group['id'] ?>'>
                     <div class="fst">
                         <p><?= $group['name'] ?></p>
                         <?= ($role == 'admin') ? '<a class="addServerInGroup" href="' . $group['id'] . '">+</a>' : '' ?>
@@ -32,6 +32,7 @@
 
                     <div class="snd">
                         <?php
+                        $chanels = [];
                         $sql = "SELECT * FROM `chanels` WHERE groupId = " . $group['id'];
                         $result = $conn->query($sql);
                         while ($chanel = $result->fetch(PDO::FETCH_ASSOC)) {
@@ -45,10 +46,10 @@
                         ?>
                     </div>
                 </div>
-        </div>
-    <?php
+            <?php
             }
-    ?>
+            ?>
+        </div>
     </div>
 
 

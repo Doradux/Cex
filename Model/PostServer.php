@@ -8,7 +8,7 @@ if (isset($_POST['create'])) {
     $name = $_POST['name'];
     $creationTime = $_POST['creationTime'];
 
-    $sql = "INSERT INTO `servers` (`name`, `creationTime`, `imageId`, `grandImageId`) VALUES ('$name', '$creationTime', '1', '1')";
+    $sql = "INSERT INTO `servers` (`name`, `creationTime`, `imageId`, `grandImageId`, `privacity`) VALUES ('$name', '$creationTime', '1', '1', 'private')";
     $conn->query($sql);
     $serverId = $conn->lastInsertId();
     

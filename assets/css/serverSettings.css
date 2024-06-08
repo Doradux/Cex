@@ -68,10 +68,6 @@ body p {
   font-family: "poppins_bold";
 }
 
-.option:hover {
-  background-color: rgb(24, 24, 24);
-}
-
 .back {
   padding: 5px 20px 5px 20px;
   border-radius: 8px;
