@@ -150,14 +150,75 @@ saveBtns[2].addEventListener("click", function () {
 });
 
 //password
-var cancelDiv = document.querySelector(".change-password");
-var passCancel = document.getElementById("cancel-password");
-var showCancelDiv = document.getElementById("showCancelDiv");
+const passwordDiv = document.querySelector(".password-shield");
+const passCancel = document.getElementById("cancel-password");
+const showPasswordDiv = document.getElementById("showCancelDiv");
+const savePassword = document.getElementById("save-password");
 
-showCancelDiv.addEventListener("click", function () {
-  cancelDiv.style.display = "flex";
+showPasswordDiv.addEventListener("click", function () {
+  passwordDiv.style.display = "flex";
 });
 
-passCancel.addEventListener("click", function () {
-  cancelDiv.style.display = "none";
+var cancelChange = [passCancel, passwordDiv];
+
+cancelChange.forEach(function (listener) {
+  listener.addEventListener("click", function (event) {
+    // Verificar si el clic proviene de passCancel o de fuera del div change-password
+    if (listener === passCancel || !event.target.closest(".change-password")) {
+      passwordDiv.style.display = "none";
+      // Limpiar todos los campos de contraseña
+      var passwordInputs = document.querySelectorAll('input[type="password"]');
+      passwordInputs.forEach(function (input) {
+        input.value = "";
+      });
+    }
+  });
+});
+
+savePassword.addEventListener("click", function () {
+  var xhttp = new XMLHttpRequest();
+  const currentPassword = document.getElementById("old-password").value;
+  const newPassword = document.getElementById("new-password").value;
+  const confirmPassword = document.getElementById("confirm-password").value;
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      var response = JSON.parse(this.responseText);
+      if (response.success) {
+        passwordDiv.style.display = "none";
+        var passwordInputs = document.querySelectorAll(
+          'input[type="password"]'
+        );
+        passwordInputs.forEach(function (input) {
+          input.value = "";
+        });
+      } else {
+        console.error(response.error);
+      }
+    }
+  };
+  xhttp.open("POST", "./jsToPhp/changePassword.php", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  var params =
+    "old=" +
+    encodeURIComponent(currentPassword) +
+    "&new=" +
+    encodeURIComponent(newPassword) +
+    "&confirm=" +
+    encodeURIComponent(confirmPassword);
+  xhttp.send(params);
+});
+
+//sign out
+const signoutBtn = document.getElementById("sign-out");
+signoutBtn.addEventListener("click", function () {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log("sign out");
+      window.top.location.href = "http://localhost";
+    }
+  };
+
+  xhttp.open("POST", "./jsToPhp/signOut.php", true);
+  xhttp.send();
 });

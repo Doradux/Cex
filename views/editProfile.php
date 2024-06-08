@@ -66,7 +66,7 @@
 
             <div class="more">
                 <button id="showCancelDiv" class="orange-btn">CHANGE PASSWORD</button>
-                <button class="red-btn">SIGN OUT</button>
+                <button id="sign-out" class="red-btn">SIGN OUT</button>
                 <button class="red-btn">DELETE ACCOUNT</button>
             </div>
 
