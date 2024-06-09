@@ -30,9 +30,27 @@ if ($valid) {
     if ($conn->query($sql)) {
         $response['status'] = 'success';
         $response['message'] = 'User has been added.';
-        $sql = "SELECT * FROM users WHERE email = '$e'";
-        $result = $conn->query($sql);
-        $_SESSION['currentUser'] = $result->fetch(PDO::FETCH_ASSOC);
+        $sql = '
+    SELECT u.*, ui.name AS userImg
+    FROM users u
+    LEFT JOIN `user-image` ui ON u.imageId = ui.id
+';
+        $users = $conn->query($sql);
+        $valid = false;
+
+        while ($user = $users->fetch(PDO::FETCH_ASSOC)) {
+            if ($user['email'] == $e) {
+                $valid = true;
+                $_SESSION['currentUser'] = $user;
+                $dateString = $_SESSION['currentUser']['creation'];
+                $date = new DateTime($dateString);
+                $_SESSION['currentUser']['creation'] = $date->format('d/m/Y');
+                $dateString = $_SESSION['currentUser']['birth'];
+                $date = new DateTime($dateString);
+                $_SESSION['currentUser']['birth'] = $date->format('d/m/Y');
+                break;
+            }
+        }
     } else {
         $response['status'] = 'error';
         $response['message'] = 'Error: user couldn\'t be added.';
@@ -41,4 +59,5 @@ if ($valid) {
     $response['status'] = 'error';
     $response['message'] = 'Error: email already in use.';
 };
+
 echo json_encode($response);

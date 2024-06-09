@@ -8,7 +8,7 @@ $conn = DBconection::connectDB();
 $u = $_POST['username'];
 $p = $_POST['password'];
 
-// Modificar la consulta para incluir la imagen del usuario
+// include server img
 $sql = '
     SELECT u.*, ui.name AS userImg
     FROM users u

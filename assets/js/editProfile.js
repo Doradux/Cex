@@ -214,11 +214,56 @@ signoutBtn.addEventListener("click", function () {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      console.log("sign out");
       window.top.location.href = "http://localhost";
     }
   };
 
   xhttp.open("POST", "./jsToPhp/signOut.php", true);
   xhttp.send();
+});
+
+//delete account
+const showDeleteAccount = document.getElementById("delete-account-show");
+const deleteShield = document.querySelector(".delete-account-shield");
+const deleteDiv = document.querySelector(".delete-account");
+const deleteInput = document.getElementById("confirm-delete");
+const confirmDeleteBtn = document.querySelector(".confirm-delete-btn");
+const cancelDeleteAcc = document.getElementById("delete-cancel");
+
+showDeleteAccount.addEventListener("click", function () {
+  deleteShield.style.display = "flex";
+});
+
+deleteInput.addEventListener("input", function () {
+  if (deleteInput.value == "I UNDERSTAND") {
+    confirmDeleteBtn.id = "delete-confirm";
+  } else {
+    confirmDeleteBtn.id = "delete-confirm-disabled";
+  }
+});
+
+confirmDeleteBtn.addEventListener("click", function () {
+  if (confirmDeleteBtn.id == "delete-confirm") {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        window.top.location.href = "http://localhost";
+      }
+    };
+
+    xhttp.open("POST", "./jsToPhp/deleteAccount.php", true);
+    xhttp.send();
+  }
+});
+
+deleteShield.addEventListener("click", function () {
+  if (!event.target.closest(".delete-account")) {
+    deleteShield.style.display = "none";
+    deleteInput.value = "";
+  }
+});
+
+cancelDeleteAcc.addEventListener("click", function () {
+  deleteShield.style.display = "none";
+  deleteInput.value = "";
 });

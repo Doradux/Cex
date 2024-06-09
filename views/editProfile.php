@@ -67,13 +67,18 @@
             <div class="more">
                 <button id="showCancelDiv" class="orange-btn">CHANGE PASSWORD</button>
                 <button id="sign-out" class="red-btn">SIGN OUT</button>
-                <button class="red-btn">DELETE ACCOUNT</button>
+                <button id="delete-account-show" class="red-btn">DELETE ACCOUNT</button>
             </div>
 
         </div>
     </div>
 
-    <?php include '../assets/components/changePassword.php'; ?>
+    <?php
+    //change password
+    include '../assets/components/changePassword.php';
+    //delete account
+    include '../assets/components/delete-account.php';
+    ?>
 </body>
 
 </html>

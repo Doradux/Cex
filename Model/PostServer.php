@@ -7,11 +7,12 @@ $conn = DBconection::connectDB();
 if (isset($_POST['create'])) {
     $name = $_POST['name'];
     $creationTime = $_POST['creationTime'];
+    $userId = $_SESSION['currentUser']['id'];
 
-    $sql = "INSERT INTO `servers` (`name`, `creationTime`, `imageId`, `grandImageId`, `privacity`) VALUES ('$name', '$creationTime', '1', '1', 'private')";
+    $sql = "INSERT INTO `servers` (`name`, `creationTime`, `imageId`, `grandImageId`, `privacity`, `ownerId`) VALUES ('$name', '$creationTime', '1', '1', 'private', '$userId')";
     $conn->query($sql);
     $serverId = $conn->lastInsertId();
-    
+
     $sql = "INSERT INTO `chanelsgroup` (`name`, `serverId`) VALUES ('Default group', $serverId)";
     $conn->query($sql);
     $groupId = $conn->lastInsertId();
