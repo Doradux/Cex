@@ -43,8 +43,10 @@
         <?php
         }
         ?>
-        <div class="add-new-chanel">
-            <p class="add-new-chanel-btn" groupId="<?= $group['id'] ?>">ADD NEW CHANEL</p>
+        <div class="add-chanel-right">
+            <div class="add-new-chanel">
+                <p class="add-new-chanel-btn" groupId="<?= $group['id'] ?>">ADD NEW CHANEL</p>
+            </div>
         </div>
     <?php
     }

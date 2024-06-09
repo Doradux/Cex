@@ -118,3 +118,9 @@ h1 {
   background-color: rgb(70, 70, 70);
   border-radius: 20px;
 }
+
+.add-chanel-right {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}

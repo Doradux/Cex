@@ -103,3 +103,9 @@ h1 {
     color: white;
   }
 }
+
+.add-group-right {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}

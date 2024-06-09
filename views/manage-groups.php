@@ -27,8 +27,10 @@
     }
     ?>
     <?php include '../assets/components/addGroup.php'; ?>
-    <div class="add-new-group">
-        <p id="add-group-btn">ADD NEW GROUP</p>
+    <div class="add-group-right">
+        <div class="add-new-group">
+            <p id="add-group-btn">ADD NEW GROUP</p>
+        </div>
     </div>
 
 </body>
