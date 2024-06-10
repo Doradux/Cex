@@ -28,3 +28,7 @@ function sendMsg() {
     encodeURIComponent(chanelId);
   xhttp.send(params);
 }
+
+
+//modify/delete msg context menu
+var msgs = document.querySelectorAll(".msg");

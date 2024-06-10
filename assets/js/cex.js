@@ -77,25 +77,30 @@ function createServer() {
 }
 
 function joinServer() {
-  sid = document.getElementById("joinServerId").value;
+  var sid = document.getElementById("joinServerId").value;
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      var response = JSON.parse(this.responseText);
-      // console.log(response.message);
-      if (response.status === "success") {
-        window.location.href = "./home.php";
-      } else {
-        alert(response.message);
+      try {
+        var response = JSON.parse(this.responseText);
+        console.log(response);
+        if (response.status === "success") {
+          window.top.location.href = "/home.php";
+        } else {
+          alert(response.message);
+        }
+      } catch (e) {
+        console.error("Error parsing JSON response: ", e);
+        alert("An unexpected error occurred.");
       }
     }
   };
   xhttp.open("POST", "./controller/jsToPhp/joinServer.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-  var params = "&serverId=" + encodeURIComponent(sid);
+  var params = "serverId=" + encodeURIComponent(sid);
   xhttp.send(params);
 }
+
 
 //tooltip server icons name
 document.addEventListener("DOMContentLoaded", function () {

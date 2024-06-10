@@ -29,9 +29,16 @@
     ?>
             <div class="message" style="align-items: end;">
                 <div class="out-msg-content">
-                    <p class="messageContent"><?= $message['content'] ?></p>
+                    <p class="messageContent msg"><?= $message['content'] ?></p>
                     <p class="in-time"><?= date('H:i', strtotime($message['time'])) ?></p>
                 </div>
+            </div>
+        <?php
+        } else if ($message['userId'] == 0) {
+        ?>
+
+            <div class="in-msg centred">
+                <p class="messageContent"><?= $message['content'] ?></p>
             </div>
         <?php
         } else {
@@ -77,7 +84,7 @@
                     ?>
                     <p class="in-name"><?= $senderName ?></p>
                 </div>
-                <div class="in-msg-content">
+                <div class="in-msg-content msg">
                     <p class="messageContent"><?= $message['content'] ?></p>
                     <p class="in-time"><?= date('H:i', strtotime($message['time'])) ?></p>
                 </div>

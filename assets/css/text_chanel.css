@@ -194,3 +194,19 @@ header {
   overflow-wrap: break-word;
   white-space: normal;
 }
+.centred {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin: 0 0 10px 0;
+}
+
+.centred p {
+  background-color: rgba(70, 70, 70, 0.7);
+  padding: 5px;
+  border-radius: 5px;
+
+  & span {
+    color: goldenrod;
+  }
+}
