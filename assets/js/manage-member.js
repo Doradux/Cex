@@ -98,3 +98,58 @@ changeRoleBtns.forEach((btn) => {
     xhttp.send(params);
   });
 });
+
+//kick
+var kickMembers = document.querySelectorAll(".member-kick");
+const kickSpan = document.getElementById("kick-nick");
+const kickShield = document.querySelector(".kick-member-shield");
+const idKick = document.getElementById("kick-member-id");
+
+kickMembers.forEach((kickMember) => {
+  kickMember.addEventListener("click", function () {
+    kickShield.style.display = "flex";
+    var memberId = kickMember.getAttribute("memberId");
+    var memberUsername = kickMember.getAttribute("memberUsername");
+    kickSpan.innerHTML = memberUsername;
+    idKick.value = memberId;
+
+    //kick member
+    const confirmKick = document.getElementById("confirm-kick");
+    confirmKick.addEventListener("click", function () {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          var response = JSON.parse(this.responseText);
+          if (response.success) {
+            console.log(response);
+            kickShield.style.display = "none";
+            kickMember.parentElement.parentElement.parentElement.style.display =
+              "none";
+          } else {
+            console.log(response.error);
+            console.log(response);
+          }
+        }
+      };
+
+      xhttp.open("POST", "./jsToPhp/server-user-action.php", true);
+      xhttp.setRequestHeader(
+        "Content-Type",
+        "application/x-www-form-urlencoded"
+      );
+      var params = "kickId=" + encodeURIComponent(idKick.value);
+      xhttp.send(params);
+    });
+  });
+});
+
+kickShield.addEventListener("click", function () {
+  if (!event.target.closest(".modify-nickname")) {
+    kickShield.style.display = "none";
+  }
+});
+
+const cancelKick = document.getElementById("cancel-kick");
+cancelKick.addEventListener("click", function () {
+  kickShield.style.display = "none";
+});

@@ -62,7 +62,7 @@ if (isset($_POST['rId'])) {
         $stmt->bindParam(":userId", $rId);
         $stmt->bindParam(":serverId", $rServerId);
         if ($stmt->execute()) {
-            //refresh user nick in session
+            //refresh user role in session
             for ($i = 0; $i < count($_SESSION['serverUsers']); $i++) {
                 if ($_SESSION['serverUsers'][$i]['id'] == $rId) {
                     $_SESSION['serverUsers'][$i]['serverRole'] = "admin";
@@ -75,6 +75,29 @@ if (isset($_POST['rId'])) {
         $response['error'] = "User role couldn't be changed";
     }
 }
+
+
+//kick member
+if (isset($_POST['kickId'])) {
+    $kickId = $_POST['kickId'];
+    $response['kickId'] = $kickId;
+    $sql = "DELETE FROM `user-server` WHERE `userId` = :userId AND `serverId` = :serverId";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(":userId", $kickId);
+    $stmt->bindParam(":serverId", $_SESSION['currentServer']['id']);
+    if ($stmt->execute()) {
+        foreach ($_SESSION['serverUsers'] as $user) {
+            if ($user['id'] == 1) {
+                unset($_SESSION[$user]);
+            }
+        }
+
+        $response['success'] = true;
+    } else {
+        $response['error'] = "User couldn't be deleted";
+    }
+}
+
 
 
 
