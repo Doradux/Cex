@@ -45,6 +45,7 @@
         justify-content: center;
         align-items: center;
         position: absolute;
+        backdrop-filter: blur(5px);
     }
 
     .delete-account {

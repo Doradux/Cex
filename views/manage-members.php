@@ -26,8 +26,8 @@
             </div>
             <div class="members-part2">
                 <div class="member-options">
-                    <div class="member-server-nick member-option"><img src="../assets/icons/edit-user.svg" alt="edit"></div>
-                    <div class="member-role member-option" <?= $member['serverRole'] == 'admin' ? 'style="background-color: rgba(0, 180, 217, 1)"' : '' ?>><img src="../assets/icons/admin-user.svg" alt="edit"></div>
+                    <div class="member-server-nick member-option" memberId="<?= $member['id'] ?>" memberUsername="<?= $member['username'] ?>" memberNick="<?= $member['serverNick'] ?>"><img src="../assets/icons/edit-user.svg" alt="edit"></div>
+                    <div class="member-role member-option change-user-role" currentRole="<?= $member['serverRole'] ?>" memberId="<?= $member['id'] ?>" <?= $member['serverRole'] == 'admin' ? 'style="background-color: rgba(0, 180, 217, 1)"' : '' ?>><img src=" ../assets/icons/admin-user.svg" alt="edit"></div>
                     <div class="member-kick member-option"><img src="../assets/icons/kick-user.svg" alt="edit"></div>
                 </div>
             </div>
@@ -35,6 +35,13 @@
     <?php
     }
     ?>
+
+    <?php
+    //component modify-user-servernick.php
+    include '../assets/components/modify-user-servernick.php';
+    ?>
 </body>
+
+<script src="../assets/js/manage-member.js"></script>
 
 </html>
