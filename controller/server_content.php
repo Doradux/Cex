@@ -89,9 +89,9 @@ if ($_SESSION['currentServer']['welcomeChanel'] == null) {
 } else {
     $sql = 'SELECT `name` FROM `chanels` WHERE `id` = :chanelId';
     $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':chanelId', $_SESSION['currentServer']['welcomeChanel'], PDO::PARAM_INT);
+    $stmt->bindParam(':chanelId', $_SESSION['currentServer']['welcomeChanel']);
     $stmt->execute();
-    $result = $stmt(PDO::FETCH_ASSOC);
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($result) {
         $_SESSION['currentServer']['welcomeChanel'] = $result['name'];

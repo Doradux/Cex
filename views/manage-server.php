@@ -16,16 +16,16 @@
         <div class="server-name">
             <p class="big">NAME</p>
             <div class="name-input">
-                <input type="text" disabled value="<?= $_SESSION['currentServer']['name'] ?>">
-                <button>EDIT</button>
+                <input type="text" id="server-name" disabled value="<?= $_SESSION['currentServer']['name'] ?>">
+                <button id="name-btn">EDIT</button>
             </div>
         </div>
 
         <div class="server-welcome">
             <p class="big">WELCOME CHANEL</p>
             <div class="current-welcome">
-                <input type="text" disabled value="<?= $_SESSION['currentServer']['welcomeChanel'] ?>">
-                <button>EDIT</button>
+                <input type="text" id="current-welcome" disabled value="<?= $_SESSION['currentServer']['welcomeChanel'] ?>">
+                <button id="change-welcome">EDIT</button>
             </div>
         </div>
 
@@ -76,6 +76,11 @@
 
     </div>
 
+    <?php
+    //select welcome chanel
+    include '../assets/components/select-welcome.php';
+
+    ?>
 
 </body>
 

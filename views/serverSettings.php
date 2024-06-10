@@ -11,7 +11,7 @@
 <body>
     <div class="left-menu">
         <div class="title">
-            <p class="big"><?= strtoupper($_SESSION['currentServer']['name']) ?></p>
+            <p id="options-server-name" class="big">SERVER SETTINGS</p>
         </div>
 
         <div class="options">

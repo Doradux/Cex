@@ -95,3 +95,82 @@ grandimage2 = document.getElementById("grandimage-input");
     }
   });
 });
+
+const nameInput = document.getElementById("server-name");
+const editName = document.getElementById("name-btn");
+var saveNameStatus = 0;
+
+editName.addEventListener("click", function () {
+  if (saveNameStatus == 0) {
+    editName.textContent = "SAVE";
+    editName.style.backgroundColor = "green";
+    nameInput.removeAttribute("disabled");
+    nameInput.focus();
+    saveNameStatus = 1;
+  } else {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        var response = JSON.parse(this.responseText);
+        if (response.success) {
+          editName.textContent = "EDIT";
+          editName.style.backgroundColor = "rgb(0, 140, 255)";
+          nameInput.setAttribute("disabled", "disabled");
+          saveNameStatus = 0;
+        } else {
+          console.log(response.error);
+          console.log(response);
+        }
+      }
+    };
+
+    xhttp.open("POST", "./jsToPhp/modify-server.php", true);
+    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    var params = "newServerName=" + encodeURIComponent(nameInput.value);
+    xhttp.send(params);
+  }
+});
+
+//change welcome chanel
+const welcomeShield = document.querySelector(".welcome-chanel-shield");
+const editWelcomeBtn = document.getElementById("change-welcome");
+const currentWelcome = document.getElementById("current-welcome");
+editWelcomeBtn.addEventListener("click", function () {
+  welcomeShield.style.display = "flex";
+});
+
+welcomeShield.addEventListener("click", function () {
+  if (!event.target.closest(".welcome-chanel-div")) {
+    welcomeShield.style.display = "none";
+  }
+});
+
+var welcomeListElements = document.querySelectorAll(".chanel-list-element");
+welcomeListElements.forEach((element) => {
+  element.addEventListener("click", function () {
+    var chanelId = element.getAttribute("chanelId");
+    var chanelName = element.querySelector(".chanel-name").textContent;
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        var response = JSON.parse(this.responseText);
+        if (response.success) {
+          currentWelcome.value = chanelName;
+          welcomeShield.style.display = "none";
+        } else {
+          console.log(response.error);
+          console.log(response);
+        }
+      }
+    };
+
+    xhttp.open("POST", "./jsToPhp/modify-server.php", true);
+    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    var params =
+      "chanelId=" +
+      encodeURIComponent(chanelId) +
+      "&chanelName=" +
+      encodeURIComponent(chanelName);
+    xhttp.send(params);
+  });
+});
