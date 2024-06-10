@@ -37,12 +37,24 @@
         } else {
 
             //get sender name and img
-            $sql = 'SELECT * FROM `users` WHERE id = ' . $message['userId'];
-            $stmt = $conn->query($sql);
-            $senderData = $stmt->fetch(PDO::FETCH_ASSOC);
-            $sql = 'SELECT * FROM `user-image` WHERE id = ' . $senderData['imageId'];
-            $stmt = $conn->query($sql);
-            $senderImg = $stmt->fetch(PDO::FETCH_ASSOC);
+            $sql = 'SELECT * FROM `users` WHERE id = :userId';
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(":userId", $message['userId']);
+            if ($stmt->execute()) {
+                if ($stmt->rowCount() > 0) {
+                    $senderData = $stmt->fetch(PDO::FETCH_ASSOC);
+                    $sql = 'SELECT * FROM `user-image` WHERE id = :imageId';
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bindParam(":imageId", $senderData['imageId']);
+                    if ($stmt->execute()) {
+                        $senderImg = $stmt->fetch(PDO::FETCH_ASSOC);
+                    }
+                } else {
+                    $senderData['id'] = 0;
+                    $senderImg['name'] = "default.jpg";
+                    $senderData['username'] = '(Deleted user)';
+                }
+            }
 
         ?>
             <div class="in-msg">
@@ -55,6 +67,8 @@
                             $found = true;
                             $senderName = $serUser['name'];
                             break;
+                        } else {
+                            $senderName = "Deleted user";
                         }
                     }
                     if (!$found) {
