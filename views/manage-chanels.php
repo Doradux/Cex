@@ -44,8 +44,8 @@
         }
         ?>
         <div class="add-chanel-right">
-            <div class="add-new-chanel">
-                <p class="add-new-chanel-btn" groupId="<?= $group['id'] ?>">ADD NEW CHANEL</p>
+            <div class="add-new-chanel" groupId="<?= $group['id'] ?>">
+                <p class="add-new-chanel-btn">ADD NEW CHANEL</p>
             </div>
         </div>
     <?php
@@ -53,5 +53,7 @@
     include '../assets/components/addChanel.php';
     ?>
 </body>
+
+<script src="../assets/js/manage-chanels.js"></script>
 
 </html>
