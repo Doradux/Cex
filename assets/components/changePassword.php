@@ -14,6 +14,29 @@
 </div>
 
 <style>
+    @font-face {
+        font-family: "poppins";
+        src: url("../../assets/fonts/Poppins-Regular.ttf");
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: "poppins_bold";
+        src: url("../../assets/fonts/Poppins-Bold.ttf");
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        /* border: 1px solid black; */
+        font-family: "poppins";
+        cursor: default;
+    }
+
     .password-shield {
         width: 100vw;
         height: 100vh;
@@ -21,7 +44,10 @@
         display: none;
         justify-content: center;
         align-items: center;
-        position: absolute;
+        position: fixed;
+        top: 0;
+        left: 0;
+        backdrop-filter: blur(5px);
     }
 
     .change-password {
@@ -38,7 +64,7 @@
         background-color: rgb(70, 70, 70);
         /* box-shadow: 0 2px 20px 0px rgb(88, 88, 88); */
     }
-    
+
     input {
         background-color: rgb(50, 50, 50);
         border-radius: 5px;

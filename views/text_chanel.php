@@ -15,6 +15,7 @@
     </header>
 
     <?php
+    $messages = $_SESSION['msgs'];
     $lastDate = null;
 
     foreach ($messages as $message) {
@@ -28,9 +29,9 @@
         if ($message['userId'] == $_SESSION['currentUser']['id']) {
     ?>
             <div class="message" style="align-items: end;">
-                <div class="out-msg-content">
-                    <p class="messageContent msg"><?= $message['content'] ?></p>
-                    <p class="in-time"><?= date('H:i', strtotime($message['time'])) ?></p>
+                <div class="out-msg-content msg" senderId="<?= $message['userId'] ?>" messageId="<?= $message['id'] ?>">
+                    <p class="messageContent"><?= $message['content'] ?></p>
+                    <p class="in-time"><?= $message['modified'] == 1 ? 'Modified ' : '' ?><?= date('H:i', strtotime($message['time'])) ?></p>
                 </div>
             </div>
         <?php
@@ -84,9 +85,9 @@
                     ?>
                     <p class="in-name"><?= $senderName ?></p>
                 </div>
-                <div class="in-msg-content msg">
+                <div class="in-msg-content msg" senderId="<?= $message['userId'] ?>" messageId="<?= $message['id'] ?>">
                     <p class="messageContent"><?= $message['content'] ?></p>
-                    <p class="in-time"><?= date('H:i', strtotime($message['time'])) ?></p>
+                    <p class="in-time"><?= $message['modified'] == 1 ? 'Modified ' : '' ?><?= date('H:i', strtotime($message['time'])) ?></p>
                 </div>
             </div>
     <?php
@@ -103,8 +104,19 @@
             <img src="../assets/images/send.svg" alt="sendMessage">
         </div>
     </div>
+
+    <?php
+    //component msg-context-menu
+    include '../assets/components/msg-context-menu.php';
+    //component msg-modify
+    include '../assets/components/modify-msg.php';
+    ?>
 </body>
 
 </html>
 
+<script>
+    var role = "<?= $_SESSION['currentUser']['role'] ?>";
+    let currentId = "<?= $_SESSION['currentUser']['id'] ?>";
+</script>
 <script src="../assets/js/text_chanel.js"></script>
