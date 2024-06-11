@@ -18,7 +18,7 @@ $users = $conn->query($sql);
 $valid = false;
 
 while ($user = $users->fetch(PDO::FETCH_ASSOC)) {
-    if (strtolower($user['username']) == strtolower($u) && $user['password'] == $p) {
+    if (strtolower($user['email']) == strtolower($u) && $user['password'] == $p) {
         $valid = true;
         $_SESSION['currentUser'] = $user;
         $dateString = $_SESSION['currentUser']['creation'];

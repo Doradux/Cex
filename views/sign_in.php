@@ -24,7 +24,7 @@
             </div>
             <form action="">
                 <div>
-                    <label for="label1">USERNAME OR EMAIL<span>*</span></label>
+                    <label for="label1">EMAIL<span>*</span></label>
                     <input type="text" name="label1" id="label1">
                 </div>
                 <div>
@@ -50,10 +50,6 @@
             <div>
                 <label for="label3">EMAIL<span>*</span></label>
                 <input required type="text" name="label3" id="label3">
-            </div>
-            <div>
-                <label for="label4">DISPLAY NAME</label>
-                <input type="text" name="label4" id="label4">
             </div>
             <div>
                 <label for="label5">USERNAME<span>*</span></label>
