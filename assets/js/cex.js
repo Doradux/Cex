@@ -101,7 +101,6 @@ function joinServer() {
   xhttp.send(params);
 }
 
-
 //tooltip server icons name
 document.addEventListener("DOMContentLoaded", function () {
   const tooltip = document.getElementById("tooltip");
@@ -138,4 +137,10 @@ var editProfileBtn = document.getElementById("edit-profile-btn");
 editProfileBtn.addEventListener("click", function () {
   userOptionsMenu.style.display = "none";
   iframe.src = "../controller/editProfile.php";
+});
+
+//go landing page
+const landing = document.getElementById("home");
+landing.addEventListener("click", function () {
+  iframe.src = "../controller/landing.php";
 });

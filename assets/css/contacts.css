@@ -18,8 +18,11 @@
   box-sizing: border-box;
   /* border: 1px solid black; */
   font-family: "poppins";
+  color: white;
 }
 
 body {
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(40, 40, 40);
+  display: flex;
+  height: 100vh;
 }

@@ -122,7 +122,6 @@ for (var i = currentYear; i >= 1940; i--) {
   years.appendChild(option);
 }
 
-
 //register user
 var registerBtn = document.getElementById("confirmRegister");
 registerBtn.addEventListener("click", function (event) {
@@ -134,7 +133,6 @@ function registerUser() {
   console.log("registrandoUsuario");
 
   var e = document.getElementById("label3").value;
-  var dn = document.getElementById("label4").value;
   var u = document.getElementById("label5").value;
   var p = document.getElementById("label6").value;
 
@@ -150,10 +148,10 @@ function registerUser() {
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       var response = JSON.parse(this.responseText);
-        // console.log(response.message);
-        if (response.status === 'success') {
-          window.location.href = "./home.php";
-        }
+      // console.log(response.message);
+      if (response.status === "success") {
+        window.location.href = "./home.php";
+      }
     }
   };
   xhttp.open("POST", "./controller/jsToPhp/registerUser.php", true);
@@ -161,8 +159,6 @@ function registerUser() {
   var params =
     "username=" +
     encodeURIComponent(u) +
-    "&displayName=" +
-    encodeURIComponent(dn) +
     "&email=" +
     encodeURIComponent(e) +
     "&password=" +
@@ -171,7 +167,6 @@ function registerUser() {
     encodeURIComponent(b);
   xhttp.send(params);
 }
-
 
 //login user
 var loginBtn = document.getElementById("confirmLogin");
@@ -190,18 +185,15 @@ function loginUser() {
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       var response = JSON.parse(this.responseText);
-        // console.log(response.message);
-        if (response.status === 'success') {
-          window.location.href = "./home.php";
-        }
+      // console.log(response.message);
+      if (response.status === "success") {
+        window.location.href = "./home.php";
+      }
     }
   };
   xhttp.open("POST", "./controller/jsToPhp/loginIn.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   var params =
-    "username=" +
-    encodeURIComponent(u) +
-    "&password=" +
-    encodeURIComponent(p);
+    "username=" + encodeURIComponent(u) + "&password=" + encodeURIComponent(p);
   xhttp.send(params);
 }

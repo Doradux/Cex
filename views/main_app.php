@@ -40,7 +40,7 @@
         </div>
 
         <div class="iframe">
-            <iframe frameborder="0" src="./views/contacts.php" id="iframe"></iframe>
+            <iframe frameborder="0" src="./controller/landing.php" id="iframe"></iframe>
         </div>
 
     </container>
