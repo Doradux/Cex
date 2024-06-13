@@ -60,7 +60,7 @@
     }
 
     .profile-blue {
-        background-color: rgb(0, 140, 255);
+        background-color: darkcyan;
         width: 100%;
         height: 50px;
     }
@@ -105,7 +105,7 @@
     }
 
     .profile-options p:hover {
-        color: rgb(0, 140, 255);
+        color: darkcyan;
         cursor: pointer;
     }
 
@@ -113,7 +113,7 @@
         display: flex;
         flex-direction: column;
         margin-top: -25px;
-        border-bottom: 3px solid rgb(0, 140, 255);
+        border-bottom: 3px solid darkcyan;
         padding-bottom: 10px;
     }
 

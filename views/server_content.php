@@ -65,7 +65,7 @@
                 <?php if ($serverUser['serverRole'] == 'user') { ?>
                     <p><?= $serverUser['name'] ?></p>
                 <?php } else if ($serverUser['serverRole'] == 'admin') { ?>
-                    <p style="color: rgba(0, 180, 217, 1);"><?= $serverUser['name'] ?></p>
+                    <p style="color: darkcyan;"><?= $serverUser['name'] ?></p>
                 <?php } ?>
             </div>
         <?php } ?>

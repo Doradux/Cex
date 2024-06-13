@@ -100,7 +100,7 @@ body {
 }
 
 .chanelsOptions a:hover {
-  background-color: rgba(0, 180, 217, 1);
+  background-color: darkcyan;
   /* color: #000000; */
 }
 
@@ -147,7 +147,7 @@ a {
 }
 
 .serverOptions a:hover {
-  background-color: rgba(0, 180, 217, 1);
+  background-color: darkcyan;
 }
 
 .serverChanelContent {
@@ -252,11 +252,11 @@ iframe {
 .confirm {
   border: none;
   border-radius: 4px;
-  background-color: rgba(0, 180, 217, 1);
+  background-color: darkcyan;
 }
 
 .confirm:hover {
-  background-color: rgb(37, 212, 247);
+  background-color: cyan;
 }
 
 .delete {

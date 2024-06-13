@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="snd">
-                    <div class="option msg">
+                    <div class="option msg" userId="<?= $userFriend['id'] ?>">
                         <img src="../assets/icons/msg.png" alt="chat user">
                     </div>
                     <div class="option delete">
@@ -62,5 +62,7 @@
     }
     ?>
 </body>
+
+<script src="../assets/js/contacts.js"></script>
 
 </html>

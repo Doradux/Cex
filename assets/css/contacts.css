@@ -22,7 +22,6 @@
 }
 
 body {
-  background-color: rgb(40, 40, 40);
   display: flex;
   height: 100vh;
   padding: 50px;

@@ -156,19 +156,20 @@ body {
 
 button {
   min-width: 70px;
-  background-color: rgb(0, 140, 255);
+  background-color: darkcyan;
   border: none;
   border-radius: 5px;
   box-shadow: 0 1px 2px 0 rgb(88, 88, 88);
   font-family: "poppins_bold";
   text-shadow: none;
-  color: black;
   transition: all 0.3s ease;
+  color: white;
+  cursor: pointer;
 }
 
 button:hover {
-  background-color: rgb(99, 185, 255);
-  color: white;
+  color: black;
+  background-color: cyan;
 }
 
 .name-input,
@@ -257,7 +258,7 @@ input[type="text"] {
   background-color: transparent;
   border: 1px solid gray;
   color: white;
-  font-family: 'poppins';
+  font-family: "poppins";
   box-shadow: none;
   transition: all 0.3s ease;
 }

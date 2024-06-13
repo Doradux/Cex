@@ -73,9 +73,9 @@ changeRoleBtns.forEach((btn) => {
             );
 
           if (rRole == "user") {
-            btn.style.backgroundColor = "rgba(0, 180, 217, 1)";
+            btn.style.backgroundColor = "darkcyan";
             btn.setAttribute("currentRole", "admin");
-            rName.style.color = "rgba(0, 180, 217, 1)";
+            rName.style.color = "darkcyan";
           } else {
             btn.style.backgroundColor = "rgb(119, 119, 119)";
             btn.setAttribute("currentRole", "user");

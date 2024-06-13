@@ -120,7 +120,17 @@ if (isset($_POST['addId'])) {
             }
             // Reindex the array
             $_SESSION['pendings'] = array_values($_SESSION['pendings']);
-            $response['success'] = true;
+
+            //create private chanel
+            $sql = "INSERT INTO `chanels` (`name`, `groupId`, `type`) VALUES (:name, 0, 'chat')";
+            $stmt = $conn->prepare($sql);
+            $name = $_SESSION['currentUser']['id'] . '-' . $reqId;
+            $stmt->bindParam(':name', $name);
+            if ($stmt->execute()) {
+                $response['success'] = true;
+            } else {
+                $response['error'] = "Couldn't create private chanel pending request.";
+            }
         } else {
             $response['error'] = "Couldn't delete pending request.";
         }
