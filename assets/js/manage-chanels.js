@@ -1,4 +1,5 @@
 //display chanel adder (manage chanels)
+const shield = document.querySelector(".postChanelUtility-shield");
 var addChanelUtility = document.getElementById("postChanelUtility");
 var addChanelBtns = document.querySelectorAll(".add-new-chanel");
 addChanelBtns.forEach(function (btn) {

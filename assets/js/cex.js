@@ -144,3 +144,43 @@ const landing = document.getElementById("home");
 landing.addEventListener("click", function () {
   iframe.src = "../controller/landing.php";
 });
+
+//set status
+const setStatusBtn = document.getElementById("set-status-btn");
+const statusShield = document.querySelector(".status-shield");
+const statusDiv = document.querySelector(".status");
+const cancelStatus = document.getElementById("cancel-status");
+const confirmStatus = document.getElementById("set-status");
+const statusTextarea = document.getElementById("status-value");
+
+setStatusBtn.addEventListener("click", function () {
+  statusShield.style.display = "flex";
+});
+
+statusShield.addEventListener("click", function (event) {
+  if (!event.target.closest(".status")) {
+    statusShield.style.display = "none";
+  }
+});
+
+cancelStatus.addEventListener("click", function (event) {
+  statusShield.style.display = "none";
+});
+
+confirmStatus.addEventListener("click", function () {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      var response = JSON.parse(this.responseText);
+      if (response.success) {
+        statusShield.style.display = "none";
+      } else {
+        console.error(response);
+      }
+    }
+  };
+  xhttp.open("POST", "./controller/jsToPhp/editProfile.php", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  var params = "newStatus=" + encodeURIComponent(statusTextarea.value);
+  xhttp.send(params);
+});

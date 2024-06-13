@@ -68,7 +68,10 @@
 
 
     <!-- utilities -->
-    <?php include './assets/components/contextMenuProfile.php'; ?>
+    <?php
+    include './assets/components/contextMenuProfile.php';
+    include './assets/components/set-status.php';
+    ?>
 
 </body>
 

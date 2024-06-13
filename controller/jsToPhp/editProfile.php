@@ -5,6 +5,8 @@ require_once '../../Model/DBconection.php';
 $conn = DBconection::connectDB();
 header('Content-Type: application/json');
 
+$response = [];
+
 if (isset($_POST['username'])) {
     $sql = 'UPDATE `users` SET `username` = :newUsername WHERE `id` = :currentId';
     $stmt = $conn->prepare($sql);
@@ -46,3 +48,21 @@ if (isset($_POST['birth'])) {
         $response['error'] = "Birth change failed";
     }
 }
+
+if (isset($_POST['newStatus'])) {
+    $newStatus = $_POST['newStatus'];
+
+    $sql = "UPDATE `users` SET `status` = :newStatus WHERE `id` = :id";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(":newStatus", $newStatus);
+    $stmt->bindParam(":id", $_SESSION['currentUser']['id']);
+
+    if ($stmt->execute()) {
+        $response['success'] = true;
+        $_SESSION['currentUser']['status'] = $newStatus;
+    } else {
+        $response['error'] = "Status coulnd't get set";
+    }
+}
+
+echo json_encode($response);

@@ -22,6 +22,7 @@ function searchUsers() {
       const results = document.querySelector(".results");
       results.innerHTML = "";
       var response = JSON.parse(this.responseText);
+      console.log(response);
       if (response.length > 0) {
         response.forEach((element) => {
           let resultDiv = document.createElement("div");
@@ -74,7 +75,7 @@ function searchUsers() {
                   console.log(response);
                   if (response.success) {
                     btn.querySelector("img").style.transform =
-                      "rotate(-380deg)";
+                      "rotate(-360deg)";
                     btn.querySelector("img").src = "../assets/icons/ok.png";
                   } else {
                     console.error(response);

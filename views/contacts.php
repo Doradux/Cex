@@ -12,8 +12,38 @@
 <body>
     <?php
     if (count($friends) > 0) {
-    } else {
+        echo "<div class='friends'>";
+        foreach ($_SESSION['friends'] as $userFriend) {
     ?>
+            <div class="friend">
+                <div class="fst">
+                    <div class="fst-fst">
+                        <figure>
+                            <img src="../assets/images/userImage/<?= $userFriend['image'] ?>" alt="friend image">
+                        </figure>
+                        <div class="names">
+                            <h3>@<?= $userFriend['username'] ?></h3>
+                            <p><?= $userFriend['displayname'] ?></p>
+                        </div>
+                    </div>
+                    <div class="fst-snd">
+                        <p><?= $userFriend['status'] ?></p>
+                    </div>
+                </div>
+                <div class="snd">
+                    <div class="option msg">
+                        <img src="../assets/icons/msg.png" alt="chat user">
+                    </div>
+                    <div class="option delete">
+                        <img src="../assets/icons/delete.png" alt="delete friend">
+                    </div>
+                </div>
+            </div>
+        <?php
+        }
+        echo "</div>";
+    } else {
+        ?>
 
         <div class="no-friends">
             <img src="../assets/images/lonely.png" alt="lonely image">
