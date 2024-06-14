@@ -25,7 +25,7 @@
         <?php
         foreach ($chanels as $chanel) {
         ?>
-            <div class="chanel">
+            <div class="chanel" chanelId="<?= $chanel['id'] ?>">
                 <div class="chanel-part1">
                     <div class="chanel-tags">
                         <?= $chanel['type'] == 'chat' ? "<p># " . $chanel['name'] . "</p>" : "<p>⪨ " . $chanel['name'] . "</p>" ?>

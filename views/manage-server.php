@@ -31,6 +31,20 @@
 
     </div>
 
+    <div class="server-privacity">
+        <p class="big">SERVER PRIVACITY</p>
+
+        <div id="privacity">
+            <div id="typeHider">
+                <div id="type-privacity"><img class="server-privacity-icon" src="../../assets/icons/no-visible.png" alt=""></div>
+            </div>
+            <div class="p-types">
+                <p>Private</p>
+                <p>Public</p>
+            </div>
+        </div>
+    </div>
+
     <div class="server-photo">
 
         <div class="photo-settings">
@@ -83,7 +97,9 @@
     ?>
 
 </body>
-
+<script>
+    var privacity = "<?= $_SESSION['currentServer']['privacity'] ?>";
+</script>
 <script src="../assets/js/serverProperties.js"></script>
 
 </html>

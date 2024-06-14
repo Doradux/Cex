@@ -173,22 +173,24 @@ header {
 }
 
 .dateMsg {
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(255, 255, 255, 0.3) 40%,
-    rgba(255, 255, 255, 0.3) 60%,
-    rgba(0, 0, 0, 0) 100%
-  );
   text-align: center;
   color: white;
-  width: 10%;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 15px;
   margin-bottom: 15px;
   padding: 2px;
   font-size: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.line {
+  flex: 1;
+  border-bottom: 1px solid white;
 }
 
 .messageContent {
@@ -211,4 +213,12 @@ header {
   & span {
     color: goldenrod;
   }
+}
+
+.start {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }

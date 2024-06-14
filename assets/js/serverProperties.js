@@ -174,3 +174,61 @@ welcomeListElements.forEach((element) => {
     xhttp.send(params);
   });
 });
+
+//get privacity
+const privDiv = document.getElementById("privacity");
+const privSelect = document.getElementById("type-privacity");
+const privIcon = document.querySelector(".server-privacity-icon");
+if (privacity == "public") {
+  privSelect.style.backgroundColor = "darkcyan";
+  privSelect.style.transform = "translateX(-120px)";
+  privIcon.src = "../../assets/icons/visible.png";
+  privIcon.style.transform = "rotate(-360deg)";
+}
+
+//change
+privDiv.addEventListener("click", function () {
+  if (privacity == "public") {
+    privacity = "private";
+    privSelect.style.backgroundColor = "crimson";
+    privSelect.style.transform = "translateX(0)";
+    privIcon.src = "../../assets/icons/no-visible.png";
+    privIcon.style.transform = "rotate(360deg)";
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        var response = JSON.parse(this.responseText);
+        if (response.success) {
+        } else {
+          console.log(response);
+        }
+      }
+    };
+    xhttp.open("POST", "./jsToPhp/modify-server.php", true);
+    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    var params = "serverPriv=private";
+    xhttp.send(params);
+  } else {
+    privacity = "public";
+    privSelect.style.backgroundColor = "darkcyan";
+    privSelect.style.transform = "translateX(-120px)";
+    privIcon.src = "../../assets/icons/visible.png";
+    privIcon.style.transform = "rotate(-360deg)";
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        var response = JSON.parse(this.responseText);
+        if (response.success) {
+        } else {
+          console.log(response);
+        }
+      }
+    };
+    xhttp.open("POST", "./jsToPhp/modify-server.php", true);
+    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    var params = "serverPriv=public";
+    xhttp.send(params);
+  }
+});

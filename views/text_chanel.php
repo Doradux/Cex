@@ -14,15 +14,26 @@
         <div class="chanel-description"><?= $chanelData['description'] ?></div>
     </header>
 
+    <div class="start">
+        <h1>Welcome to #<?= $chanelData['name'] ?>!</h1>
+        <p>This is the start of the #<?= $chanelData['name'] ?> chanel</p>
+    </div>
+
     <?php
     $messages = $_SESSION['msgs'];
     $lastDate = null;
+
 
     foreach ($messages as $message) {
         $currentDate = date('d/m/Y', strtotime($message['time']));
 
         if ($currentDate != $lastDate) {
-            echo "<p class='dateMsg'>$currentDate</p>";
+            echo
+            "<div class='dateMsg'>
+            <div class='line'></div>
+            <p>$currentDate</p>
+            <div class='line'></div>
+            </div>";
             $lastDate = $currentDate;
         }
 

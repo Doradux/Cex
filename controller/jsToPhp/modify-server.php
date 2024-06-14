@@ -38,4 +38,19 @@ if (isset($_POST['chanelId'])) {
     }
 }
 
+if (isset($_POST['serverPriv'])) {
+    $priv = $_POST['serverPriv'];
+
+    $sql = "UPDATE `servers` SET `privacity` = :priv WHERE `id` = :servId";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(":priv", $priv);
+    $stmt->bindParam(":servId", $_SESSION['currentServer']['id']);
+    if ($stmt->execute()) {
+        $_SESSION["currentServer"]["privacity"] = $priv;
+        $response['success'] = true;
+    } else {
+        $response['error'] = "Privacity couldn't be changed";
+    }
+}
+
 echo json_encode($response);

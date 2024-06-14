@@ -73,3 +73,26 @@ postChanel.addEventListener("click", function () {
     alert("Chanel name can't be: null");
   }
 });
+
+//deleteChanel
+const chanels = document.querySelectorAll(".chanel");
+chanels.forEach((chanel) => {
+  chanel.querySelector(".delete").addEventListener("click", function () {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        response = JSON.parse(this.response);
+        if (response.success) {
+          chanel.remove();
+        } else {
+          console.error(this.response);
+        }
+      }
+    };
+    xhttp.open("POST", "./jsToPhp/deleteChanel.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    var params =
+      "chanelId=" + encodeURIComponent(chanel.getAttribute("chanelId"));
+    xhttp.send(params);
+  });
+});

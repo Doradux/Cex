@@ -54,7 +54,7 @@
 
 
     <div class="serverChanelContent">
-        <iframe id="chanelContent" src="" frameborder="0"></iframe>
+        <iframe id="chanelContent" src="../views/server-home.php" frameborder="0"></iframe>
     </div>
 
     <div class="members">

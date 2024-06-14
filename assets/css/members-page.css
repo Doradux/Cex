@@ -28,6 +28,19 @@ body {
   gap: 10px;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(70, 70, 70);
+  border-radius: 20px;
+}
+
 .member {
   border-radius: 10px;
   padding: 10px;
