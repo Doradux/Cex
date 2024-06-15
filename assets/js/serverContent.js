@@ -104,7 +104,11 @@ var chanelsLinks = document.querySelectorAll(".chanelLink");
 
 chanelsLinks.forEach(function (link) {
   link.addEventListener("click", function (event) {
+    chanelsLinks.forEach((chanel) => {
+      chanel.style.backgroundColor = "transparent";
+    });
     event.preventDefault();
+    link.style.backgroundColor = "darkcyan";
     var chanelId = link.getAttribute("href");
 
     document

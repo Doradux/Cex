@@ -330,3 +330,10 @@ iframe {
   transform: translateY(12px);
   text-align: center;
 }
+
+.chanelLink {
+  padding: 2px;
+  border-radius: 8px;
+  max-width: 100%;
+  width: fit-content;
+}

@@ -15,5 +15,8 @@ $stmt = $conn->query($sql);
 $_SESSION['msgs'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
-
-include '../views/text_chanel.php';
+if ($chanelData['type'] == "chat") {
+    include '../views/text_chanel.php';
+} else {
+    header("Location: ../videocalls/videocall.php?chanelId=" . $chanelData['id']);
+}
