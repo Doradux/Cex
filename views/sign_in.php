@@ -25,14 +25,17 @@
             <form action="">
                 <div>
                     <label for="label1">EMAIL<span>*</span></label>
-                    <input type="text" name="label1" id="label1">
+                    <input class="logInInputs" type="text" name="label1" id="label1">
                 </div>
                 <div>
                     <label for="label2">PASSWORD<span>*</span></label>
-                    <input type="password" name="label2" id="label2">
+                    <input class="logInInputs" type="password" name="label2" id="label2">
                     <p><a href=''>Forgot your password?</a></p>
                 </div>
-                <input id="confirmLogin" type="submit" class="submit" value="Log In">
+                <div class="signIngBtn">
+                    <input id="confirmLogin" type="submit" class="submit" value="Log In">
+                    <div id="error"></div>
+                </div>
                 <p>Don't have an account yet? <a id="reg">Register</a></p>
             </form>
         </div>
@@ -50,18 +53,22 @@
             <div>
                 <label for="label3">EMAIL<span>*</span></label>
                 <input required type="text" name="label3" id="label3">
+                <div class="error" id="emailError"></div>
             </div>
             <div>
                 <label for="label5">USERNAME<span>*</span></label>
                 <input required type="text" name="label5" id="label5">
+                <div class="error" id="usernameError"></div>
             </div>
             <div>
                 <label for="label6">PASSWORD<span>*</span></label>
                 <input required type="password" name="label6" id="label6">
+                <div class="error" id="passwordError"></div>
             </div>
             <div>
                 <label for="label6-1">REPEAT PASSWORD<span>*</span></label>
                 <input required type="password" name="label6-1" id="label6-1">
+                <div class="error" id="repeatPasswordError"></div>
             </div>
             <div>
                 <label for="label7">DATE OF BIRTH<span>*</span></label>
@@ -90,12 +97,16 @@
                         <option value="" disabled selected>Year</option>
                     </select>
                 </div>
+                <div class="error" id="dateError"></div>
             </div>
 
             <div class="pandp">
-                <input required type="checkbox" name="readed" id="label8">
-                <label for="input8"></label>
-                <p>I have read and agree to Cex's <a>Terms of Service </a>and <a>Privacy Policy</a>.</p>
+                <div class="confirm">
+                    <input required type="checkbox" name="readed" id="label8">
+                    <label for="input8"></label>
+                    <p>I have read and agree to Cex's <a>Terms of Service</a> and <a>Privacy Policy</a>.</p>
+                </div>
+                <div class="error" id="eulaError"></div>
             </div>
 
             <input id="confirmRegister" type="submit" class="submit" value="Register">

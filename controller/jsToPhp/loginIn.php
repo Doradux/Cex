@@ -7,6 +7,7 @@ $conn = DBconection::connectDB();
 
 $u = $_POST['username'];
 $p = $_POST['password'];
+$response = [];
 
 // include server img
 $sql = '
@@ -31,12 +32,10 @@ while ($user = $users->fetch(PDO::FETCH_ASSOC)) {
     }
 }
 
-$response = [];
 if ($valid) {
-    $response['status'] = 'success';
+    $response['success'] = 'true';
 } else {
-    $response['status'] = 'error';
-    $response['message'] = 'Error: user not found';
+    $response['error'] = "Wrong email or password.";
 }
 
 echo json_encode($response);

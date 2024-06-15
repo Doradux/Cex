@@ -23,9 +23,9 @@
 body {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("../images/bluebg.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,6 +59,14 @@ body {
   border-radius: 5px;
   color: white;
   margin-top: 10px;
+}
+
+#confirmLogin {
+  cursor: pointer;
+}
+
+#confirmRegister {
+  cursor: pointer;
 }
 
 h1 {
@@ -156,6 +164,11 @@ select {
 
 .pandp {
   display: flex;
+  flex-direction: column;
+}
+
+.confirm {
+  display: flex;
   gap: 5px;
   margin-top: 5px;
 }
@@ -166,4 +179,19 @@ select {
 
 #label2 {
   margin-bottom: 3px;
+}
+
+input:focus {
+  outline: none;
+}
+
+#error {
+  color: crimson;
+  font-size: 0.8rem;
+}
+
+.error {
+  color: crimson;
+  font-size: 0.8rem;
+  margin-top: 2px;
 }

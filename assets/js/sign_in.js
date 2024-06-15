@@ -108,7 +108,7 @@ function showLogin() {
 var days = document.getElementById("day");
 for (var i = 1; i <= 31; i++) {
   var option = document.createElement("option");
-  option.value = i;
+  option.value = i + 1;
   option.text = i;
   days.appendChild(option);
 }
@@ -130,42 +130,146 @@ registerBtn.addEventListener("click", function (event) {
 });
 
 function registerUser() {
-  console.log("registrandoUsuario");
-
+  var valid = true;
+  document.getElementById("label3").addEventListener("input", function () {
+    document.getElementById("emailError").innerText = "";
+  });
   var e = document.getElementById("label3").value;
-  var u = document.getElementById("label5").value;
-  var p = document.getElementById("label6").value;
+  if (e == "") {
+    valid = false;
+    document.getElementById("label3").style.outline = "1px solid crimson";
+    document.getElementById("emailError").innerText = "Email is required.";
+  } else if (!isValidEmail(e)) {
+    valid = false;
+    document.getElementById("label3").style.outline = "1px solid crimson";
+    document.getElementById("emailError").innerText =
+      "Email format is not valid.";
+  } else {
+    document.getElementById("emailError").innerText = "";
+  }
 
-  var month = document.getElementById("month").value;
-  var day = document.getElementById("day").value;
-  var year = document.getElementById("year").value;
+  document.getElementById("label5").addEventListener("input", function () {
+    document.getElementById("usernameError").innerText = "";
+  });
+  var u = document.getElementById("label5").value;
+  if (u == "") {
+    valid = false;
+    document.getElementById("label5").style.outline = "1px solid crimson";
+    document.getElementById("usernameError").innerText =
+      "Username is required.";
+  } else {
+    document.getElementById("usernameError").innerText = "";
+  }
+
+  document.getElementById("label6").addEventListener("input", function () {
+    document.getElementById("passwordError").innerText = "";
+  });
+  var p = document.getElementById("label6").value;
+  if (p == "") {
+    valid = false;
+    document.getElementById("label6").style.outline = "1px solid crimson";
+    document.getElementById("passwordError").innerText =
+      "Password is required.";
+  } else if (!isValidPassword(p)) {
+    valid = false;
+    document.getElementById("label6").style.outline = "1px solid crimson";
+    document.getElementById("passwordError").innerText =
+      "Password must be more than 6 characters.";
+  } else {
+    document.getElementById("passwordError").innerText = "";
+  }
+
+  document.getElementById("label6-1").addEventListener("input", function () {
+    document.getElementById("repeatPasswordError").innerText = "";
+  });
+  var rp = document.getElementById("label6-1").value;
+  if (rp == "") {
+    valid = false;
+    document.getElementById("label6-1").style.outline = "1px solid crimson";
+    document.getElementById("repeatPasswordError").innerText =
+      "Repeat password is required.";
+  } else if (rp != p) {
+    valid = false;
+    document.getElementById("repeatPasswordError").innerText =
+      "Passwords do not match.";
+    document.getElementById("label6").style.outline = "1px solid crimson";
+    document.getElementById("label6-1").style.outline = "1px solid crimson";
+  } else {
+    document.getElementById("label6").style.outline = "none";
+    document.getElementById("repeatPasswordError").innerText = "";
+  }
+
+  const dateSelects = document.querySelectorAll("select");
+  if (document.getElementById("month").value != "") {
+    var month = document.getElementById("month").value;
+  } else {
+    valid = false;
+    dateSelects[0].style.outline = "1px solid crimson";
+    document.getElementById("dateError").innerText = "Invalid date";
+  }
+
+  if (document.getElementById("day").value != "") {
+    var day = document.getElementById("day").value;
+  } else {
+    valid = false;
+    dateSelects[1].style.outline = "1px solid crimson";
+    document.getElementById("dateError").innerText = "Invalid date";
+  }
+
+  if (document.getElementById("year").value != "") {
+    var year = document.getElementById("year").value;
+  } else {
+    valid = false;
+    dateSelects[2].style.outline = "1px solid crimson";
+    document.getElementById("dateError").innerText = "Invalid date";
+  }
+
+  dateSelects.forEach((element) => {
+    element.addEventListener("change", function () {
+      element.style.outline = "none";
+      document.getElementById("dateError").innerText = "";
+    });
+  });
+
+  if (!document.getElementById("label8").checked) {
+    valid = false;
+    document.getElementById("eulaError").innerText = "You must confirm this.";
+  }
+
+  document.getElementById("label8").addEventListener("change", function () {
+    document.getElementById("eulaError").innerText = "";
+  });
+
   var birthDate = new Date(year, month - 1, day);
 
   var b = birthDate.toISOString().split("T")[0];
   console.log(b);
 
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      var response = JSON.parse(this.responseText);
-      // console.log(response.message);
-      if (response.status === "success") {
-        window.location.href = "./home.php";
+  if (valid) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        var response = JSON.parse(this.responseText);
+        // console.log(response.message);
+        if (response.success) {
+          window.location.href = "./home.php";
+        } else if (response.error) {
+        }
       }
-    }
-  };
-  xhttp.open("POST", "./controller/jsToPhp/registerUser.php", true);
-  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  var params =
-    "username=" +
-    encodeURIComponent(u) +
-    "&email=" +
-    encodeURIComponent(e) +
-    "&password=" +
-    encodeURIComponent(p) +
-    "&birth=" +
-    encodeURIComponent(b);
-  xhttp.send(params);
+    };
+    xhttp.open("POST", "./controller/jsToPhp/registerUser.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    var params =
+      "username=" +
+      encodeURIComponent(u) +
+      "&email=" +
+      encodeURIComponent(e) +
+      "&password=" +
+      encodeURIComponent(p) +
+      "&birth=" +
+      encodeURIComponent(b);
+    xhttp.send(params);
+  }
 }
 
 //login user
@@ -175,6 +279,7 @@ loginBtn.addEventListener("click", function (event) {
   console.log(loginUser());
 });
 
+const logInInputs = document.querySelectorAll(".logInInputs");
 function loginUser() {
   // console.log("login in");
 
@@ -186,8 +291,13 @@ function loginUser() {
     if (this.readyState == 4 && this.status == 200) {
       var response = JSON.parse(this.responseText);
       // console.log(response.message);
-      if (response.status === "success") {
+      if (response.success) {
         window.location.href = "./home.php";
+      } else {
+        document.getElementById("error").textContent = response.error;
+        logInInputs.forEach((element) => {
+          element.style.outline = "1px solid crimson";
+        });
       }
     }
   };
@@ -196,4 +306,21 @@ function loginUser() {
   var params =
     "username=" + encodeURIComponent(u) + "&password=" + encodeURIComponent(p);
   xhttp.send(params);
+}
+
+const allInputs = document.querySelectorAll("input");
+allInputs.forEach((input) => {
+  input.addEventListener("input", function () {
+    input.style.outline = "none";
+    document.getElementById("error").textContent = "";
+  });
+});
+
+function isValidEmail(email) {
+  const emailPattern = /^[^@]+@[^@]+\.[^@]+$/;
+  return emailPattern.test(email);
+}
+
+function isValidPassword(password) {
+  return password.length > 6;
 }
