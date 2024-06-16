@@ -20,11 +20,7 @@
             <?= $_SESSION['currentUser']['role'] == 'admin' ? '<p class="option" id="manage-chanels">CHANELS</p>' : '' ?>
             <p class="option" id="members-page">MEMBERS</p>
             <?= $_SESSION['currentUser']['role'] == 'admin' ? '<p class="option" id="manage-members">MANAGE MEMBERS</p>' : '' ?>
-            <p class="option delete red">DELETE SERVER</p>
-        </div>
-
-        <div class="go-back">
-            <p id="back" class="back">GO BACK</p>
+            <p class="option delete red" id="delete-server">DELETE SERVER</p>
         </div>
 
     </div>

@@ -41,6 +41,14 @@ if (isset($_POST['groupId'])) {
         $stmt = $conn->prepare("DELETE FROM `chanelsgroup` WHERE `id` = :groupId");
         $stmt->bindParam(":groupId", $groupId);
         if ($stmt->execute()) {
+            foreach ($_SESSION['groups'] as $index => $group) {
+                if ($group['id'] == $groupId) {
+                    unset($_SESSION['groups'][$index]);
+                    $_SESSION['groups'] = array_values($_SESSION['groups']);
+                    break;
+                }
+            }
+
             $response['success'] = true;
         } else {
             $response['error'] = "Couldn't delete group with id: " . $groupId;

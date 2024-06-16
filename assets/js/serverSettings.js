@@ -1,7 +1,3 @@
-document.getElementById("back").addEventListener("click", function () {
-  window.history.back();
-});
-
 var selected = document.getElementById("frame").getAttribute("page");
 var options = document.querySelectorAll(".option");
 for (let index = 0; index < options.length; index++) {
@@ -14,34 +10,52 @@ for (let index = 0; index < options.length; index++) {
 var iframe = document.getElementById("frame");
 var options = document.querySelectorAll(".option");
 
-// Aplicar event listeners para el efecto hover una sola vez
 options.forEach((element, index) => {
   element.addEventListener("mouseenter", function () {
     element.style.backgroundColor = "rgb(24, 24, 24)";
   });
 
   element.addEventListener("mouseleave", function () {
-    // Solo restablecer el color si no es el elemento seleccionado
     if (element.getAttribute("data-selected") !== "true") {
       element.style.backgroundColor = "transparent";
     }
   });
 });
 
-// Manejar el evento de clic y gestionar el estado seleccionado
 options.forEach((option, index) => {
   option.addEventListener("click", function () {
     iframe.src = "../controller/" + option.getAttribute("id") + ".php";
     iframe.setAttribute("page", index);
 
-    // Restablecer el color de fondo y estado de todas las opciones
     options.forEach((element, i) => {
       element.style.backgroundColor = "transparent";
       element.setAttribute("data-selected", "false");
+      element.style.color = "";
     });
 
-    // Aplicar el color de fondo y establecer el estado de la opción seleccionada
-    option.style.backgroundColor = "rgb(24, 24, 24)";
+    if (index === 5) {
+      option.style.backgroundColor = "crimson";
+      option.style.color = "white";
+    } else {
+      option.style.backgroundColor = "rgb(24, 24, 24)";
+    }
     option.setAttribute("data-selected", "true");
   });
+});
+
+options[0].setAttribute("data-selected", "true");
+
+options[5].addEventListener("mouseenter", function () {
+  this.style.backgroundColor = "crimson";
+  this.style.color = "white";
+});
+
+options[5].addEventListener("mouseleave", function () {
+  if (this.getAttribute("data-selected") === "true") {
+    this.style.backgroundColor = "crimson";
+    this.style.color = "white";
+  } else {
+    this.style.backgroundColor = "transparent";
+    this.style.color = "crimson";
+  }
 });

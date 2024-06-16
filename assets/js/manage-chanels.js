@@ -54,6 +54,7 @@ postChanel.addEventListener("click", function () {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
+        window.location.reload();
         shield.style.display = "none";
       }
     };
@@ -99,11 +100,11 @@ chanels.forEach((chanel) => {
 
 var modifyShield = document.querySelector(".modify-chanel-shield");
 const editChanelBtns = document.querySelectorAll(".chanel-modify");
-let currentBtn = null; // Variable para almacenar el botón actual
+let currentBtn = null;
 
 editChanelBtns.forEach((btn) => {
   btn.addEventListener("click", function () {
-    currentBtn = btn; // Almacenar el botón actual
+    currentBtn = btn;
     var chanelName =
       btn.parentElement.parentElement.parentElement.getAttribute("chanelName");
 

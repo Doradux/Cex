@@ -7,6 +7,5 @@ if (!isset($_SESSION['currentUser']['username'])) {
 
 require_once '../Model/DBconection.php';
 $conn = DBconection::connectDB();
-$_SESSION['currentUser']['role'] = '';
 
-include '../views/landing.php';
+include '../views/delete-server.php';

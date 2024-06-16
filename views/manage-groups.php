@@ -13,7 +13,7 @@
     <?php
     foreach ($_SESSION['groups'] as $group) {
     ?>
-        <div class="group" groupId="<?= $group['id'] ?>">
+        <div class="group" groupId="<?= $group['id'] ?>" groupName="<?= $group['name'] ?>">
             <p><?= $group['name'] ?></p>
             <div class="group-options">
                 <div class="group-modify group-option modify"><img src="../assets/icons/edit.svg" alt="edit"></div>
@@ -26,7 +26,10 @@
     <?php
     }
     ?>
-    <?php include '../assets/components/addGroup.php'; ?>
+    <?php
+    include '../assets/components/addGroup.php';
+    include '../assets/components/modifyGroupName.php';
+    ?>
     <div class="add-group-right">
         <div class="add-new-group">
             <p id="add-group-btn">ADD NEW GROUP</p>

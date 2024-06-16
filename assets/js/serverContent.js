@@ -1,51 +1,6 @@
 const groups = document.getElementById("groups");
 const chanelsOptions = document.querySelector(".chanelsOptions");
 
-//open groups/chanels menu
-groups.addEventListener("contextmenu", function (event) {
-  if (event.target.matches("#groups, #groups *") && role == "admin") {
-    event.preventDefault();
-
-    // Obtener las dimensiones del menú y de la ventana
-    const menuWidth = chanelsOptions.offsetWidth;
-    const menuHeight = chanelsOptions.offsetHeight;
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
-
-    // Calcular las posiciones iniciales
-    let left = event.clientX;
-    let top = event.clientY;
-
-    // Ajustar la posición si el menú se sale de la ventana
-    if (left + menuWidth > windowWidth) {
-      left = windowWidth - menuWidth;
-    }
-    if (top + menuHeight > windowHeight) {
-      top = windowHeight - menuHeight;
-    }
-
-    // Asegurarse de que las posiciones no sean negativas
-    if (left < 0) {
-      left = 0;
-    }
-    if (top < 0) {
-      top = 0;
-    }
-
-    // Establecer la posición del menú
-    chanelsOptions.style.display = "flex";
-    chanelsOptions.style.left = left + "px";
-    chanelsOptions.style.top = top + "px";
-  }
-});
-
-//close gourps/chanels menu
-document.addEventListener("click", function (event) {
-  if (!event.target.closest(".chanelsOptions")) {
-    chanelsOptions.style.display = "none";
-  }
-});
-
 //tooltip
 document.addEventListener("DOMContentLoaded", function () {
   const addChanel = document.querySelectorAll("a");

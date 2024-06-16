@@ -1,7 +1,7 @@
 <?php
 
 if (session_status() == PHP_SESSION_NONE) session_start();
-if (isset($_GET['join']) && isset($_SESSION['currentUser'])) {
+if (isset($_GET['join']) && isset($_SESSION['currentUser']['username'])) {
 ?>
 
     <script>
@@ -29,5 +29,7 @@ if (isset($_GET['join']) && isset($_SESSION['currentUser'])) {
     </script>
 
 <?php
+} else if (isset($_SESSION['currentUser']['username']) && !isset($_GET['join'])) {
+    header('Location: ./home.php');
 }
 include './controller/index.php';

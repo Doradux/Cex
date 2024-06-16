@@ -75,8 +75,6 @@
 
 
 <?php
-// component chanelsOptions
-include '../assets/components/chanelsOptions.php';
 // component serverOptions
 include '../assets/components/serverOptions.php';
 // component addChanel

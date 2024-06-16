@@ -27,8 +27,10 @@
             <div class="members-part2">
                 <div class="member-options">
                     <div class="member-server-nick member-option" memberId="<?= $member['id'] ?>" memberUsername="<?= $member['username'] ?>" memberNick="<?= $member['serverNick'] ?>"><img src="../assets/icons/edit-user.svg" alt="edit"></div>
-                    <div class="member-role member-option change-user-role" currentRole="<?= $member['serverRole'] ?>" memberId="<?= $member['id'] ?>" <?= $member['serverRole'] == 'admin' ? 'style="background-color: darkcyan"' : '' ?>><img src=" ../assets/icons/admin-user.svg" alt="edit"></div>
-                    <div class="member-kick member-option" memberId="<?= $member['id'] ?>"><img src="../assets/icons/kick-user.svg" alt="edit"></div>
+                    <?php if ($member['id'] != $_SESSION['currentUser']['id']) { ?>
+                        <div class="member-role member-option change-user-role" currentRole="<?= $member['serverRole'] ?>" memberId="<?= $member['id'] ?>" <?= $member['serverRole'] == 'admin' ? 'style="background-color: darkcyan"' : '' ?>><img src=" ../assets/icons/admin-user.svg" alt="edit"></div>
+                        <div class="member-kick member-option" memberId="<?= $member['id'] ?>"><img src="../assets/icons/kick-user.svg" alt="edit"></div>
+                    <?php } ?>
                 </div>
             </div>
         </div>

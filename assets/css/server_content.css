@@ -117,7 +117,7 @@ body {
   position: absolute;
   display: none;
   flex-direction: column;
-  background-color: rgba(50, 50, 50, 1);
+  background-color: rgba(20, 20, 20, 1);
   border-radius: 10px;
   overflow: hidden;
   font-size: 0.8rem;
@@ -170,7 +170,7 @@ a {
   display: none;
   width: 240px;
   flex-direction: column;
-  background-color: rgb(50, 50, 50);
+  background-color: rgb(20, 20, 20);
   border-radius: 10px;
   font-size: 0.8rem;
   overflow: hidden;

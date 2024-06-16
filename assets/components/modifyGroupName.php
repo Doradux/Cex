@@ -1,7 +1,7 @@
-<div class="modify-chanel-shield">
-    <div class="modify-chanel">
-        <p>Edit chanel name</p>
-        <input type="text" id="newName" placeholder="New chanel name">
+<div class="modify-group-shield">
+    <div class="modify-group">
+        <p>Edit group name</p>
+        <input type="text" id="newName" placeholder="New group name">
         <div class="btns">
             <button id="confirmModify">MODIFY</button>
         </div>
@@ -31,7 +31,7 @@
         font-family: "poppins";
     }
 
-    .modify-chanel-shield {
+    .modify-group-shield {
         width: 100vw;
         height: 100vh;
         display: none;
@@ -48,7 +48,7 @@
         cursor: pointer;
     }
 
-    .modify-chanel {
+    .modify-group {
         background-color: rgb(50, 50, 50);
         padding: 20px;
         display: flex;

@@ -1,0 +1,86 @@
+@font-face {
+  font-family: "poppins";
+  src: url("../fonts/Poppins-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "poppins_bold";
+  src: url("../fonts/Poppins-Bold.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* border: 1px solid black; */
+  font-family: "poppins";
+  color: white;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+.delete-div {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: rgb(40, 40, 40);
+  border-radius: 10px;
+  gap: 20px;
+}
+
+.big {
+  font-family: "poppins_bold";
+}
+
+span {
+  font-family: "poppins_bold";
+}
+
+.warning {
+  color: orangered;
+}
+
+.type {
+  color: darkcyan;
+}
+
+.red {
+  color: crimson;
+}
+
+button {
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  background-color: gray;
+  width: 200px;
+  align-self: end;
+  cursor: not-allowed;
+  transition: all 0.3s ease;
+}
+
+input {
+  padding: 8px;
+  background-color: rgb(60, 60, 60);
+  border: none;
+  border-radius: 8px;
+  width: 400px;
+  align-self: center;
+  text-align: center;
+  font-family: "poppins_bold";
+  font-size: 1.3rem;
+}
+
+input:focus {
+  outline: none;
+}
