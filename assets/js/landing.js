@@ -28,5 +28,5 @@ sections.forEach((element) => {
 
 const faq = document.querySelector(".help");
 faq.addEventListener("click", function () {
-  window.top.open("../../faq.php");
+  iframe.src = "../../faq.php";
 });

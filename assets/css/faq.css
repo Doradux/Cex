@@ -22,13 +22,13 @@
 
 body {
   padding: 30px;
-  padding-top: 150px;
+  padding-top: 120px;
   background-color: rgb(50, 50, 50);
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 30px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .container {
@@ -45,7 +45,7 @@ body {
 header {
   background-color: rgb(30, 30, 30);
   width: 100%;
-  height: 100px;
+  height: 90px;
   position: fixed;
   top: 0;
   display: flex;

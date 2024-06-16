@@ -35,5 +35,5 @@ phrases.forEach((p, index) => {
 
 const logo = document.querySelector(".logo");
 logo.addEventListener("click", function () {
-  window.location.href = "..";
+  window.top.top.location.href = ".";
 });
