@@ -5,6 +5,7 @@
         <div class="new-password">
             <input type="password" id="new-password" placeholder="New password">
             <input type="password" id="confirm-password" placeholder="Confirm password">
+            <div class="password-error"></div>
         </div>
         <div class="password-btns">
             <button class="save-pass-btn" style="display: block;" id="save-password">SAVE</button>
@@ -14,6 +15,12 @@
 </div>
 
 <style>
+    .password-error {
+        color: crimson;
+        font-size: 0.8rem;
+        margin-top: 10px;
+    }
+
     @font-face {
         font-family: "poppins";
         src: url("../../assets/fonts/Poppins-Regular.ttf");

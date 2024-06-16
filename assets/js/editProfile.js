@@ -1,6 +1,7 @@
 var show = document.getElementById("show");
 var emailHider = document.getElementById("cover");
 emailHider.style.display = "block";
+
 window.addEventListener("load", function () {
   show.addEventListener("click", function () {
     if (emailHider.style.display == "block") {
@@ -44,7 +45,6 @@ document
         .then((response) => response.json())
         .then((data) => {
           if (data.success) {
-            // alert("File uploaded successfully!");
             document.querySelector("#save-user-photo").style.display = "none";
           } else {
             alert("File upload failed: " + data.error);
@@ -69,7 +69,7 @@ var birthInput = document.getElementById("birth-input");
 
 var saveBtns = document.querySelectorAll(".save-btn");
 
-//username
+// Username
 editUsername.addEventListener("click", function () {
   usernameInput.setAttribute("class", "editable");
   usernameInput.removeAttribute("disabled");
@@ -78,23 +78,34 @@ editUsername.addEventListener("click", function () {
 });
 
 saveBtns[0].addEventListener("click", function () {
-  var changeTo = usernameInput.value;
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      editUsername.style.display = "block";
-      saveBtns[0].style.display = "none";
-      usernameInput.setAttribute("disabled", "disabled");
-      usernameInput.setAttribute("class", "no-editable");
-    }
-  };
-  xhttp.open("POST", "./jsToPhp/editProfile.php", true);
-  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  var params = "username=" + encodeURIComponent(changeTo);
-  xhttp.send(params);
+  var changeTo = usernameInput.value.trim();
+  if (changeTo !== "") {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        editUsername.style.display = "block";
+        saveBtns[0].style.display = "none";
+        usernameInput.setAttribute("disabled", "disabled");
+        usernameInput.setAttribute("class", "no-editable");
+      }
+    };
+    xhttp.open("POST", "./jsToPhp/editProfile.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    var params = "username=" + encodeURIComponent(changeTo);
+    xhttp.send(params);
+  } else {
+    usernameInput.style.outline = "1px solid crimson";
+    usernameInput.value = "Invalid username";
+    usernameInput.style.color = "crimson";
+  }
 });
 
-//displayname
+usernameInput.addEventListener("input", function () {
+  usernameInput.style.outline = "none";
+  usernameInput.style.color = "white";
+});
+
+// Displayname
 editDisplayName.addEventListener("click", function () {
   displaynameInput.setAttribute("class", "editable");
   displaynameInput.removeAttribute("disabled");
@@ -103,23 +114,34 @@ editDisplayName.addEventListener("click", function () {
 });
 
 saveBtns[1].addEventListener("click", function () {
-  var changeTo = displaynameInput.value;
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      editDisplayName.style.display = "block";
-      saveBtns[1].style.display = "none";
-      displaynameInput.setAttribute("disabled", "disabled");
-      displaynameInput.setAttribute("class", "no-editable");
-    }
-  };
-  xhttp.open("POST", "./jsToPhp/editProfile.php", true);
-  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  var params = "displayname=" + encodeURIComponent(changeTo);
-  xhttp.send(params);
+  var changeTo = displaynameInput.value.trim();
+  if (changeTo !== "") {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        editDisplayName.style.display = "block";
+        saveBtns[1].style.display = "none";
+        displaynameInput.setAttribute("disabled", "disabled");
+        displaynameInput.setAttribute("class", "no-editable");
+      }
+    };
+    xhttp.open("POST", "./jsToPhp/editProfile.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    var params = "displayname=" + encodeURIComponent(changeTo);
+    xhttp.send(params);
+  } else {
+    displaynameInput.style.outline = "1px solid crimson";
+    displaynameInput.value = "Invalid displayname";
+    displaynameInput.style.color = "crimson";
+  }
 });
 
-//birth
+displaynameInput.addEventListener("input", function () {
+  displaynameInput.style.outline = "none";
+  displaynameInput.style.color = "white";
+});
+
+// Birth
 editBirth.addEventListener("click", function () {
   birthInput.setAttribute("class", "editable");
   birthInput.removeAttribute("disabled");
@@ -128,28 +150,50 @@ editBirth.addEventListener("click", function () {
 });
 
 saveBtns[2].addEventListener("click", function () {
-  var changeTo = birthInput.value;
-  var parts = changeTo.split("/");
-  var day = parts[0];
-  var month = parts[1];
-  var year = parts[2];
-  changeTo = `${year}-${month}-${day}`;
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      editBirth.style.display = "block";
-      saveBtns[2].style.display = "none";
-      birthInput.setAttribute("disabled", "disabled");
-      birthInput.setAttribute("class", "no-editable");
+  var changeTo = birthInput.value.trim();
+  if (changeTo !== "") {
+    var parts = changeTo.split("/");
+    if (
+      parts.length === 3 &&
+      parts[0].length === 2 &&
+      parts[1].length === 2 &&
+      parts[2].length === 4
+    ) {
+      changeTo = `${parts[2]}-${parts[1]}-${parts[0]}`;
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          editBirth.style.display = "block";
+          saveBtns[2].style.display = "none";
+          birthInput.setAttribute("disabled", "disabled");
+          birthInput.setAttribute("class", "no-editable");
+        }
+      };
+      xhttp.open("POST", "./jsToPhp/editProfile.php", true);
+      xhttp.setRequestHeader(
+        "Content-type",
+        "application/x-www-form-urlencoded"
+      );
+      var params = "birth=" + encodeURIComponent(changeTo);
+      xhttp.send(params);
+    } else {
+      birthInput.style.outline = "1px solid crimson";
+      birthInput.value = "Invalid date format";
+      birthInput.style.color = "crimson";
     }
-  };
-  xhttp.open("POST", "./jsToPhp/editProfile.php", true);
-  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  var params = "birth=" + encodeURIComponent(changeTo);
-  xhttp.send(params);
+  } else {
+    birthInput.style.outline = "1px solid crimson";
+    birthInput.value = "Invalid date";
+    birthInput.style.color = "crimson";
+  }
 });
 
-//password
+birthInput.addEventListener("input", function () {
+  birthInput.style.outline = "none";
+  birthInput.style.color = "white";
+});
+
+// Password
 const passwordDiv = document.querySelector(".password-shield");
 const passCancel = document.getElementById("cancel-password");
 const showPasswordDiv = document.getElementById("showCancelDiv");
@@ -163,10 +207,8 @@ var cancelChange = [passCancel, passwordDiv];
 
 cancelChange.forEach(function (listener) {
   listener.addEventListener("click", function (event) {
-    // Verificar si el clic proviene de passCancel o de fuera del div change-password
     if (listener === passCancel || !event.target.closest(".change-password")) {
       passwordDiv.style.display = "none";
-      // Limpiar todos los campos de contraseña
       var passwordInputs = document.querySelectorAll('input[type="password"]');
       passwordInputs.forEach(function (input) {
         input.value = "";
@@ -177,9 +219,33 @@ cancelChange.forEach(function (listener) {
 
 savePassword.addEventListener("click", function () {
   var xhttp = new XMLHttpRequest();
-  const currentPassword = document.getElementById("old-password").value;
-  const newPassword = document.getElementById("new-password").value;
-  const confirmPassword = document.getElementById("confirm-password").value;
+  const currentPassword = document.getElementById("old-password").value.trim();
+  const newPassword = document.getElementById("new-password").value.trim();
+  const confirmPassword = document
+    .getElementById("confirm-password")
+    .value.trim();
+  const passwordErrorDiv = document.querySelector(".password-error");
+
+  const validCharacters = /^[a-zA-Z0-9]+$/;
+  if (
+    newPassword.length < 6 ||
+    newPassword !== confirmPassword ||
+    !validCharacters.test(newPassword)
+  ) {
+    passwordErrorDiv.textContent =
+      "Invalid password. Make sure it is at least 6 characters long, contains only alphanumeric characters, and both new passwords match.";
+    document.getElementById("old-password").style.outline = "1px solid crimson";
+    document.getElementById("new-password").style.outline = "1px solid crimson";
+    document.getElementById("confirm-password").style.outline =
+      "1px solid crimson";
+    return;
+  }
+
+  passwordErrorDiv.textContent = "";
+  document.getElementById("old-password").style.outline = "none";
+  document.getElementById("new-password").style.outline = "none";
+  document.getElementById("confirm-password").style.outline = "none";
+
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       var response = JSON.parse(this.responseText);
@@ -193,6 +259,7 @@ savePassword.addEventListener("click", function () {
         });
       } else {
         console.error(response.error);
+        alert("Failed to change password.");
       }
     }
   };
@@ -208,7 +275,24 @@ savePassword.addEventListener("click", function () {
   xhttp.send(params);
 });
 
-//sign out
+document
+  .getElementById("old-password")
+  .addEventListener("input", clearPasswordError);
+document
+  .getElementById("new-password")
+  .addEventListener("input", clearPasswordError);
+document
+  .getElementById("confirm-password")
+  .addEventListener("input", clearPasswordError);
+
+function clearPasswordError() {
+  document.querySelector(".password-error").textContent = "";
+  document.getElementById("old-password").style.outline = "none";
+  document.getElementById("new-password").style.outline = "none";
+  document.getElementById("confirm-password").style.outline = "none";
+}
+
+// Sign out
 const signoutBtn = document.getElementById("sign-out");
 signoutBtn.addEventListener("click", function () {
   var xhttp = new XMLHttpRequest();
@@ -217,12 +301,11 @@ signoutBtn.addEventListener("click", function () {
       window.top.location.href = "http://localhost";
     }
   };
-
   xhttp.open("POST", "./jsToPhp/signOut.php", true);
   xhttp.send();
 });
 
-//delete account
+// Delete account
 const showDeleteAccount = document.getElementById("delete-account-show");
 const deleteShield = document.querySelector(".delete-account-shield");
 const deleteDiv = document.querySelector(".delete-account");
@@ -250,7 +333,6 @@ confirmDeleteBtn.addEventListener("click", function () {
         window.top.location.href = "http://localhost";
       }
     };
-
     xhttp.open("POST", "./jsToPhp/deleteAccount.php", true);
     xhttp.send();
   }

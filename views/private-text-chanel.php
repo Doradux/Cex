@@ -21,7 +21,7 @@
 
 
     <div class="sendMsg">
-        <input placeholder="Message #<?= $chanelData['name'] ?>" type="text" name="sendMsg" id="sendMsg">
+        <input placeholder="Message #<?= $friendData['username'] ?>" type="text" name="sendMsg" id="sendMsg">
         <input type="hidden" id="chanelId" value="<?= $chanelData['id'] ?>">
         <div class="confirmSendMsg">
             <img src="../assets/images/send.svg" alt="sendMessage">
