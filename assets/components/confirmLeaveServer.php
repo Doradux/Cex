@@ -1,8 +1,10 @@
-<div class="confirmLeaveServer">
-    <p>Leave <span><?= $_SESSION['currentServer']['name'] ?></span>?</p>
-    <div class="confirmLeaveServer-btns">
-        <button class="confirmLeaveServer-btn btn-confirm">CONFIRM</button>
-        <button class="confirmLeaveServer-btn btn-cancel">CANCEL</button>
+<div class="confirmLeaveServer-shield">
+    <div class="confirmLeaveServer">
+        <p>Leave <span><?= $_SESSION['currentServer']['name'] ?></span>?</p>
+        <div class="confirmLeaveServer-btns">
+            <button class="confirmLeaveServer-btn btn-confirm">CONFIRM</button>
+            <button class="confirmLeaveServer-btn btn-cancel">CANCEL</button>
+        </div>
     </div>
 </div>
 
@@ -29,13 +31,23 @@
         font-family: "poppins";
     }
 
+    .confirmLeaveServer-shield {
+        width: 100vw;
+        height: 100vh;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(5px);
+    }
+
     .confirmLeaveServer {
         color: white;
-        position: absolute;
-        top: 35%;
-        right: 40%;
         background-color: rgb(50, 50, 50);
-        display: none;
+        display: flex;
         flex-direction: column;
         padding: 10px;
         width: 300px;

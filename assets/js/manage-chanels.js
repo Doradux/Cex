@@ -142,6 +142,7 @@ confirmModifyBtn.addEventListener("click", function () {
         if (this.readyState == 4 && this.status == 200) {
           const response = JSON.parse(this.response);
           if (response.success) {
+            window.location.reload();
             modifyShield.style.display = "none";
             currentChanelBtn.parentElement.parentElement.parentElement.parentElement.querySelector(
               "p"

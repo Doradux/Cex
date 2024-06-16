@@ -81,16 +81,25 @@ try {
 
 //leave server
 var leaveServer = document.getElementById("leaveServer");
+var confirmLeaveServerShield = document.querySelector(
+  ".confirmLeaveServer-shield"
+);
 var confirmLeaveServer = document.querySelector(".confirmLeaveServer");
 leaveServer.addEventListener("click", function () {
   event.preventDefault();
-  confirmLeaveServer.style.display = "flex";
+  confirmLeaveServerShield.style.display = "flex";
 });
 
 var confirmLeaveServerBtn = document.querySelector(".btn-confirm");
 var cancelLeaveServerBtn = document.querySelector(".btn-cancel");
 cancelLeaveServerBtn.addEventListener("click", function () {
-  confirmLeaveServer.style.display = "none";
+  confirmLeaveServerShield.style.display = "none";
+});
+
+confirmLeaveServerShield.addEventListener("click", function () {
+  if (!event.target.closest(".confirmLeaveServer")) {
+    confirmLeaveServerShield.style.display = "none";
+  }
 });
 
 confirmLeaveServerBtn.addEventListener("click", function () {

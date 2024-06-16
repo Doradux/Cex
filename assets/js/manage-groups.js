@@ -64,6 +64,7 @@ groups.forEach((group) => {
       if (this.readyState == 4 && this.status == 200) {
         response = JSON.parse(this.response);
         if (response.success) {
+          window.location.reload();
           group.remove();
         } else {
           console.error(response);
@@ -105,6 +106,7 @@ confirmModifyBtn.addEventListener("click", function () {
         if (this.readyState == 4 && this.status == 200) {
           var response = JSON.parse(this.response);
           if (response.success) {
+            window.location.reload();
             modifyShield.style.display = "none";
             currentBtn.parentElement.parentElement.querySelector(
               "p"
