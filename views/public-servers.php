@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/public-servers.css">
+    <script src="../assets/js/public-servers.js"></script>
     <title>Document</title>
 </head>
 
@@ -26,7 +27,7 @@
                         <img src="../assets/icons/members.png" alt="members count">
                         <p><?= $members ?></p>
                     </div>
-                    <button class="copyLink" onclick="getLink('<?= $server['dinamicId'] ?>')">COPY LINK</button>
+                    <button onclick="copyLink('<?= $server['dinamicId'] ?>')" class="copyLink">COPY LINK</button>
                 </div>
             </div>
         <?php
@@ -35,6 +36,5 @@
     </div>
 </body>
 
-<script src="../assets/js/public-servers.js"></script>
 
 </html>

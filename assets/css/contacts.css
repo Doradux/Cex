@@ -84,6 +84,10 @@ figure {
   width: 80%;
 }
 
+.option:hover {
+  background-color: rgb(50, 50, 50);
+}
+
 .fst-snd {
   display: flex;
   align-items: center;
@@ -120,9 +124,11 @@ figure {
   background-color: rgb(40, 40, 40);
   padding: 10px;
   border-radius: 100%;
+  cursor: pointer;
 
   & img {
-    width: 100%;
+    width: 30px;
+    height: 30px;
   }
 }
 

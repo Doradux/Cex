@@ -36,10 +36,24 @@ header {
   gap: 15px;
 }
 
+.help {
+  height: 30px;
+  width: 30px;
+  margin-left: auto;
+  cursor: pointer;
+
+  & img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
 .sections {
   display: flex;
+  flex-direction: row;
   gap: 20px;
   align-items: center;
+  width: 100%;
 }
 
 .section {

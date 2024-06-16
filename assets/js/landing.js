@@ -25,3 +25,8 @@ sections.forEach((element) => {
     element.style.backgroundColor = "darkcyan";
   });
 });
+
+const faq = document.querySelector(".help");
+faq.addEventListener("click", function () {
+  window.top.open("../../faq.php");
+});

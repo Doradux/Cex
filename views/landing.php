@@ -19,6 +19,7 @@
             <p class="section pending-section">Pending</p>
             <p class="section add-section">Add friend</p>
             <p class="section public-servers-section">Public servers</p>
+            <div class="help"><img src="../assets/icons/faq.png" alt="faq"></div>
         </div>
     </header>
 
