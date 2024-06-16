@@ -9,7 +9,22 @@ if (isset($_POST['create'])) {
     $creationTime = $_POST['creationTime'];
     $userId = $_SESSION['currentUser']['id'];
 
-    $sql = "INSERT INTO `servers` (`name`, `creationTime`, `imageId`, `grandImageId`, `privacity`, `ownerId`) VALUES ('$name', '$creationTime', '1', '1', 'private', '$userId')";
+    function generateRandomCode($length = 10)
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomCode = '';
+
+        for ($i = 0; $i < $length; $i++) {
+            $randomCode .= $characters[rand(0, $charactersLength - 1)];
+        }
+
+        return $randomCode;
+    }
+
+    $dinamicId = generateRandomCode();
+
+    $sql = "INSERT INTO `servers` (`name`, `creationTime`, `imageId`, `grandImageId`, `privacity`, `ownerId`, `dinamicId`) VALUES ('$name', '$creationTime', '1', '1', 'private', '$userId', '$dinamicId')";
     $conn->query($sql);
     $serverId = $conn->lastInsertId();
 

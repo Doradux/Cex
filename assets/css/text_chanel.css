@@ -137,7 +137,7 @@ header {
   margin-top: 5px;
   border-radius: 10px;
   padding: 10px;
-  background: rgb(70, 70, 70);
+  background: darkcyan;
   max-width: 70%;
   width: fit-content;
   min-width: 100px;
@@ -151,11 +151,11 @@ header {
   margin-top: 5px;
   border-radius: 10px;
   padding: 10px;
-  background: rgb(70, 70, 70);
+  background: darkslategray;
   max-width: 70%;
   min-width: 100px;
   width: fit-content;
-  float: right;
+  align-self: flex-end;
   margin-right: 40px;
 }
 
@@ -221,4 +221,11 @@ header {
   width: 100%;
   justify-content: center;
   align-items: center;
+}
+
+.msgs-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100vw;
 }

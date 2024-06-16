@@ -1,6 +1,11 @@
 <div class="serverOptions">
     <?= ($role == 'admin') ? '<a id="server-settings" href="">Server settings</a>' : '' ?>
-    <?= ($role == 'admin') ? '<a href="">Manage users</a>' : '' ?>
-    <a href="">Members</a>
+    <a id="show-members-page">Members</a>
     <a id="leaveServer">Leave server</a>
 </div>
+
+<style>
+    .serverOptions {
+        background-color: rgb(20, 20, 20);
+    }
+</style>

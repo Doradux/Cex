@@ -10,7 +10,7 @@ sections.forEach((section) => {
     } else if (section.textContent == "Add friend") {
       iframe.src = "../controller/add-friend.php";
     } else if (section.textContent == "Public servers") {
-      iframe.src = "../controller/public-servers.php";
+      iframe.src = "../controller/public-servers.php?page=1";
     }
   });
 });

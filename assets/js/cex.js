@@ -78,27 +78,7 @@ function createServer() {
 
 function joinServer() {
   var sid = document.getElementById("joinServerId").value;
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      try {
-        var response = JSON.parse(this.responseText);
-        console.log(response);
-        if (response.status === "success") {
-          window.top.location.href = "/home.php";
-        } else {
-          alert(response.message);
-        }
-      } catch (e) {
-        console.error("Error parsing JSON response: ", e);
-        alert("An unexpected error occurred.");
-      }
-    }
-  };
-  xhttp.open("POST", "./controller/jsToPhp/joinServer.php", true);
-  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  var params = "serverId=" + encodeURIComponent(sid);
-  xhttp.send(params);
+  window.location = "http://" + sid;
 }
 
 //tooltip server icons name

@@ -19,96 +19,10 @@
         <p>This is the start of the #<?= $chanelData['name'] ?> chanel</p>
     </div>
 
-    <?php
-    $messages = $_SESSION['msgs'];
-    $lastDate = null;
-
-
-    foreach ($messages as $message) {
-        $currentDate = date('d/m/Y', strtotime($message['time']));
-
-        if ($currentDate != $lastDate) {
-            echo
-            "<div class='dateMsg'>
-            <div class='line'></div>
-            <p>$currentDate</p>
-            <div class='line'></div>
-            </div>";
-            $lastDate = $currentDate;
-        }
-
-        if ($message['userId'] == $_SESSION['currentUser']['id']) {
-    ?>
-            <div class="message" style="align-items: end;">
-                <div class="out-msg-content msg" senderId="<?= $message['userId'] ?>" messageId="<?= $message['id'] ?>">
-                    <p class="messageContent"><?= $message['content'] ?></p>
-                    <p class="in-time"><?= $message['modified'] == 1 ? 'Modified ' : '' ?><?= date('H:i', strtotime($message['time'])) ?></p>
-                </div>
-            </div>
-        <?php
-        } else if ($message['userId'] == 0) {
-        ?>
-
-            <div class="in-msg centred">
-                <p class="messageContent"><?= $message['content'] ?></p>
-            </div>
-        <?php
-        } else {
-
-            //get sender name and img
-            $sql = 'SELECT * FROM `users` WHERE id = :userId';
-            $stmt = $conn->prepare($sql);
-            $stmt->bindParam(":userId", $message['userId']);
-            if ($stmt->execute()) {
-                if ($stmt->rowCount() > 0) {
-                    $senderData = $stmt->fetch(PDO::FETCH_ASSOC);
-                    $sql = 'SELECT * FROM `user-image` WHERE id = :imageId';
-                    $stmt = $conn->prepare($sql);
-                    $stmt->bindParam(":imageId", $senderData['imageId']);
-                    if ($stmt->execute()) {
-                        $senderImg = $stmt->fetch(PDO::FETCH_ASSOC);
-                    }
-                } else {
-                    $senderData['id'] = 0;
-                    $senderImg['name'] = "default.jpg";
-                    $senderData['username'] = '(Deleted user)';
-                }
-            }
-
-        ?>
-            <div class="in-msg">
-                <div class="in-sender">
-                    <div class="in-photo" style="background-image: url('../assets/images/userImage/<?= $senderImg['name'] ?>');"></div>
-                    <?php
-                    $found = false;
-                    foreach ($_SESSION['serverUsers'] as $serUser) {
-                        if ($serUser['id'] == $senderData['id']) {
-                            $found = true;
-                            $senderName = $serUser['name'];
-                            break;
-                        } else {
-                            $senderName = "Deleted user";
-                        }
-                    }
-                    if (!$found) {
-                        $senderName = $senderData['username'];
-                    }
-                    ?>
-                    <p class="in-name"><?= $senderName ?></p>
-                </div>
-                <div class="in-msg-content msg" senderId="<?= $message['userId'] ?>" messageId="<?= $message['id'] ?>">
-                    <p class="messageContent"><?= $message['content'] ?></p>
-                    <p class="in-time"><?= $message['modified'] == 1 ? 'Modified ' : '' ?><?= date('H:i', strtotime($message['time'])) ?></p>
-                </div>
-            </div>
-    <?php
-        }
-    }
-    ?>
+    <div id="msgs-container" class="msgs-container"></div>
 
 
     <div class="sendMsg">
-        <div class="uploadPhoto">+</div>
         <input placeholder="Message #<?= $chanelData['name'] ?>" type="text" name="sendMsg" id="sendMsg">
         <input type="hidden" id="chanelId" value="<?= $chanelData['id'] ?>">
         <div class="confirmSendMsg">
@@ -126,8 +40,13 @@
 
 </html>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     var role = "<?= $_SESSION['currentUser']['role'] ?>";
-    let currentId = "<?= $_SESSION['currentUser']['id'] ?>";
+    var currentId = "<?= $_SESSION['currentUser']['id'] ?>";
+    let chanelId = "<?= $chanelData['id'] ?>";
+    var msgContextMenuShield = document.querySelector(".msg-context-menu-shield");
+    var modifyMessageDiv = document.querySelector(".modify-msg-div");
 </script>
+<script src="../assets/js/chat.js"></script>
 <script src="../assets/js/text_chanel.js"></script>

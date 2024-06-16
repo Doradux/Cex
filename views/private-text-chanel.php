@@ -10,58 +10,18 @@
 
 <body>
     <header>
-        <div class="chanel-title">@<?= $friendData['name'] ?></div>
+        <div class="chanel-title">@<?= $friendData['username'] ?></div>
     </header>
 
-    <?php
-    $messages = $_SESSION['msgs'];
-    $lastDate = null;
+    <div class="start">
+        <h1>Beginning of @<?= $friendData['username'] ?> chat</h1>
+    </div>
 
-    foreach ($messages as $message) {
-        $currentDate = date('d/m/Y', strtotime($message['time']));
-
-        if ($currentDate != $lastDate) {
-            echo "<p class='dateMsg'>$currentDate</p>";
-            $lastDate = $currentDate;
-        }
-
-        if ($message['userId'] == $_SESSION['currentUser']['id']) {
-    ?>
-            <div class="message" style="align-items: end;">
-                <div class="out-msg-content msg" senderId="<?= $message['userId'] ?>" messageId="<?= $message['id'] ?>">
-                    <p class="messageContent"><?= $message['content'] ?></p>
-                    <p class="in-time"><?= $message['modified'] == 1 ? 'Modified ' : '' ?><?= date('H:i', strtotime($message['time'])) ?></p>
-                </div>
-            </div>
-        <?php
-        } else if ($message['userId'] == 0) {
-        ?>
-
-            <div class="in-msg centred">
-                <p class="messageContent"><?= $message['content'] ?></p>
-            </div>
-        <?php
-        } else {
-        ?>
-            <div class="in-msg">
-                <div class="in-sender">
-                    <div class="in-photo" style="background-image: url('../assets/images/userImage/<?= $friendData['image'] ?>');"></div>
-                    <p class="in-name"><?= $friendData['username'] ?></p>
-                </div>
-                <div class="in-msg-content msg" senderId="<?= $message['userId'] ?>" messageId="<?= $message['id'] ?>">
-                    <p class="messageContent"><?= $message['content'] ?></p>
-                    <p class="in-time"><?= $message['modified'] == 1 ? 'Modified ' : '' ?><?= date('H:i', strtotime($message['time'])) ?></p>
-                </div>
-            </div>
-    <?php
-        }
-    }
-    ?>
+    <div id="msgs-container" class="msgs-container"></div>
 
 
     <div class="sendMsg">
-        <div class="uploadPhoto">+</div>
-        <input placeholder="Message @<?= $friendData['name'] ?>" type="text" name="sendMsg" id="sendMsg">
+        <input placeholder="Message #<?= $chanelData['name'] ?>" type="text" name="sendMsg" id="sendMsg">
         <input type="hidden" id="chanelId" value="<?= $chanelData['id'] ?>">
         <div class="confirmSendMsg">
             <img src="../assets/images/send.svg" alt="sendMessage">
@@ -78,8 +38,13 @@
 
 </html>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-    var role = "user";
-    let currentId = "<?= $_SESSION['currentUser']['id'] ?>";
+    var role = "<?= $_SESSION['currentUser']['role'] ?>";
+    var currentId = "<?= $_SESSION['currentUser']['id'] ?>";
+    let chanelId = "<?= $chanelData['id'] ?>";
+    var msgContextMenuShield = document.querySelector(".msg-context-menu-shield");
+    var modifyMessageDiv = document.querySelector(".modify-msg-div");
 </script>
+<script src="../assets/js/chat.js"></script>
 <script src="../assets/js/text_chanel.js"></script>

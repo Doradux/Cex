@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <h1>SERVER MEMBERS</h1>
+    <h1><?= $_SESSION['currentServer']['name'] ?> MEMBERS</h1>
     <?php
     foreach ($members as $member) {
     ?>

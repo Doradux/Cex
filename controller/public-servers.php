@@ -2,7 +2,10 @@
 if (session_status() == PHP_SESSION_NONE) session_start();
 
 require_once '../Model/DBconection.php';
-$conn = DBconection::connectDB();
-$_SESSION['currentUser']['role'] = '';
+include_once "../Model/User.php";
 
-include '../views/landing.php';
+$conn = DBconection::connectDB();
+
+echo $_GET['page'];
+
+include '../views/public-servers.php';

@@ -51,7 +51,7 @@
         overflow: hidden;
         width: 200px;
         height: 350px;
-        background-color: rgb(40, 40, 40);
+        background-color: rgb(20, 20, 20);
         color: white;
         display: none;
         flex-direction: column;

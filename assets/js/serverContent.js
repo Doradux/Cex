@@ -88,16 +88,7 @@ arrow.addEventListener("click", function (event) {
   }
 });
 
-//close gourps/chanels menu
-document.addEventListener("click", function (event) {
-  if (
-    !event.target.closest(".serverOptions") &&
-    !event.target.matches("#arrow")
-  ) {
-    serverOptions.style.clipPath = "polygon(0 0, 100% 0, 100% 0, 0 0)";
-    serverOptions.style.display = "none";
-  }
-});
+
 
 //get chanels content
 var chanelsLinks = document.querySelectorAll(".chanelLink");
@@ -121,8 +112,8 @@ chanelsLinks.forEach(function (link) {
 });
 
 //scroll down when open chat
+var iframe = document.getElementById("chanelContent");
 document.getElementById("chanelContent").onload = function () {
-  var iframe = document.getElementById("chanelContent");
   iframe.contentWindow.scrollTo(0, iframe.contentDocument.body.scrollHeight);
 };
 
@@ -239,5 +230,18 @@ postChanel.addEventListener("click", function () {
     xhttp.send(params);
   } else {
     alert("Chanel name can't be: null");
+  }
+});
+
+//show members page
+const showMembersOption = document.getElementById("show-members-page");
+showMembersOption.addEventListener("click", function () {
+  event.preventDefault();
+  iframe.src = "../controller/members-page.php";
+});
+
+document.addEventListener("click", function () {
+  if (!event.target.closest("#arrow")) {
+    document.querySelector(".serverOptions").style.display = "none";
   }
 });

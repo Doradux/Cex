@@ -1,25 +1,18 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+if (session_status() == PHP_SESSION_NONE) session_start();
 
 require_once '../Model/DBconection.php';
 $conn = DBconection::connectDB();
 
-// get chanel id and data
 $chanelId = $_GET['chanelId'];
-$sql = 'SELECT * FROM `chanels` WHERE id = :chanelId';
-$stmt = $conn->prepare($sql);
-$stmt->bindParam(":chanelId", $chanelId);
-$stmt->execute();
+$sql = 'SELECT * FROM `chanels` WHERE id = ' . $chanelId;
+$stmt = $conn->query($sql);
 $chanelData = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// get msgs
-$sqlMsgs = 'SELECT * FROM `messages` WHERE chanelId = :chanelId';
-$stmtMsgs = $conn->prepare($sqlMsgs);
-$stmtMsgs->bindParam(":chanelId", $chanelId);
-$stmtMsgs->execute();
-$_SESSION['msgs'] = $stmtMsgs->fetchAll(PDO::FETCH_ASSOC);
+//get chanel msgs
+$sql = 'SELECT * FROM `messages` WHERE chanelId = ' . $chanelId;
+$stmt = $conn->query($sql);
+$_SESSION['msgs'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // get friend data
 $friendId = $_GET['userId'];
@@ -56,5 +49,8 @@ if ($stmtFriend->execute()) {
 }
 
 
-// Incluir la vista correspondiente
-include '../views/private-text-chanel.php';
+if ($chanelData['type'] == "chat") {
+    include '../views/private-text-chanel.php';
+} else {
+    header("Location: ../videocalls/videocall.php?chanelId=" . $chanelData['id']);
+}

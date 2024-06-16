@@ -72,6 +72,19 @@
         border-radius: 10px;
     }
 
+    textarea::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    textarea::-webkit-scrollbar-track {
+        border: none;
+    }
+
+    textarea::-webkit-scrollbar-thumb {
+        background-color: rgb(30, 30, 30);
+        border-radius: 20px;
+    }
+
     textarea:focus {
         outline: none;
     }
