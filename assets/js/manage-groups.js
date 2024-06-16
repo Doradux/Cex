@@ -30,3 +30,25 @@ postCreate.addEventListener("click", function () {
   var params = "groupName=" + encodeURIComponent(newGroupName);
   xhttp.send(params);
 });
+
+//delete group
+const groups = document.querySelectorAll(".group");
+groups.forEach((group) => {
+  group.querySelector(".group-delete").addEventListener("click", function () {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        response = JSON.parse(this.response);
+        if (response.success) {
+          group.remove();
+        } else {
+          console.error(response);
+        }
+      }
+    };
+    xhttp.open("POST", "./jsToPhp/deleteGroup.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    var params = "groupId=" + encodeURIComponent(group.getAttribute("groupId"));
+    xhttp.send(params);
+  });
+});

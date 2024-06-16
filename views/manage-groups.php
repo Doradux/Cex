@@ -13,7 +13,7 @@
     <?php
     foreach ($_SESSION['groups'] as $group) {
     ?>
-        <div class="group">
+        <div class="group" groupId="<?= $group['id'] ?>">
             <p><?= $group['name'] ?></p>
             <div class="group-options">
                 <div class="group-modify group-option modify"><img src="../assets/icons/edit.svg" alt="edit"></div>
