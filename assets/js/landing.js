@@ -14,3 +14,14 @@ sections.forEach((section) => {
     }
   });
 });
+
+sections["0"].style.backgroundColor = "darkcyan";
+
+sections.forEach((element) => {
+  element.addEventListener("click", function () {
+    sections.forEach((section) => {
+      section.style.backgroundColor = "transparent";
+    });
+    element.style.backgroundColor = "darkcyan";
+  });
+});

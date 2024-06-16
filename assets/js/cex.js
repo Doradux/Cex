@@ -1,23 +1,12 @@
+var joinServerShield = document.querySelector(".join-server-shield");
 function addServer() {
-  var modal = document.getElementById("modal");
-  modal.style.display = "flex";
+  joinServerShield.style.display = "flex";
 }
 
-add = document.getElementById("add");
-var iframe = document.getElementById("iframe");
-document.addEventListener("click", function (event) {
-  if (
-    (event.target !== modal &&
-      event.target !== add &&
-      !modal.contains(event.target)) ||
-    event.target === iframe
-  ) {
-    modal.style.display = "none";
+joinServerShield.addEventListener("click", function () {
+  if (!event.target.closest(".join-server-div")) {
+    this.style.display = "none";
   }
-});
-
-iframe.contentWindow.document.addEventListener("click", function (event) {
-  modal.style.display = "none";
 });
 
 var joinS = document.getElementById("joinS");
@@ -33,8 +22,7 @@ createS.addEventListener("click", function (event) {
 });
 
 function createServer() {
-  var modal = document.getElementById("modal");
-  modal.style.display = "none";
+  joinServerShield.style.display = "none";
 
   var name = document.getElementById("createServerName").value;
 
@@ -62,7 +50,7 @@ function createServer() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      console.log(this.responseText);
+      location.reload();
     }
   };
   xhttp.open("POST", "./model/PostServer.php", true);

@@ -45,30 +45,10 @@
 
     </container>
 
-    <modal id="modal">
-        <form action="">
-            <label for="joinServerId">
-                Join a server:
-            </label>
-            <div>
-                <input type="text" placeholder="Server id" name="joinServerId" id="joinServerId">
-                <input id="joinS" type="submit" value="Join">
-            </div>
-        </form>
-        <form action="">
-            <label for="joinServerId">
-                Create server:
-            </label>
-            <div>
-                <input type="text" placeholder="Server name" name="createServerName" id="createServerName">
-                <input id="createS" type="submit" value="Create!">
-            </div>
-        </form>
-    </modal>
-
 
     <!-- utilities -->
     <?php
+    include './assets/components/join-server.php';
     include './assets/components/contextMenuProfile.php';
     include './assets/components/set-status.php';
     ?>

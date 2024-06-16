@@ -42,6 +42,11 @@ header {
   align-items: center;
 }
 
+.section {
+  padding: 5px;
+  border-radius: 8px;
+}
+
 .section:hover {
   cursor: pointer;
 }

@@ -171,6 +171,7 @@ const startScreenShare = async () => {
 
     const localPlayer = document.getElementById("user-1");
     screenTrack.play(localPlayer);
+    localPlayer.style.backgroundColor = "transparent";
     document.getElementById("share-screen").querySelector("img").src =
       "../assets/icons/screen-share-off.png";
     isScreenShared = true;
@@ -191,6 +192,7 @@ const stopScreenShare = async () => {
       await client.publish(localTracks.videoTrack);
       const localPlayer = document.getElementById("user-1");
       localTracks.videoTrack.play(localPlayer);
+      localPlayer.style.backgroundColor = "darkcyan";
     } catch (err) {
       console.error("Failed to publish video track", err);
       // Create a placeholder video element if media tracks are not available

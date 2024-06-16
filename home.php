@@ -27,6 +27,12 @@ if (!empty($joinedServersId)) {
     $servers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+//getUsers
+$sql = 'SELECT `id`, `username`, `displayname`, `imageId`, `creation` FROM users';
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$_SESSION['serverUsers'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 //get friends requests
 $pendings = [];
 $pendingsIds = [];

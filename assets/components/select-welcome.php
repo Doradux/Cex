@@ -24,6 +24,10 @@ foreach ($_SESSION['groups'] as $group) {
     <div class="welcome-chanel-div">
         <p>Select welcome chanel</p>
         <div class="welcome-chanels-list">
+            <div class="chanel-list-element" chanelId="none">
+                <p></p>
+                <p class="chanel-name">None</p>
+            </div>
             <?php
             foreach ($chatChanels as $chanel) {
             ?>
@@ -83,10 +87,11 @@ foreach ($_SESSION['groups'] as $group) {
         display: none;
         justify-content: center;
         align-items: center;
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         backdrop-filter: blur(5px);
+        z-index: 10;
     }
 
     .welcome-chanel-div {

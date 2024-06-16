@@ -114,7 +114,7 @@ editName.addEventListener("click", function () {
         var response = JSON.parse(this.responseText);
         if (response.success) {
           editName.textContent = "EDIT";
-          editName.style.backgroundColor = "rgb(0, 140, 255)";
+          editName.style.backgroundColor = "darkcyan";
           nameInput.setAttribute("disabled", "disabled");
           saveNameStatus = 0;
         } else {

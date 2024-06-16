@@ -88,8 +88,6 @@ arrow.addEventListener("click", function (event) {
   }
 });
 
-
-
 //get chanels content
 var chanelsLinks = document.querySelectorAll(".chanelLink");
 
@@ -144,7 +142,7 @@ confirmLeaveServerBtn.addEventListener("click", function () {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      confirmLeaveServer.style.display = "none";
+      window.top.top.location.reload();
     }
   };
   xhttp.open("POST", "./jsToPhp/leaveServer.php", true);

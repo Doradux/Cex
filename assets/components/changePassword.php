@@ -40,13 +40,13 @@
     .password-shield {
         width: 100vw;
         height: 100vh;
-        background-color: rgba(0, 0, 0, 0.7);
         display: none;
         justify-content: center;
         align-items: center;
         position: fixed;
         top: 0;
         left: 0;
+        background-color: rgba(0, 0, 0, 0.7);
         backdrop-filter: blur(5px);
     }
 

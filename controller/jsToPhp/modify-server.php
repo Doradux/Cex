@@ -25,17 +25,36 @@ if (isset($_POST['newServerName'])) {
 if (isset($_POST['chanelId'])) {
     $chanelId = $_POST['chanelId'];
     $chanelName = $_POST['chanelName'];
-    $sql = "UPDATE `servers` SET `welcomeChanel` = :newChanel WHERE `id` = :serverId";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(":newChanel", $chanelId);
-    $stmt->bindParam(":serverId", $_SESSION['currentServer']['id']);
 
-    if ($stmt->execute()) {
-        $response['success'] = true;
-        $_SESSION['currentServer']['welcomeChanel'] = $chanelName;
-    } else {
-        $response['error'] = "Server name coulnd't be updated";
+    try {
+        if ($chanelId == "none") {
+            $sql = "UPDATE `servers` SET `welcomeChanel` = NULL WHERE `id` = :serverId";
+        } else {
+            $sql = "UPDATE `servers` SET `welcomeChanel` = :newChanel WHERE `id` = :serverId";
+        }
+        $stmt = $conn->prepare($sql);
+
+        // Vincular parámetros y ejecutar la consulta
+        $stmt->bindParam(":serverId", $_SESSION['currentServer']['id']);
+        if ($chanelId != "none") {
+            $stmt->bindParam(":newChanel", $chanelId);
+        }
+
+        // Ejecutar la consulta
+        if ($stmt->execute()) {
+            $response['success'] = true;
+            $_SESSION['currentServer']['welcomeChanel'] = $chanelName;
+        } else {
+            $response['error'] = "Error al actualizar el canal de bienvenida.";
+        }
+    } catch (PDOException $e) {
+        $response['error'] = "Error en la conexión a la base de datos: " . $e->getMessage();
+    } finally {
+        // Cerrar la conexión
+        $conn = null;
     }
+} else {
+    $response['error'] = "No se recibieron datos válidos.";
 }
 
 if (isset($_POST['serverPriv'])) {

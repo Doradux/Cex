@@ -65,7 +65,7 @@ try {
                         foreach ($_SESSION['serverUsers'] as $serUser) {
                             if ($serUser['id'] == $senderData['id']) {
                                 $found = true;
-                                $senderName = htmlspecialchars($serUser['name'], ENT_QUOTES, 'UTF-8');
+                                $senderName = htmlspecialchars($serUser['username'], ENT_QUOTES, 'UTF-8');
                                 break;
                             } else {
                                 $senderName = "Deleted user";
