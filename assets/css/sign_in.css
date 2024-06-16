@@ -21,7 +21,7 @@
 }
 
 body {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url("../images/bluebg.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -34,7 +34,7 @@ body {
 
 .login {
   display: none;
-  background-color: rgba(255, 255, 255, 0.74);
+  background-color: rgba(255, 255, 255, 0.7);
   display: hidden;
   border-radius: 10px;
   padding: 20px;
@@ -52,7 +52,7 @@ body {
 .submit {
   background: linear-gradient(
     90deg,
-    cyan 0%,
+    rgb(29, 172, 172) 0%,
     darkcyan 100%
   );
   border: none;
