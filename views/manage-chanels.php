@@ -25,7 +25,7 @@
         <?php
         foreach ($chanels as $chanel) {
         ?>
-            <div class="chanel" chanelId="<?= $chanel['id'] ?>">
+            <div class="chanel" chanelName="<?= $chanel['name'] ?>" chanelId="<?= $chanel['id'] ?>">
                 <div class="chanel-part1">
                     <div class="chanel-tags">
                         <?= $chanel['type'] == 'chat' ? "<p># " . $chanel['name'] . "</p>" : "<p>⪨ " . $chanel['name'] . "</p>" ?>
@@ -51,6 +51,7 @@
     <?php
     }
     include '../assets/components/addChanel.php';
+    include '../assets/components/modifyChanelName.php';
     ?>
 </body>
 

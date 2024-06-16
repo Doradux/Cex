@@ -96,3 +96,66 @@ chanels.forEach((chanel) => {
     xhttp.send(params);
   });
 });
+
+var modifyShield = document.querySelector(".modify-chanel-shield");
+const editChanelBtns = document.querySelectorAll(".chanel-modify");
+let currentBtn = null; // Variable para almacenar el botón actual
+
+editChanelBtns.forEach((btn) => {
+  btn.addEventListener("click", function () {
+    currentBtn = btn; // Almacenar el botón actual
+    var chanelName =
+      btn.parentElement.parentElement.parentElement.getAttribute("chanelName");
+
+    document.getElementById("newName").value = chanelName;
+    modifyShield.style.display = "flex";
+  });
+});
+
+//confirm modify
+var confirmModifyBtn = document.getElementById("confirmModify");
+confirmModifyBtn.addEventListener("click", function () {
+  if (currentBtn) {
+    var chanelModifyId =
+      currentBtn.parentElement.parentElement.parentElement.getAttribute(
+        "chanelid"
+      );
+
+    var newName = document.getElementById("newName").value;
+    if (newName != "") {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          var response = JSON.parse(this.response);
+          if (response.success) {
+            modifyShield.style.display = "none";
+            currentBtn.parentElement.parentElement.parentElement.parentElement.querySelector(
+              "p"
+            ).innerHTML = "# " + newName;
+          } else {
+            console.error(this.response);
+          }
+        }
+      };
+      xhttp.open("POST", "./jsToPhp/modifyChanel.php", true);
+      xhttp.setRequestHeader(
+        "Content-type",
+        "application/x-www-form-urlencoded"
+      );
+      var params =
+        "chanelId=" +
+        encodeURIComponent(chanelModifyId) +
+        "&chanelNewName=" +
+        encodeURIComponent(newName);
+      xhttp.send(params);
+    } else {
+      alert("error");
+    }
+  }
+});
+
+modifyShield.addEventListener("click", function (event) {
+  if (!event.target.closest(".modify-chanel")) {
+    modifyShield.style.display = "none";
+  }
+});
