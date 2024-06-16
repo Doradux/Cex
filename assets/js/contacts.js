@@ -28,3 +28,22 @@ function getPrivateChanelId(friendId, callback) {
   var params = "friendId=" + encodeURIComponent(friendId);
   xhttp.send(params);
 }
+
+const deleteFriendBtns = document.querySelectorAll(".delete");
+deleteFriendBtns.forEach((element) => {
+  element.addEventListener("click", function () {
+    var userId = element.getAttribute("userId");
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        window.top.location.reload();
+        shield.style.display = "none";
+        clearChanelInputError();
+      }
+    };
+    xhttp.open("POST", "./jsToPhp/delete-friendship.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    const params = "userId=" + encodeURIComponent(userId);
+    xhttp.send(params);
+  });
+});

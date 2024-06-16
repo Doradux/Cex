@@ -34,7 +34,7 @@
                     <div class="option msg" userId="<?= $userFriend['id'] ?>">
                         <img src="../assets/icons/msg.png" alt="chat user">
                     </div>
-                    <div class="option delete">
+                    <div userId="<?= $userFriend['id'] ?>" class="option delete">
                         <img src="../assets/icons/delete.png" alt="delete friend">
                     </div>
                 </div>
