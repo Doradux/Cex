@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   inputField.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
-      event.preventDefault(); // Evitar el envío automático del formulario
+      event.preventDefault(); 
       sendMsg();
     }
   });
@@ -19,9 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function sendMsg() {
   var message = document.getElementById("sendMsg").value;
-  // Aquí puedes agregar la lógica para enviar el mensaje, por ejemplo, con AJAX
   console.log("Message sent:", message);
-  // Limpia el campo de entrada después de enviar el mensaje, si es necesario
   document.getElementById("sendMsg").value = "";
 }
 

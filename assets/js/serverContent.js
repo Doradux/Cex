@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
         tooltip.textContent = "Create new chanel";
         tooltip.style.display = "block";
 
-        // Posicionar el tooltip encima del enlace a
         const linkRect = link.getBoundingClientRect();
         tooltip.style.left = linkRect.left + -65 + "px";
         tooltip.style.top = linkRect.top - tooltip.offsetHeight + "px";
@@ -206,4 +205,34 @@ document.addEventListener("click", function () {
   if (!event.target.closest("#arrow")) {
     document.querySelector(".serverOptions").style.display = "none";
   }
+});
+
+const contextMenu = document.querySelector(".contextMenu");
+const contextMenuDisplayer = document.querySelector(".showMenu");
+
+var contextMenuLeft = window
+  .getComputedStyle(contextMenu)
+  .getPropertyValue("left");
+
+if (contextMenuLeft == "-300px") {
+  contextMenuDisplayer.style.display = "block";
+} else {
+  contextMenuDisplayer.style.display = "none";
+}
+
+window.addEventListener("resize", function () {
+  var contextMenuLeft = window
+    .getComputedStyle(contextMenu)
+    .getPropertyValue("left");
+
+  if (contextMenuLeft == "-300px") {
+    contextMenuDisplayer.style.display = "block";
+  } else {
+    contextMenuDisplayer.style.display = "none";
+  }
+});
+
+contextMenuDisplayer.addEventListener("click", function () {
+  contextMenu.style.left = "0";
+  contextMenuDisplayer.style.display = "none";
 });

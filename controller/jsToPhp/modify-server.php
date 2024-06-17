@@ -40,7 +40,6 @@ if (isset($_POST['chanelId'])) {
             $stmt->bindParam(":newChanel", $chanelId);
         }
 
-        // Ejecutar la consulta
         if ($stmt->execute()) {
             $response['success'] = true;
             $_SESSION['currentServer']['welcomeChanel'] = $chanelName;
@@ -49,9 +48,6 @@ if (isset($_POST['chanelId'])) {
         }
     } catch (PDOException $e) {
         $response['error'] = "Error en la conexión a la base de datos: " . $e->getMessage();
-    } finally {
-        // Cerrar la conexión
-        $conn = null;
     }
 } else {
     $response['error'] = "No se recibieron datos válidos.";

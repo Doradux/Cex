@@ -117,7 +117,9 @@ figure {
 
 .option {
   width: 50px;
+  min-width: 50px;
   height: 50px;
+  min-height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -139,7 +141,7 @@ figure {
 }
 
 .friends {
-  width: 60%;
+  width: 700px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -147,4 +149,57 @@ figure {
   background-color: rgb(30, 30, 30);
   border-radius: 10px;
   gap: 20px;
+}
+
+@media screen and (max-width: 640px) {
+  .friends {
+    width: 100%;
+  }
+
+  .fst-snd {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .fst {
+    width: 70%;
+  }
+
+  .snd {
+    width: 30%;
+  }
+
+  .friend {
+    min-width: 270px;
+  }
+
+  .friends {
+    min-width: 320px;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .fst-snd {
+    display: none;
+  }
+
+  body {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .fst {
+    width: 30%;
+    justify-content: center;
+  }
+
+  .names {
+    display: none;
+  }
+
+  .snd {
+    width: 50%;
+  }
 }

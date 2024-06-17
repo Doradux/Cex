@@ -46,7 +46,7 @@ try {
         $stmt->bindParam(":newContent", $newContent);
 
         if ($stmt->execute()) {
-            $rowCount = $stmt->rowCount(); // Obtener el número de filas afectadas
+            $rowCount = $stmt->rowCount(); 
             if ($rowCount > 0) {
                 foreach ($_SESSION['msgs'] as $index => $msg) {
                     if ($msg['id'] == $msgId) {

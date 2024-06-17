@@ -158,6 +158,8 @@ figure {
 .snd {
   height: 40px;
   width: 40px;
+  min-height: 40px;
+  min-width: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -199,4 +201,33 @@ figure {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    flex-direction: column;
+  }
+  .p1 {
+    width: 100%;
+  }
+  
+  .p2 {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .add-friend-div {
+    & p {
+      display: none;
+    }
+  }
+
+  .names {
+    display: none;
+  }
+
+  .sent {
+    justify-content: space-around;
+  }
 }

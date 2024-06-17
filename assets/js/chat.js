@@ -1,6 +1,5 @@
 var msgContextMenuShield = document.querySelector(".msg-context-menu-shield");
 
-// Function to fetch messages via AJAX
 function fetchMessages() {
   $.ajax({
     url: "../controller/fetch-messages.php",
@@ -8,7 +7,7 @@ function fetchMessages() {
     data: { sender: currentId, chanel: chanelId },
     success: function (data) {
       $("#msgs-container").html(data);
-      getMsgs(currentId, role, msgContextMenuShield); // Call getMsgs after updating the messages
+      getMsgs(currentId, role, msgContextMenuShield);
     },
   });
 }
@@ -20,13 +19,12 @@ function fetchMessages1() {
     data: { sender: currentId, chanel: chanelId },
     success: function (data) {
       $("#msgs-container").html(data);
-      getMsgs(currentId, role, msgContextMenuShield); // Call getMsgs after updating the messages
+      getMsgs(currentId, role, msgContextMenuShield);
       scrollToBottom();
     },
   });
 }
 
-// Function to handle message context menu and actions
 function getMsgs(currentId, role, msgContextMenuShield) {
   if (msgContextMenuShield) {
     msgContextMenuShield.addEventListener("contextmenu", function (event) {
@@ -60,7 +58,6 @@ function getMsgs(currentId, role, msgContextMenuShield) {
           var modifyMessageShield =
             document.querySelector(".modify-msg-shield");
 
-          // Delete message action
           deleteMsgBtn.addEventListener("click", function () {
             var messageId = msg.getAttribute("messageId");
             var xhttp = new XMLHttpRequest();
@@ -70,7 +67,7 @@ function getMsgs(currentId, role, msgContextMenuShield) {
                 if (response.success) {
                   fetchMessages();
                 } else {
-                  console.log(response); // Log error message
+                  console.log(response);
                 }
               }
             };
@@ -92,7 +89,7 @@ function getMsgs(currentId, role, msgContextMenuShield) {
             modifyMessageShield.style.display = "flex";
           });
 
-          // Close modify message dialog
+          // Close modify message
           modifyMessageShield.addEventListener("click", function (event) {
             if (!event.target.closest(".modify-msg-div")) {
               modifyMessageShield.style.display = "none";

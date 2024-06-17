@@ -16,14 +16,12 @@ if (!is_dir($uploadDir)) {
     $response['error'] = 'Upload directory is not writable. Permissions: ' . substr(sprintf('%o', fileperms($uploadDir)), -4);
 } else {
     if (isset($_FILES['file']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
-        // Generar un número aleatorio de 7 dígitos
         $rand = mt_rand(1000000, 9999999);
         $name = $rand . basename($_FILES['file']['name']);
 
         $uploadFile = $uploadDir . $name;
 
         if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadFile)) {
-            // Subir la foto del servidor
             $sql = 'INSERT INTO `server-grandimage` (`name`) VALUES (:name)';
             $stmt = $conn->prepare($sql);
             $stmt->bindParam(':name', $name);
@@ -31,7 +29,6 @@ if (!is_dir($uploadDir)) {
             if ($stmt->execute()) {
                 $lastId = $conn->lastInsertId();
 
-                // Actualizar el campo imageId en la tabla servers
                 $sql = 'UPDATE `servers` SET `grandImageId` = :lastId WHERE `id` = :serverId';
                 $stmt = $conn->prepare($sql);
                 $stmt->bindParam(':lastId', $lastId, PDO::PARAM_INT);
@@ -39,7 +36,7 @@ if (!is_dir($uploadDir)) {
 
                 if ($stmt->execute()) {
                     $response['success'] = true;
-                    $response['file'] = $name; // Retornar el nombre del archivo subido
+                    $response['file'] = $name;
                 } else {
                     $response['error'] = 'Failed to update server imageId.';
                 }

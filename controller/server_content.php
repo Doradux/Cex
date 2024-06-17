@@ -10,7 +10,6 @@ include_once "../Model/User.php";
 
 $conn = DBconection::connectDB();
 
-// Obtener la información del servidor junto con el nombre de la imagen grandImage
 $sql = "
     SELECT s.*, sg.name AS grandImageName 
     FROM `servers` s
@@ -22,7 +21,6 @@ $stmt->bindParam(':serId', $_GET['serId'], PDO::PARAM_INT);
 $stmt->execute();
 $_SESSION['currentServer'] = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Obtener los grupos de canales del servidor
 $chanelsGroups = [];
 $sql = "SELECT * FROM `chanelsgroup` WHERE serverId = :serId";
 $stmt = $conn->prepare($sql);

@@ -50,11 +50,7 @@ body {
 }
 
 .submit {
-  background: linear-gradient(
-    90deg,
-    rgb(29, 172, 172) 0%,
-    darkcyan 100%
-  );
+  background: linear-gradient(90deg, rgb(29, 172, 172) 0%, darkcyan 100%);
   border: none;
   border-radius: 5px;
   color: white;
@@ -116,11 +112,7 @@ img {
   /* border: 5px solid #be6262; */
   background-color: black;
   /* clip-path: polygon(0 10%, 100% 60%, 100% 90%, 1% 40%); */
-  background: linear-gradient(
-    90deg,
-    cyan 0%,
-    darkcyan 100%
-  );
+  background: linear-gradient(90deg, cyan 0%, darkcyan 100%);
 }
 
 p {
@@ -194,4 +186,16 @@ input:focus {
   color: crimson;
   font-size: 0.8rem;
   margin-top: 2px;
+}
+
+@media screen and (max-width: 639px) {
+  .logo {
+    display: none;
+  }
+
+  
+
+  .register {
+    width: 95%;
+  }
 }

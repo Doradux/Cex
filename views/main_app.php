@@ -33,14 +33,14 @@
             <button class="home" id="add" onclick="addServer()">+</button>
         </div>
 
+        <div class="iframe">
+            <iframe frameborder="0" src="./controller/landing.php" id="iframe"></iframe>
+        </div>
+
         <div class="profile">
             <div class="picture prof" id="prof">
                 <img class="" src="./assets/images/userImage/<?= $_SESSION['currentUser']['userImg'] ?>" alt="userIcon">
             </div>
-        </div>
-
-        <div class="iframe">
-            <iframe frameborder="0" src="./controller/landing.php" id="iframe"></iframe>
         </div>
 
     </container>

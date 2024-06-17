@@ -4,8 +4,7 @@ if (session_status() == PHP_SESSION_NONE) session_start();
 require_once '../../Model/DBconection.php';
 $conn = DBconection::connectDB();
 
-$response = array();  // Inicializar el array de respuesta
-
+$response = array();
 if (isset($_POST['groupName'])) {
     $groupName = $_POST['groupName'];
     $sql = "INSERT INTO `chanelsgroup` (name, serverId) VALUES (:name, :serverId)";
@@ -16,7 +15,6 @@ if (isset($_POST['groupName'])) {
     if ($stmt->execute()) {
         $response['success'] = true;
 
-        // Refrescar la lista de grupos de la sesión
         $chanelsGroups = [];
         $sql = "SELECT * FROM `chanelsgroup` WHERE serverId = :serId";
         $stmt = $conn->prepare($sql);
