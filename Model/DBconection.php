@@ -1,35 +1,28 @@
 <?php
-
 if (session_status() == PHP_SESSION_NONE) session_start();
-if (isset($_GET['join']) && isset($_SESSION['currentUser']['username'])) {
-?>
 
-    <script>
-        var serverId = "<?= $_GET['join'] ?>";
-        console.log("received join id: <?= $_GET['join'] ?>");
+abstract class DBconection
+{
+    private static $server = 'cex-marcosloldorado-d299.j.aivencloud.com';
+    private static $db = 'defaultdb';
+    private static $user = 'avnadmin';
+    private static $password = 'AVNS_ZlCVBzeYI8qjwSYq7B5';
+    private static $port = '22034';
 
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                var response = JSON.parse(this.responseText);
-                if (response.status == "success") {
-                    window.location = "./home.php"
-                    console.log(response);
-                } else {
-                    console.error(response);
-                    alert("Something bad happend: check console")
-                }
-            }
-        };
-
-        xhttp.open("POST", "../controller/jsToPhp/joinServer.php", true);
-        xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        var params = "serverId=" + encodeURIComponent(serverId);
-        xhttp.send(params);
-    </script>
-
-<?php
-} else if (isset($_SESSION['currentUser']['username']) && !isset($_GET['join'])) {
-    header('Location: ./home.php');
+    public static function connectDB()
+    {
+        try {
+            // Use utf8mb4 charset for full Unicode support, including emojis
+            $connection = new PDO("mysql:host=" . self::$server . ";port=" . self::$port . ";dbname=" . self::$db . ";charset=utf8mb4", self::$user, self::$password);
+            // Set the PDO attribute to handle errors properly
+            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            // Ensure that the connection uses utf8mb4
+            $connection->exec("SET NAMES 'utf8mb4'");
+        } catch (PDOException $e) {
+            echo "No se ha podido establecer conexión con el servidor de bases de datos.<br>";
+            die("Error: " . $e->getMessage());
+        }
+        return $connection;
+    }
 }
-include './controller/index.php';
+?>
