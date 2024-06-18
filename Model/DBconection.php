@@ -3,16 +3,17 @@ if (session_status() == PHP_SESSION_NONE) session_start();
 
 abstract class DBconection
 {
-    private static $server = 'localhost';
-    private static $db = 'cex';
-    private static $user = 'root';
-    private static $password = '';
+    private static $server = 'cex-marcosloldorado-d299.j.aivencloud.com';
+    private static $db = 'defaultdb';
+    private static $user = 'avnadmin';
+    private static $password = 'AVNS_ZlCVBzeYI8qjwSYq7B5';
+    private static $port = '22034';
 
     public static function connectDB()
     {
         try {
             // Use utf8mb4 charset for full Unicode support, including emojis
-            $connection = new PDO("mysql:host=" . self::$server . ";dbname=" . self::$db . ";charset=utf8mb4", self::$user, self::$password);
+            $connection = new PDO("mysql:host=" . self::$server . ";port=" . self::$port . ";dbname=" . self::$db . ";charset=utf8mb4", self::$user, self::$password);
             // Set the PDO attribute to handle errors properly
             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             // Ensure that the connection uses utf8mb4
@@ -24,3 +25,4 @@ abstract class DBconection
         return $connection;
     }
 }
+?>
