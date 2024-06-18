@@ -182,7 +182,7 @@ const privIcon = document.querySelector(".server-privacity-icon");
 if (privacity == "public") {
   privSelect.style.backgroundColor = "darkcyan";
   privSelect.style.transform = "translateX(-120px)";
-  privIcon.src = "../../assets/icons/visible.png";
+  privIcon.src = "./../assets/icons/visible.png";
   privIcon.style.transform = "rotate(-360deg)";
 }
 
@@ -192,7 +192,7 @@ privDiv.addEventListener("click", function () {
     privacity = "private";
     privSelect.style.backgroundColor = "crimson";
     privSelect.style.transform = "translateX(0)";
-    privIcon.src = "../../assets/icons/no-visible.png";
+    privIcon.src = "./../assets/icons/no-visible.png";
     privIcon.style.transform = "rotate(360deg)";
 
     var xhttp = new XMLHttpRequest();
@@ -213,7 +213,7 @@ privDiv.addEventListener("click", function () {
     privacity = "public";
     privSelect.style.backgroundColor = "darkcyan";
     privSelect.style.transform = "translateX(-120px)";
-    privIcon.src = "../../assets/icons/visible.png";
+    privIcon.src = "./../assets/icons/visible.png";
     privIcon.style.transform = "rotate(-360deg)";
 
     var xhttp = new XMLHttpRequest();

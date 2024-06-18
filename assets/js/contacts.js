@@ -4,7 +4,7 @@ msgsBtns.forEach((btn) => {
     var userId = btn.getAttribute("userId");
     getPrivateChanelId(userId, function (chanelId) {
       console.log(chanelId);
-      window.location.href = `../controller/private-text-chanel.php?chanelId=${chanelId}&userId=${userId}`;
+      window.location.href = `./private-text-chanel.php?chanelId=${chanelId}&userId=${userId}`;
     });
   });
 });

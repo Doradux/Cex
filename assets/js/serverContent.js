@@ -58,7 +58,7 @@ chanelsLinks.forEach(function (link) {
       .getElementById("chanelContent")
       .setAttribute(
         "src",
-        "../controller/text_chanel.php?chanelId=" + chanelId
+        "./text_chanel.php?chanelId=" + chanelId
       );
   });
 });
@@ -74,7 +74,7 @@ try {
   var serverSettingsLink = document.getElementById("server-settings");
   serverSettingsLink.addEventListener("click", function () {
     event.preventDefault();
-    window.location.href = "../controller/serverSettings.php";
+    window.location.href = "./serverSettings.php";
   });
 } catch {}
 
@@ -148,13 +148,13 @@ selectType.addEventListener("click", function () {
   if (type == 0) {
     typeHider.style.transform = "translateX(-150px)";
     emoji.innerHTML =
-      '<img class="chanel-type-icon" src="../../assets/icons/voice-chanel.svg" alt="">';
+      '<img class="chanel-type-icon" src="./../assets/icons/voice-chanel.svg" alt="">';
     emoji.style.transform = "rotate(-360deg)";
     type = 1;
   } else if (type == 1) {
     typeHider.style.transform = "translateX(10px)";
     emoji.innerHTML =
-      '<img class="chanel-type-icon" src="../../assets/icons/text-chanel.svg" alt="">';
+      '<img class="chanel-type-icon" src="./../assets/icons/text-chanel.svg" alt="">';
     emoji.style.transform = "rotate(0)";
     type = 0;
   }
@@ -198,7 +198,7 @@ postChanel.addEventListener("click", function () {
 const showMembersOption = document.getElementById("show-members-page");
 showMembersOption.addEventListener("click", function () {
   event.preventDefault();
-  iframe.src = "../controller/members-page.php";
+  iframe.src = "./controller/members-page.php";
 });
 
 document.addEventListener("click", function () {

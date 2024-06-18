@@ -42,13 +42,13 @@ selectType.addEventListener("click", function () {
   if (type == 0) {
     typeHider.style.transform = "translateX(-80px)";
     emoji.innerHTML =
-      '<img class="chanel-type-icon" src="../../assets/icons/voice-chanel.svg" alt="">';
+      '<img class="chanel-type-icon" src="./../assets/icons/voice-chanel.svg" alt="">';
     emoji.style.transform = "rotate(-360deg)";
     type = 1;
   } else if (type == 1) {
     typeHider.style.transform = "translateX(80px)";
     emoji.innerHTML =
-      '<img class="chanel-type-icon" src="../../assets/icons/text-chanel.svg" alt="">';
+      '<img class="chanel-type-icon" src="./../assets/icons/text-chanel.svg" alt="">';
     emoji.style.transform = "rotate(0)";
     type = 0;
   }

@@ -24,7 +24,7 @@ options.forEach((element, index) => {
 
 options.forEach((option, index) => {
   option.addEventListener("click", function () {
-    iframe.src = "../controller/" + option.getAttribute("id") + ".php";
+    iframe.src = "./" + option.getAttribute("id") + ".php";
     iframe.setAttribute("page", index);
 
     options.forEach((element, i) => {

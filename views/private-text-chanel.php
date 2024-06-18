@@ -35,6 +35,16 @@
     include '../assets/components/modify-msg.php';
     ?>
 </body>
+<style>
+    body {
+        padding: 0;
+    }
+
+    .msgs-container {
+        padding: 10px;
+        padding-bottom: 80px;
+    }
+</style>
 
 </html>
 

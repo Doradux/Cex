@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //go landing page
 const landing = document.getElementById("home");
 landing.addEventListener("click", function () {
-  iframe.src = "../controller/landing.php";
+  iframe.src = "./controller/landing.php";
 });
 
 //set status

@@ -2,7 +2,7 @@ var msgContextMenuShield = document.querySelector(".msg-context-menu-shield");
 
 function fetchMessages() {
   $.ajax({
-    url: "../controller/fetch-messages.php",
+    url: "./fetch-messages.php",
     type: "POST",
     data: { sender: currentId, chanel: chanelId },
     success: function (data) {
@@ -14,7 +14,7 @@ function fetchMessages() {
 
 function fetchMessages1() {
   $.ajax({
-    url: "../controller/fetch-messages.php",
+    url: "./fetch-messages.php",
     type: "POST",
     data: { sender: currentId, chanel: chanelId },
     success: function (data) {

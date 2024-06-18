@@ -4,13 +4,13 @@ const iframe = document.getElementById("iframe");
 sections.forEach((section) => {
   section.addEventListener("click", function () {
     if (section.textContent == "All") {
-      iframe.src = "../controller/contacts.php";
+      iframe.src = "./contacts.php";
     } else if (section.textContent == "Pending") {
-      iframe.src = "../controller/pending.php";
+      iframe.src = "./pending.php";
     } else if (section.textContent == "Add friend") {
-      iframe.src = "../controller/add-friend.php";
+      iframe.src = "./add-friend.php";
     } else if (section.textContent == "Public servers") {
-      iframe.src = "../controller/public-servers.php?page=1";
+      iframe.src = "./public-servers.php?page=1";
     }
   });
 });
@@ -28,5 +28,5 @@ sections.forEach((element) => {
 
 const faq = document.querySelector(".help");
 faq.addEventListener("click", function () {
-  iframe.src = "../../faq.php";
+  iframe.src = "./../faq.php";
 });

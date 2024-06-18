@@ -50,9 +50,6 @@
 
     .delete-account {
         color: white;
-        position: absolute;
-        top: 35%;
-        right: 40%;
         display: flex;
         flex-direction: column;
         padding: 10px;

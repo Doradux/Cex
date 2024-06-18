@@ -362,6 +362,10 @@ input[type="text"] {
     min-width: 0;
     flex-direction: column;
   }
+
+  body {
+    align-items: start;
+  }
   
   .server-privacity {
     width: 100%;

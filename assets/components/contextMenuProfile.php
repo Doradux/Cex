@@ -3,7 +3,7 @@
     <div class="userProfile" id="user-profile">
         <div class="profile-blue"></div>
         <div class="profile-image">
-            <img src='../../assets/images/userImage/<?= $_SESSION['currentUser']['userImg'] ?>' class="profile-image-icon" alt="userImage">
+            <img src='./assets/images/userImage/<?= $_SESSION['currentUser']['userImg'] ?>' class="profile-image-icon" alt="userImage">
         </div>
         <div class="profile-data">
             <div class="datapart">
@@ -177,6 +177,6 @@
     var editProfileBtn = document.getElementById("edit-profile-btn");
     editProfileBtn.addEventListener("click", function() {
         userOptionsShield.style.display = "none";
-        iframe.src = "../controller/editProfile.php";
+        iframe.src = "./controller/editProfile.php";
     });
 </script>
