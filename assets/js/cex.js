@@ -53,7 +53,7 @@ function createServer() {
       location.reload();
     }
   };
-  xhttp.open("POST", "./model/PostServer.php", true);
+  xhttp.open("POST", "./Model/PostServer.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   var params =
     "name=" +
