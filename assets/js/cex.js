@@ -12,7 +12,8 @@ joinServerShield.addEventListener("click", function () {
 var joinS = document.getElementById("joinS");
 joinS.addEventListener("click", function (event) {
   event.preventDefault();
-  joinServer();
+  var id = document.getElementById("joinServerId").value;
+  joinServer(id);
 });
 
 var createS = document.getElementById("createS");
@@ -66,7 +67,7 @@ function createServer() {
 
 function joinServer() {
   var sid = document.getElementById("joinServerId").value;
-  window.location = "http://" + sid;
+  window.location = "https://" + sid;
 }
 
 //tooltip server icons name
