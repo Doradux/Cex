@@ -32,8 +32,3 @@ phrases.forEach((p, index) => {
     type = type === 1 ? 2 : 1;
   });
 });
-
-const logo = document.querySelector(".logo");
-logo.addEventListener("click", function () {
-  window.top.top.location.href = ".";
-});

@@ -63,6 +63,18 @@ body {
   }
 }
 
+.member-tags {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 20vw;
+
+  & p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
 h1 {
   text-align: center;
 }

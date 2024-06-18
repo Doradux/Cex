@@ -100,12 +100,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-//go to edit profile
-var editProfileBtn = document.getElementById("edit-profile-btn");
-editProfileBtn.addEventListener("click", function () {
-  userOptionsMenu.style.display = "none";
-  iframe.src = "../controller/editProfile.php";
-});
 
 //go landing page
 const landing = document.getElementById("home");

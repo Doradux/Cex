@@ -26,6 +26,20 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.member-tags {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 20vw;
+
+  & p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .member {
@@ -36,6 +50,7 @@ body {
   gap: 20px;
   align-items: center;
   justify-content: space-between;
+  min-width: 270px;
 }
 
 .member-image {
@@ -91,4 +106,14 @@ h1 {
 
 .blue {
   color: darkcyan;
+}
+
+@media screen and (max-width: 400px) {
+  .member-tags {
+    display: none;
+  }
+
+  .member {
+    justify-content: space-around;
+  }
 }

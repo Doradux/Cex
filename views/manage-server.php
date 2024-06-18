@@ -32,7 +32,9 @@
     </div>
 
     <div class="server-privacity">
-        <p class="big">SERVER PRIVACITY</p>
+        <div class="priv-one">
+            <p class="big">SERVER PRIVACITY</p>
+        </div>
 
         <div id="privacity">
             <div id="typeHider">
@@ -48,23 +50,26 @@
     <div class="server-photo">
 
         <div class="photo-settings">
-            <div class="photo-settings-one">
-                <p class="big">IMAGE</p>
-                <div class="photo">
-                    <img id="photo" src="../assets/images/serverImage/<?= $serverImg ?>" alt="server-image">
-                    <label class="change-image-hover">
-                        <input type="file" class="change-hover" accept="image/*" style="display: none;">
-                        <img class="change-hover" src="../assets/images/change-image.png" alt="change-image">
-                    </label>
-                </div>
-            </div>
-            <div class="photo-settings-two">
-                <p>We recommend an image of at least 512x512 for the server</p>
-                <input type="file" accept="image/*" id="image-input" style="display: none;">
-                <button class="upload-btn" onclick="document.getElementById('image-input').click();">UPLOAD IMAGE</button>
-                <button class="save-photo">Save</button>
-            </div>
+            <p class="big">IMAGE</p>
+            <div class="photo-new">
 
+                <div class="photo-settings-one">
+                    <div class="photo">
+                        <img id="photo" src="../assets/images/serverImage/<?= $serverImg ?>" alt="server-image">
+                        <label class="change-image-hover">
+                            <input type="file" class="change-hover" accept="image/*" style="display: none;">
+                            <img class="change-hover" src="../assets/images/change-image.png" alt="change-image">
+                        </label>
+                    </div>
+                </div>
+                <div class="photo-settings-two">
+                    <p>We recommend an image of at least 512x512 for the server</p>
+                    <input type="file" accept="image/*" id="image-input" style="display: none;">
+                    <button class="upload-btn" onclick="document.getElementById('image-input').click();">UPLOAD IMAGE</button>
+                    <button class="save-photo">Save</button>
+                </div>
+
+            </div>
         </div>
 
 

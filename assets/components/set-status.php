@@ -50,8 +50,8 @@
     .status {
         color: white;
         position: absolute;
-        top: 35%;
-        right: 40%;
+        top: 40%;
+        left: calc(50% - 200px);
         display: flex;
         flex-direction: column;
         padding: 10px;

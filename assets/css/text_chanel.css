@@ -21,8 +21,10 @@
 }
 body {
   color: white;
+  padding: 30px;
   padding-bottom: 70px;
   overflow-x: hidden;
+  max-width: 100vw;
 }
 
 ::-webkit-scrollbar {
@@ -116,7 +118,6 @@ header {
 
 .in-msg {
   margin-bottom: 10px;
-  margin-left: 40px;
 }
 
 .in-sender {
@@ -156,7 +157,6 @@ header {
   min-width: 100px;
   width: fit-content;
   align-self: flex-end;
-  margin-right: 40px;
 }
 
 .in-time {
@@ -228,5 +228,16 @@ header {
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 100vw;
+  width: 100%;
+}
+
+@media screen and (max-width: 639px) {
+  .dateMsg {
+    width: 95%;
+  }
+
+  body {
+    padding: 5px;
+    padding-bottom: 70px;
+  }
 }

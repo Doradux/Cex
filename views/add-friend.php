@@ -42,7 +42,7 @@
                             <p><?= $sentUserData['displayname'] ?></p>
                         </div>
                     </div>
-                    <div class="snd">
+                    <div class="snd" userId="<?= $sentUserData['id'] ?>">
                         <p>x</p>
                     </div>
                 </div>

@@ -32,9 +32,11 @@ body {
   justify-content: center;
   align-items: center;
   color: white;
-  padding: 5%;
   gap: 15px;
   height: 100vh;
+  padding: 10px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 ::-webkit-scrollbar {
@@ -57,13 +59,15 @@ body {
   flex-direction: row;
   align-items: center;
   gap: 15px;
+  width: 900px;
 }
 
 .server-data {
   display: flex;
   flex-direction: row;
   gap: 1px;
-  width: 100%;
+  width: 900px;
+  gap: 15px;
 }
 
 .photo,
@@ -110,7 +114,8 @@ body {
 
 .grandimage {
   height: 150px;
-  width: 350px;
+  width: 100%;
+  max-width: 350px;
   margin: auto;
   margin-bottom: 15px;
 }
@@ -161,11 +166,6 @@ body {
 .grandimage:hover .change-hover {
   transform: scale(2);
 } */
-
-.server-data {
-  width: 100%;
-  gap: 15px;
-}
 
 button {
   min-width: 70px;
@@ -290,10 +290,9 @@ input[type="text"] {
 
 .server-privacity {
   display: flex;
-  width: 100%;
+  width: 900px;
   background-color: rgb(50, 50, 50);
   border-radius: 10px;
-  min-height: 60px;
   padding: 20px;
   align-items: center;
   justify-content: space-between;
@@ -338,4 +337,59 @@ input[type="text"] {
   width: 100%;
   justify-content: space-around;
   position: absolute;
+}
+
+@media screen and (max-width: 930px) {
+  .server-data {
+    width: 100%;
+    min-width: 609px;
+  }
+
+  .server-privacity {
+    width: 100%;
+    min-width: 609px;
+  }
+
+  .server-photo {
+    width: 100%;
+    min-width: 609px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .server-data {
+    width: 100%;
+    min-width: 0;
+    flex-direction: column;
+  }
+  
+  .server-privacity {
+    width: 100%;
+    min-width: 0;
+  }
+  
+  .photo-settings {
+    width: 100%;
+  }
+  
+  .photo-settings-two {
+    justify-content: center;
+  }
+  
+  .photo-new {
+    display: flex;
+  }
+  
+  .server-photo {
+    width: 100%;
+    min-width: 0;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .server-privacity {
+    flex-direction: column;
+    height: 1000px;
+  }
 }

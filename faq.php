@@ -10,10 +10,6 @@
 
 <body>
 
-    <header>
-        <img class="logo" src="./assets/images/logo-white.png" alt="home image">
-    </header>
-
     <div class="container questions">
         <div class="questions-div">
             <h3>Service.</h3>

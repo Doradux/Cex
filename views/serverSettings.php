@@ -25,9 +25,9 @@
 
     </div>
 
-    <div class="iframe">
-        <iframe id="frame" page="1" src="../controller/manage-server.php" frameborder="0"></iframe>
-    </div>
+    <iframe id="frame" page="1" src="../controller/manage-server.php" frameborder="0"></iframe>
+
+    <div class="showMenu"></div>
 </body>
 
 <script src="../assets/js/serverSettings.js"></script>

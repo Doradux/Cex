@@ -34,6 +34,7 @@ header {
   padding: 10px;
   display: flex;
   gap: 15px;
+  min-height: 55px;
 }
 
 .help {
@@ -71,7 +72,7 @@ header {
 
 iframe {
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 55px);
 }
 
 .inf {

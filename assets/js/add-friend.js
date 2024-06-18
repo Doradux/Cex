@@ -22,7 +22,6 @@ function searchUsers() {
       const results = document.querySelector(".results");
       results.innerHTML = "";
       var response = JSON.parse(this.responseText);
-      console.log(response);
       if (response.length > 0) {
         response.forEach((element) => {
           let resultDiv = document.createElement("div");
@@ -63,16 +62,13 @@ function searchUsers() {
 
           //send friend request
           let addBtns = document.querySelectorAll(".snd-add");
-          console.log(addBtns);
           addBtns.forEach((btn) => {
-            console.log(btn.querySelector("img").src);
             btn.addEventListener("click", function () {
               let userId = btn.getAttribute("userid");
               var xhttp = new XMLHttpRequest();
               xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                   var response = JSON.parse(this.responseText);
-                  console.log(response);
                   if (response.success) {
                     btn.querySelector("img").style.transform =
                       "rotate(-360deg)";
@@ -110,3 +106,26 @@ function searchUsers() {
   var params = "inputValue=" + encodeURIComponent(inputValue);
   xhttp.send(params);
 }
+
+//cancel friend request
+var cancelBtns = document.querySelectorAll(".snd");
+cancelBtns.forEach((btn) => {
+  btn.addEventListener("click", function () {
+    var cancelId = this.getAttribute("userId");
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        response = JSON.parse(this.response);
+        if (response.success) {
+          btn.parentElement.remove();
+        } else {
+          console.error(response);
+        }
+      }
+    };
+    xhttp.open("POST", "./jsToPhp/cancelFriendRequest.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    var params = "userId=" + encodeURIComponent(cancelId);
+    xhttp.send(params);
+  });
+});

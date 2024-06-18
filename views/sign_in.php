@@ -15,7 +15,7 @@
     <div class="login">
         <div class="logo">
             <div class="circle"></div>
-            <img src="./assets/images/logo.png" alt="logo">
+            <img src="./assets/images/logo-white.png" alt="logo">
         </div>
         <div>
             <div class="head">

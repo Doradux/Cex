@@ -46,13 +46,17 @@ body p {
 
 .left-menu {
   width: 30%;
-  min-width: 30%;
-  background-color: rgba(70, 70, 70, 0.5);
+  min-width: 240px;
+  background-color: rgba(30, 30, 30, 0.9);
   height: 100vh;
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding-top: 20px;
+  transition: all 0.3s ease;
+  position: absolute;
+  left: 0;
+  z-index: 100;
 }
 
 .options {
@@ -73,7 +77,7 @@ body p {
   border-radius: 8px;
   background-color: crimson;
   width: 170px;
-  font-family: 'poppins_bold';
+  font-family: "poppins_bold";
   color: black;
 }
 
@@ -102,17 +106,30 @@ body p {
   color: crimson;
 }
 
-.iframe {
-  width: 100%;
+#frame {
+  width: calc(100% - 30%);
   height: 100vh;
-}
-
-.iframe iframe {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  right: 0;
+  transition: all 0.3s ease;
 }
 
 .delete:hover {
   background-color: crimson;
   color: white;
+}
+
+.showMenu {
+  position: absolute;
+  left: -30px;
+  height: 100px;
+  width: 30px;
+  background-color: white;
+  border-radius: 0 20px 20px 0;
+  top: 40%;
+  transition: all 0.3s ease;
+}
+
+.showMenu:hover {
+  transform: translateX(10px);
 }

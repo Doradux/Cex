@@ -43,3 +43,5 @@ function sendMsg() {
     encodeURIComponent(chanelId);
   xhttp.send(params);
 }
+
+

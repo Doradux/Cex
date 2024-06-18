@@ -21,8 +21,7 @@
 }
 
 body {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("../images/bluebg.png");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1200' height='720' preserveAspectRatio='none' viewBox='0 0 1200 720'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1000%26quot%3b)' fill='none'%3e%3crect width='1200' height='720' x='0' y='0' fill='rgba(0%2c 0%2c 0%2c 1)'%3e%3c/rect%3e%3cpath d='M687.8873477763989 415.1209844956646L693.6643165690112 580.551726048413 859.0950581217597 574.7747572558006 853.3180893291474 409.34401570305215z' fill='rgba(49%2c 49%2c 49%2c 0.71)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M442.934%2c270.029C471.529%2c270.369%2c502.062%2c261.827%2c515.708%2c236.696C528.93%2c212.347%2c516.179%2c184.384%2c502.533%2c160.271C488.596%2c135.643%2c471.215%2c109.079%2c442.934%2c108.103C413.498%2c107.087%2c389.96%2c130.092%2c375.758%2c155.896C362.123%2c180.67%2c358.749%2c210.633%2c373.093%2c235.003C387.252%2c259.059%2c415.022%2c269.698%2c442.934%2c270.029' fill='rgba(49%2c 49%2c 49%2c 0.71)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M68.51527806641722 430.2205747966066L119.85643102001266 563.9688509247898 253.6047071481958 512.6276979711943 202.26355419460037 378.8794218430112z' fill='rgba(49%2c 49%2c 49%2c 0.71)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M45.49050769263032 27.599582005937144L103.7196108307945 110.75935958708723 199.34472563343752-18.16418391073408z' fill='rgba(49%2c 49%2c 49%2c 0.71)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M956.2390098706378 179.25801747860754L802.7524535240873 223.26957928699017 846.76401533247 376.7561356335407 1000.2505716790205 332.74457382515806z' fill='rgba(49%2c 49%2c 49%2c 0.71)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M703.6312137219352 664.6153058997488L552.3688613102074 537.4452701468156 519.406908126624 707.0198187716452z' fill='rgba(49%2c 49%2c 49%2c 0.71)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M1127.4735744384318 534.0317205919362L1117.8505916109473 644.0229176186585 1227.8417886376697 653.6459004461431 1237.4647714651542 543.6547034194207z' fill='rgba(49%2c 49%2c 49%2c 0.71)' class='triangle-float1'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1000'%3e%3crect width='1200' height='720' fill='white'%3e%3c/rect%3e%3c/mask%3e%3cstyle%3e %40keyframes float1 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-10px%2c 0)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float1 %7b animation: float1 5s infinite%3b %7d %40keyframes float2 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-5px%2c -5px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float2 %7b animation: float2 4s infinite%3b %7d %40keyframes float3 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(0%2c -10px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float3 %7b animation: float3 6s infinite%3b %7d %3c/style%3e%3c/defs%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -30,11 +29,12 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  color: white;
 }
 
 .login {
   display: none;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(50, 50, 50, 1);
   display: hidden;
   border-radius: 10px;
   padding: 20px;
@@ -74,6 +74,8 @@ input {
   width: 100%;
   border: none;
   border-radius: 5px;
+  background-color: rgb(30, 30, 30);
+  color: white;
 }
 
 form {
@@ -121,7 +123,7 @@ p {
 
 .register {
   display: none;
-  background-color: rgba(255, 255, 255, 0.74);
+  background-color: rgba(50, 50, 50, 1);
   border-radius: 10px;
   padding: 20px;
   /* display: flex; */
@@ -144,7 +146,26 @@ select {
   width: 100%;
   border: none;
   border-radius: 5px;
+  background-color: rgba(30, 30, 30, 1);
+  color: white;
 }
+
+select::-webkit-scrollbar {
+  width: 10px;
+}
+
+select::-webkit-scrollbar-track {
+  background-color: rgb(30, 30, 30);
+
+  border: none;
+}
+
+select::-webkit-scrollbar-thumb {
+  background-color: rgb(70, 70, 70);
+  border-radius: 20px;
+}
+
+
 
 #day {
   width: 60%;
@@ -192,8 +213,6 @@ input:focus {
   .logo {
     display: none;
   }
-
-  
 
   .register {
     width: 95%;

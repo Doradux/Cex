@@ -33,7 +33,7 @@ body {
 }
 
 .userProfile {
-  background-color: black;
+  background-color: rgb(50, 50, 50);
   width: 500px;
   border-radius: 10px;
   overflow: auto;
