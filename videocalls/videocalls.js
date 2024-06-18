@@ -51,7 +51,6 @@ const init = async () => {
   // Retrieve existing remote users and subscribe to their streams
   const users = await client.remoteUsers;
   users.forEach(async (user) => {
-    console.log(user.uid);
     remoteUsers[user.uid] = user;
     await subscribeToUser(user);
 
@@ -77,6 +76,12 @@ const handleUserJoined = async (user) => {
   remoteUsers[user.uid] = user;
   addUserPlaceholder(user.uid);
   await subscribeToUser(user);
+
+  for (let uid in remoteUsers) {
+    if (uid !== user.uid) {
+      await client.subscribe(remoteUsers[uid], "audio");
+    }
+  }
 };
 
 const handleUserLeft = (user) => {
@@ -96,11 +101,12 @@ const handleUserPublished = async (user, mediaType) => {
   if (!remotePlayer) {
     addUserPlaceholder(user.uid);
   }
-  if (mediaType === "video") {
+
+  if (mediaType === "video" && user.videoTrack) {
     user.videoTrack.play(document.getElementById(`user-${user.uid}`));
   }
 
-  if (mediaType === "audio") {
+  if (mediaType === "audio" && user.audioTrack) {
     user.audioTrack.play();
   }
 };
