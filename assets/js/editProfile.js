@@ -298,7 +298,7 @@ signoutBtn.addEventListener("click", function () {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      window.top.location.href = "http://localhost";
+      window.top.location.href = "https://driving-oralle-cex-1b62d5bf.koyeb.app/";
     }
   };
   xhttp.open("POST", "./jsToPhp/signOut.php", true);
@@ -330,7 +330,7 @@ confirmDeleteBtn.addEventListener("click", function () {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
-        window.top.location.href = "http://localhost";
+        window.top.location.href = "https://driving-oralle-cex-1b62d5bf.koyeb.app/";
       }
     };
     xhttp.open("POST", "./jsToPhp/deleteAccount.php", true);

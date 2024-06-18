@@ -18,7 +18,7 @@
 <script>
     var invitePpl = document.getElementById("invite-ppl");
     invitePpl.addEventListener("click", function() {
-        var link = "localhost?join=<?= $_SESSION['currentServer']['dinamicId'] ?>";
+        var link = "https://driving-oralle-cex-1b62d5bf.koyeb.app/?join=<?= $_SESSION['currentServer']['dinamicId'] ?>";
         navigator.clipboard.writeText(link);
     });
 </script>
