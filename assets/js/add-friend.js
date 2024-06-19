@@ -32,7 +32,7 @@ function searchUsers() {
 
           let figure = document.createElement("figure");
           let img = document.createElement("img");
-          img.src = "./assets/images/userImage/" + element.image;
+          img.src = "../assets/images/userImage/" + element.image;
           img.alt = "user image";
           figure.appendChild(img);
 
@@ -52,7 +52,7 @@ function searchUsers() {
           sndDiv.className = "snd snd-add";
           sndDiv.setAttribute("userId", element.id);
           let sndP = document.createElement("img");
-          sndP.src = "./assets/icons/add-user.png";
+          sndP.src = "../assets/icons/add-user.png";
           sndDiv.appendChild(sndP);
 
           resultDiv.appendChild(fstDiv);
@@ -72,7 +72,7 @@ function searchUsers() {
                   if (response.success) {
                     btn.querySelector("img").style.transform =
                       "rotate(-360deg)";
-                    btn.querySelector("img").src = "./assets/icons/ok.png";
+                    btn.querySelector("img").src = "../assets/icons/ok.png";
                   } else {
                     console.error(response);
                   }
@@ -92,7 +92,7 @@ function searchUsers() {
         let resultDiv = document.createElement("div");
         resultDiv.className = "no-data";
         let img = document.createElement("img");
-        img.src = "./assets/icons/no-data.png";
+        img.src = "../assets/icons/no-data.png";
         resultDiv.appendChild(img);
         let msg = document.createElement("p");
         msg.textContent = "Theres no results...";
