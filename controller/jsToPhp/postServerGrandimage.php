@@ -8,7 +8,7 @@ header('Content-Type: application/json');
 
 $response = array('success' => false);
 
-$uploadDir = './assets/images/grandImage/';
+$uploadDir = '../../assets/images/grandImage/';
 
 if (!is_dir($uploadDir)) {
     $response['error'] = 'Upload directory does not exist.';
