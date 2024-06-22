@@ -37,6 +37,10 @@ header {
   min-height: 55px;
 }
 
+.darkcyan {
+  color: darkcyan;
+}
+
 .help {
   height: 30px;
   width: 30px;

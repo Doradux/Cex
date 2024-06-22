@@ -14,7 +14,17 @@
 
         <div class="teams">
             <button id="home">
-                <img id="home_logo" src="./assets/images/logo.png" alt="logo">
+                <?php
+                if (count($_SESSION['pendings']) > 0) {
+                ?>
+                    <img id="home_logo" src="./assets/images/notification.gif" alt="logo">
+                <?php
+                } else {
+                ?>
+                    <img id="home_logo" src="./assets/images/logo.png" alt="logo">
+                <?php
+                }
+                ?>
             </button>
             <!-- get user servers -->
             <?php

@@ -72,9 +72,10 @@ function searchUsers() {
                   if (response.success) {
                     btn.querySelector("img").style.transform =
                       "rotate(-360deg)";
-                    btn.querySelector("img").src = "./assets/icons/ok.png";
+                    btn.querySelector("img").src = "../assets/icons/ok.png";
 
                     // Create the new sent user element
+                    var user = response.user;
                     var sentDiv = document.querySelector(".p2");
                     var newSent = document.createElement("div");
                     newSent.className = "sent";

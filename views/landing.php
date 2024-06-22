@@ -16,7 +16,17 @@
         </div>
         <div class="sections">
             <p class="section friends-section">All</p>
-            <p class="section pending-section">Pending</p>
+            <?php
+            if (count($_SESSION['pendings']) > 0) {
+            ?>
+                <p class="section pending-section darkcyan">Pending</p>
+            <?php
+            } else {
+            ?>
+                <p class="section pending-section">Pending</p>
+            <?php
+            }
+            ?>
             <p class="section add-section">Add friend</p>
             <p class="section public-servers-section">Public servers</p>
             <div class="help"><img src="../assets/icons/faq.png" alt="faq"></div>
