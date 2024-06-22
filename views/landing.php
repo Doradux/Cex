@@ -19,7 +19,7 @@
             <?php
             if (count($_SESSION['pendings']) > 0) {
             ?>
-                <p class="section pending-section darkcyan">Pending</p>
+                <p class="section pending-section orange">Pending</p>
             <?php
             } else {
             ?>

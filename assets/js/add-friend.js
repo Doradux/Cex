@@ -117,6 +117,7 @@ function searchUsers() {
         msg.textContent = "Theres no results...";
         resultDiv.appendChild(msg);
         results.appendChild(resultDiv);
+        getCancelBtns();
       }
     }
   };
@@ -127,24 +128,30 @@ function searchUsers() {
 }
 
 //cancel friend request
-var cancelBtns = document.querySelectorAll(".snd");
-cancelBtns.forEach((btn) => {
-  btn.addEventListener("click", function () {
-    var cancelId = this.getAttribute("userId");
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
-        response = JSON.parse(this.response);
-        if (response.success) {
-          btn.parentElement.remove();
-        } else {
-          console.error(response);
+getCancelBtns();
+function getCancelBtns() {
+  var cancelBtns = document.querySelectorAll(".snd");
+  cancelBtns.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      var cancelId = this.getAttribute("userId");
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          response = JSON.parse(this.response);
+          if (response.success) {
+            btn.parentElement.remove();
+          } else {
+            console.error(response);
+          }
         }
-      }
-    };
-    xhttp.open("POST", "./jsToPhp/cancelFriendRequest.php", true);
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    var params = "userId=" + encodeURIComponent(cancelId);
-    xhttp.send(params);
+      };
+      xhttp.open("POST", "./jsToPhp/cancelFriendRequest.php", true);
+      xhttp.setRequestHeader(
+        "Content-type",
+        "application/x-www-form-urlencoded"
+      );
+      var params = "userId=" + encodeURIComponent(cancelId);
+      xhttp.send(params);
+    });
   });
-});
+}
