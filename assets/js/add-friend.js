@@ -73,6 +73,24 @@ function searchUsers() {
                     btn.querySelector("img").style.transform =
                       "rotate(-360deg)";
                     btn.querySelector("img").src = "./assets/icons/ok.png";
+
+                    // Create the new sent user element
+                    var sentDiv = document.querySelector(".p2");
+                    var newSent = document.createElement("div");
+                    newSent.className = "sent";
+
+                    newSent.innerHTML = `<div class="fst">
+                <figure><img src="../assets/images/userImage/${user.image}" alt="user image"></figure>
+                <div class="names">
+                    <p>@${user.username}</p>
+                    <p>${user.displayname}</p>
+                </div>
+            </div>
+            <div class="snd" userId="${user.id}">
+                <p>x</p>
+            </div>`;
+
+                    sentDiv.appendChild(newSent);
                   } else {
                     console.error(response);
                   }

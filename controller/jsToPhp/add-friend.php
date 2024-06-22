@@ -90,7 +90,40 @@ if (isset($_POST['sendRequest'])) {
         $stmt->bindParam(":userId", $userId);
 
         if ($stmt->execute()) {
-            $response['success'] = true;
+            // $response['success'] = true;
+            //get user data
+            $sql = "SELECT `id`, `username`, `displayname`, `imageId` FROM `users` WHERE id = :id";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(":id", $userId);
+            if ($stmt->execute()) {
+                $user = $stmt->fetch(PDO::FETCH_ASSOC);
+                if ($user) {
+                    //get user image if imageId is set
+                    if (!empty($user['imageId'])) {
+                        $sql = "SELECT `name` FROM `user-image` WHERE `id` = :imageId";
+                        $stmt = $conn->prepare($sql);
+                        $stmt->bindParam(":imageId", $user['imageId']);
+                        if ($stmt->execute()) {
+                            $image = $stmt->fetch(PDO::FETCH_ASSOC);
+                            if ($image) {
+                                $user["image"] = $image["name"];
+                                $response['user'] = $user;
+                                $response['success'] = true;
+                            } else {
+                                $response["error"] = "Couldn't fetch user image";
+                            }
+                        } else {
+                            $response["error"] = "Couldn't execute user image query";
+                        }
+                    } else {
+                        $user["image"] = "default.jpg";
+                    }
+                } else {
+                    $response["error"] = "User not found";
+                }
+            } else {
+                $response["error"] = "Couldn't fetch user";
+            }
         } else {
             $response['error'] = "Couldn't send request to the user";
         }
